@@ -1,1 +1,1 @@
-Sistema Nyx - Serviçõ Funerário de São Paulo
+Sistema Nyx - Serviço Funerário de São Paulo
