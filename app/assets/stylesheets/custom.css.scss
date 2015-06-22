@@ -131,6 +131,20 @@ input {
   }
 }
 
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#user_admin {
+  width: auto;
+  margin-left: 0;
+}
+
 /* miscellaneous */
 
 .debug_dump {
