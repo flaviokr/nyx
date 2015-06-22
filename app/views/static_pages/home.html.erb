@@ -4,6 +4,7 @@
   <h2>
     Serviço Funerário do Município de São Paulo
   </h2>
-
-  <%= link_to "Cadastrar Técnico", signup_path, class: "btn btn-lg btn-primary" %>
+  <% if admin? %>
+    <%= link_to "Cadastrar Técnico", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
