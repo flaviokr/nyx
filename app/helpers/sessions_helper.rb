@@ -14,11 +14,23 @@ module SessionsHelper
   # Retorna true se o usuario estiver logado
   def logged_in?
     !current_user.nil?
+  end  
+  
+  #Retorna true se o current_user for administrador
+  def admin?
+    if current_user
+      current_user.admin
+    end
   end
   
   # Da log out no usuario
   def log_out
     session.delete(:user_id)
     @current_user = nil
+  end
+  
+  # Retorna true se o user for o usuario atual
+  def current_user?(user)
+    user == current_user
   end
 end

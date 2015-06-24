@@ -77,6 +77,14 @@ p {
   }
 }
 
+#logo2 {
+  color: $gray-light;
+  &:hover {
+    color: $gray-light;
+    text-decoration: none;
+  }
+}
+
 /* footer */
 
 footer {
@@ -180,5 +188,17 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
+  }
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
   }
 }
