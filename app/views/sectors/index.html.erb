@@ -1,0 +1,14 @@
+<% provide(:title, 'Setores') %>
+<h1>Setores</h1>
+
+<ul class="listar">
+  <% @sectors.each do |sector| %>
+    <li>
+      <%= link_to sector.nome, sector %>
+      | <%= link_to "editar", edit_sector_path(sector) %>
+      <% if admin? %>
+        | <%= link_to "deletar", sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este setor?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

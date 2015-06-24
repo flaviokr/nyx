@@ -1,0 +1,9 @@
+<% provide(:title, @sector.nome) %>
+
+<p><strong>Nome: </strong><%= @sector.nome %></p>
+<p><strong>Bairro: </strong><%= @sector.bairro %></p>
+<p><strong>Rua: </strong><%= @sector.rua %></p>
+<p><strong>Número: </strong><%= @sector.numero %></p>
+<% if !@sector.complemento.blank? %>
+  <p><strong>Complemento: </strong><%= @sector.complemento %></p>
+<% end %>

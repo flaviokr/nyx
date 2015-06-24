@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619180703) do
+ActiveRecord::Schema.define(version: 20150624191651) do
+
+  create_table "sectors", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "bairro"
+    t.string   "rua"
+    t.string   "numero"
+    t.text     "complemento"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "sectors", ["nome"], name: "index_sectors_on_nome", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
