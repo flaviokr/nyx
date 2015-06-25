@@ -5,12 +5,9 @@
       <h1><%= @user.name %></h1>
     </section>
     <% if admin? %>
-      <section><%= link_to "Cadastrar Técnico", signup_path,     class: "btn btn-default" %></section>
-      <section><%= link_to "Listar Técnicos",   users_path,      class: "btn btn-default" %></section>
-      <section><%= link_to "Cadastrar Setor",   new_sector_path, class: "btn btn-default" %></section>
-      <section><%= link_to "Listar Setores",    sectors_path,    class: "btn btn-default" %></section>
+      <section><%= link_to "Técnicos",     users_path,        class: "btn btn-default" %></section>
+      <section><%= link_to "Setores",      sectors_path,      class: "btn btn-default" %></section>
+      <section><%= link_to "Solicitantes", solicitantes_path, class: "btn btn-default" %></section>
     <% end %>
-    <section><%= link_to "bla", '#' , class: "btn btn-default" %></section>
-    <section><%= link_to "bla", '#' , class: "btn btn-default" %></section>
   </aside>
 </div>

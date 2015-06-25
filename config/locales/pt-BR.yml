@@ -7,6 +7,10 @@ pt-BR:
         admin: "Administrador"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
+      sector:
+        numero: "Número"
+      solicitante:
+        rf: "RF"
   date:
     abbr_day_names:
     - Dom

@@ -7,3 +7,15 @@
 <% if !@sector.complemento.blank? %>
   <p><strong>Complemento: </strong><%= @sector.complemento %></p>
 <% end %>
+<p><strong>Solicitantes: </strong></p>
+<ul class="listar">
+  <% @sector.solicitantes.each do |solicitante| %>
+    <li>
+      <%= link_to solicitante.nome, solicitante %>
+      | <%= link_to "editar", edit_solicitante_path(solicitante) %>
+      <% if admin? %>
+        | <%= link_to "deletar", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
