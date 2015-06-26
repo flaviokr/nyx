@@ -19,3 +19,16 @@
     </li>
   <% end %>
 </ul>
+
+<p><strong>Contém os objetos: </strong></p>
+<ul class="listar">
+  <% @sector.objetos.each do |objeto| %>
+    <li>
+      <%= link_to objeto.nome, objeto %>
+      | <%= link_to "editar", edit_objeto_path(objeto) %>
+      <% if admin? %>
+        | <%= link_to "deletar", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

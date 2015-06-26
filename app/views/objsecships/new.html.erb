@@ -1,0 +1,19 @@
+<% provide(:title, "Criar relação Objeto-Setor") %>
+<h1>Criar relação Objeto-Setor</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@objsecship) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <%= f.label :objeto_id, "Selecione o objeto" %>
+      <%= f.select :objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, class: 'form-control'  %>
+
+      <%= f.label :sector_id, "Selecione o setor" %>
+      <%= f.select :sector_id, Sector.all.collect {|s| [s.nome, s.id]}, class: 'form-control'  %>
+
+      <%= f.submit "Criar relação", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

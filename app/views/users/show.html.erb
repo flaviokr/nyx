@@ -5,10 +5,11 @@
       <h1><%= @user.name %></h1>
     </section>
     <% if admin? %>
-      <section><%= link_to "Técnicos",     users_path,        class: "btn btn-default" %></section>
-      <section><%= link_to "Setores",      sectors_path,      class: "btn btn-default" %></section>
-      <section><%= link_to "Solicitantes", solicitantes_path, class: "btn btn-default" %></section>
-      <section><%= link_to "Objetos",      objetos_path,      class: "btn btn-default" %></section>
+      <section><%= link_to "Técnicos",              users_path,        class: "btn btn-default" %></section>
+      <section><%= link_to "Setores",               sectors_path,      class: "btn btn-default" %></section>
+      <section><%= link_to "Solicitantes",          solicitantes_path, class: "btn btn-default" %></section>
+      <section><%= link_to "Objetos",               objetos_path,      class: "btn btn-default" %></section>
+      <section><%= link_to "Relações Objeto-Setor", objsecships_path,  class: "btn btn-default" %></section>
     <% end %>
   </aside>
 </div>

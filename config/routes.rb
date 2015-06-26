@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :sectors
   resources :solicitantes
   resources :objetos
+  resources :objsecships
 end

@@ -1,3 +1,16 @@
 <% provide(:title, @objeto.nome) %>
 
 <p><strong>Nome: </strong><%= @objeto.nome %></p>
+
+<p><strong>Existe nos setores: </strong></p>
+<ul class="listar">
+  <% @objeto.sectors.each do |sector| %>
+    <li>
+      <%= link_to sector.nome, sector %>
+      | <%= link_to "editar", edit_sector_path(sector) %>
+      <% if admin? %>
+        | <%= link_to "deletar", sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este setor?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

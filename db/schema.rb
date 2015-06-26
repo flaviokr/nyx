@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626173506) do
+ActiveRecord::Schema.define(version: 20150626184101) do
 
   create_table "objetos", force: :cascade do |t|
     t.string   "nome"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20150626173506) do
   end
 
   add_index "objetos_sectors", ["objeto_id", "sector_id"], name: "objetos_sectors_index", unique: true
+
+  create_table "objsecships", force: :cascade do |t|
+    t.integer  "objeto_id"
+    t.integer  "sector_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sectors", force: :cascade do |t|
     t.string   "nome"
