@@ -11,6 +11,9 @@ pt-BR:
         numero: "Número"
       solicitante:
         rf: "RF"
+        sector_id: "Setor"
+      objsecship:
+        sector_id: "Setor"
   date:
     abbr_day_names:
     - Dom

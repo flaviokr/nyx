@@ -4,4 +4,5 @@ class Objsecship < ActiveRecord::Base
   
   validates :objeto_id, presence: true
   validates :sector_id, presence: true
+  validates :objeto_id, uniqueness: {scope: :sector_id}
 end

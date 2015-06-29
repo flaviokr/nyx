@@ -6,8 +6,9 @@ class Solicitante < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_save { self.rf = rf.downcase }
   
-  validates :rf,    presence: true, length: { maximum:  7  }, uniqueness: { case_sensitive: false }
-  validates :nome,  presence: true, length: { maximum: 100 }
-  validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  validates :ramal, presence: true, length: { maximum: 200 }
+  validates :rf,        presence: true, length: { maximum:  7  }, uniqueness: { case_sensitive: false }
+  validates :nome,      presence: true, length: { maximum: 100 }
+  validates :email,     presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :ramal,     presence: true, length: { maximum: 200 }
+  validates :sector_id, presence: true
 end
