@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  canal_contato: MyString
+  status: MyString
+  resolvido: MyString
+  prioridade: 1
+  categoria: MyString
+  descricao: MyString
+  observacoes: MyString
+  user_id: 
+  objeto_id: 
+  solicitante_id: 
+
+two:
+  canal_contato: MyString
+  status: MyString
+  resolvido: MyString
+  prioridade: 1
+  categoria: MyString
+  descricao: MyString
+  observacoes: MyString
+  user_id: 
+  objeto_id: 
+  solicitante_id: 
