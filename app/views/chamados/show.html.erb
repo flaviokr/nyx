@@ -1,0 +1,16 @@
+<% provide(:title, "Chamado #{@chamado.id}") %>
+
+<p><strong>ID: </strong><%= @chamado.id %></p>
+<p><strong>Técnico responsável: </strong><%= @chamado.user.name %></p>
+<p><strong>Solicitante: </strong><%= @chamado.solicitante.nome %></p>
+<p><strong>Setor: </strong><%= @chamado.solicitante.sector.nome %></p>
+<p><strong>Objeto: </strong><%= @chamado.objeto.nome %></p>
+<p><strong>Abertura: </strong><%= @chamado.created_at %></p>
+<p><strong>Última Atualização: </strong><%= @chamado.updated_at %></p>
+<p><strong>Canal do contato: </strong><%= @chamado.canal_contato %></p>
+<p><strong>Status: </strong><%= @chamado.status.to_s %></p>
+<p><strong>Resolvido?: </strong><%= @chamado.resolvido %></p>
+<p><strong>Prioridade: </strong><%= @chamado.prioridade.to_s %></p>
+<p><strong>Categoria: </strong><%= @chamado.categoria %></p>
+<p><strong>Descrição: </strong><%= @chamado.descricao %></p>
+<p><strong>Observações: </strong><%= @chamado.observacoes %></p>

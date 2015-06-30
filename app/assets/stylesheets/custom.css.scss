@@ -153,6 +153,11 @@ input {
   margin-left: 0;
 }
 
+#chamado_resolvido {
+  width: auto;
+  margin-left: 0;
+}
+
 /* miscellaneous */
 
 .debug_dump {
@@ -166,6 +171,7 @@ input {
 /* sidebar */
 
 aside {
+  border-right: solid black 2px;
   section.user_info {
     margin-top: 20px;
   }

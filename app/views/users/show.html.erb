@@ -1,15 +1,33 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1><%= @user.name %></h1>
-    </section>
-    <% if admin? %>
-      <section><%= link_to "Técnicos",              users_path,        class: "btn btn-default" %></section>
-      <section><%= link_to "Setores",               sectors_path,      class: "btn btn-default" %></section>
-      <section><%= link_to "Solicitantes",          solicitantes_path, class: "btn btn-default" %></section>
-      <section><%= link_to "Objetos",               objetos_path,      class: "btn btn-default" %></section>
-      <section><%= link_to "Relações Objeto-Setor", objsecships_path,  class: "btn btn-default" %></section>
-    <% end %>
-  </aside>
-</div>
+
+<% if admin? && current_user.id != @user.id %>
+  <p><strong>Nome: </strong><%= @user.name %></p>
+  <p><strong>Email: </strong><%= @user.email %></p>
+  <p><strong>Celular: </strong><%= @user.celular %></p>
+  <p><strong>Comunicador: </strong><%= @user.comunicador %></p>
+  <%= render 'layouts/chamados_list' %>
+  
+<% else %>
+
+  <div class="row">
+    <aside class="col-md-3">
+      <section class="user_info">
+        <h1><%= @user.name %></h1>
+      </section>
+      <section><%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default" %></section>
+      
+      <% if admin? %>
+        <section><%= link_to "Técnicos",              users_path,        class: "btn btn-default" %></section>
+        <section><%= link_to "Setores",               sectors_path,      class: "btn btn-default" %></section>
+        <section><%= link_to "Solicitantes",          solicitantes_path, class: "btn btn-default" %></section>
+        <section><%= link_to "Objetos",               objetos_path,      class: "btn btn-default" %></section>
+        <section><%= link_to "Chamados",              chamados_path,     class: "btn btn-default" %></section>
+        <section><%= link_to "Relações Objeto-Setor", objsecships_path,  class: "btn btn-default" %></section>
+      <% end %>
+      
+    </aside>
+    <div class="col-md-8">
+      <%= render 'layouts/chamados_list' %>
+    </div>
+  </div>
+<% end %>

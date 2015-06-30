@@ -1,4 +1,5 @@
 class Solicitante < ActiveRecord::Base
+  has_many   :chamados
   belongs_to :sector
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
