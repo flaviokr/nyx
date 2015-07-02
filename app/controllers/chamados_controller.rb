@@ -16,8 +16,8 @@ class ChamadosController < ApplicationController
   def create
     @chamado = current_user.chamados.build(chamado_params)
     if @chamado.save
-      flash[:success] = "Chamado criado com sucesso!"
-      redirect_to current_user
+      session[:chamado_id] = @chamado.id.to_s
+      redirect_to new_chamusership_path
     else
       render 'new'
     end

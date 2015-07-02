@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :objetos
   resources :objsecships
   resources :chamados
+  resources :chamuserships
 end

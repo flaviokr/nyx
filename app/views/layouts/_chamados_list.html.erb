@@ -1,12 +1,25 @@
 <ul class="listar">
-  <p><strong>Chamados criados por este técnico: </strong></p>
-  <% @user.chamados.each do |chamado| %>
-    <li>
-      <%= link_to "ID: #{chamado.id}", chamado %>
-      | <%= link_to "editar", edit_chamado_path(chamado) %>
-      <% if admin? %>
-        | <%= link_to "deletar", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" } %>
-      <% end %>
-    </li>
+  <% if !@user %>
+    <p><strong>Chamados: </strong></p>
+    <% User.all.each do |chamado| %>
+      <li>
+        <%= link_to "ID: #{chamado.id}", chamado %>
+        | <%= link_to "editar", edit_chamado_path(chamado) %>
+        <% if admin? %>
+          | <%= link_to "deletar", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" } %>
+        <% end %>
+      </li>
+    <% end %>
+  <% else %>
+    <p><strong>Chamados criados por este técnico: </strong></p>
+    <% @user.chamados.each do |chamado| %>
+      <li>
+        <%= link_to "ID: #{chamado.id}", chamado %>
+        | <%= link_to "editar", edit_chamado_path(chamado) %>
+        <% if admin? %>
+          | <%= link_to "deletar", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" } %>
+        <% end %>
+      </li>
+    <% end %>
   <% end %>
 </ul>

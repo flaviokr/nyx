@@ -1,0 +1,10 @@
+<% provide(:title, 'Relações Técnico-Chamado') %>
+<h1>Relações Técnico-Chamado</h1>
+<ul class="listar">
+  <p><strong>Relações Técnico-Chamado: </strong></p>
+  <% @chamuserships.each do |chamusership| %>
+    <li>
+      <%= User.find_by(id: chamusership.user_id).name %> | <%= Chamado.find_by(id: chamusership.chamado_id).id %>
+    </li>
+  <% end %>
+</ul>

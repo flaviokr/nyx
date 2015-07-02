@@ -143,10 +143,15 @@ input {
   margin-top: 10px;
   margin-bottom: 10px;
   span {
-    margin-left: 20px;
+    margin-left: 10px;
     font-weight: normal;
   }
 }
+
+// #chamusership_user_ids_1 {
+//   width: auto;
+//   margin-left: 0;
+// }
 
 #user_admin {
   width: auto;
@@ -157,6 +162,9 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+
+
 
 /* miscellaneous */
 
@@ -172,6 +180,7 @@ input {
 
 aside {
   border-right: solid black 2px;
+  margin-top: -10px;
   section.user_info {
     margin-top: 20px;
   }

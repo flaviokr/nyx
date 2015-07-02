@@ -1,0 +1,20 @@
+<% provide(:title, "Selecionar Técnicos") %>
+<h1>Selecionar Técnicos</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@chamusership) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+        <%= f.collection_check_boxes :user_ids, User.all, :id, :name do |b| %>
+          <span class="checkbox inline">
+            <%= b.label %>
+            <%= b.check_box %>
+          </span>
+        <% end %>
+    
+      <%= f.submit "Salvar ", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
