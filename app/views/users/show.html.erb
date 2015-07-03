@@ -17,17 +17,18 @@
       <section><%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default" %></section>
       
       <% if admin? %>
-        <section><%= link_to "Técnicos",              users_path,        class: "btn btn-default" %></section>
-        <section><%= link_to "Setores",               sectors_path,      class: "btn btn-default" %></section>
-        <section><%= link_to "Solicitantes",          solicitantes_path, class: "btn btn-default" %></section>
-        <section><%= link_to "Objetos",               objetos_path,      class: "btn btn-default" %></section>
-        <section><%= link_to "Chamados",              chamados_path,     class: "btn btn-default" %></section>
-        <section><%= link_to "Relações Objeto-Setor", objsecships_path,  class: "btn btn-default" %></section>
+        <section><%= link_to "Técnicos",                 users_path,          class: "btn btn-default" %></section>
+        <section><%= link_to "Setores",                  sectors_path,        class: "btn btn-default" %></section>
+        <section><%= link_to "Solicitantes",             solicitantes_path,   class: "btn btn-default" %></section>
+        <section><%= link_to "Objetos",                  objetos_path,        class: "btn btn-default" %></section>
+        <section><%= link_to "Chamados",                 chamados_path,       class: "btn btn-default" %></section>
+        <section><%= link_to "Relações Objeto-Setor",    objsecships_path,    class: "btn btn-default" %></section>
+        <section><%= link_to "Relações Chamado-Técnico", chamuserships_path,  class: "btn btn-default" %></section>
       <% end %>
       
     </aside>
     <div class="col-md-8">
-      <%= render 'layouts/chamados_list' %>
+     <%= render 'layouts/chamados_list' %>
     </div>
   </div>
 <% end %>

@@ -19,7 +19,7 @@ class ChamadosController < ApplicationController
       session[:chamado_id] = @chamado.id.to_s
       redirect_to new_chamusership_path
     else
-      render 'new'
+      redirect_to new_chamusership_path
     end
   end
   

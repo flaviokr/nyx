@@ -1,30 +1,39 @@
 class ChamusershipsController < ApplicationController
-  before_action :user_is_admin
+  before_action :user_is_admin, only: [:index, :destroy]
   
   def index
     @chamuserships = Chamusership.all
   end
   
   def new
+    if !session[:chamado_id]
+      flash[:danger] = "Acesso negado"
+      redirect_to current_user
+    end
     @chamusership = Chamusership.new
   end
   
   def create
-    cont = 0
-    (params[:chamusership][:user_ids].length-1).times do
-      @chamusership = Chamusership.new(user_id: params[:chamusership][:user_ids][cont], chamado_id: session[:chamado_id])
-      @chamusership.save
-      cont = cont + 1
+    if params[:chamusership][:user_ids].length == 1
+      flash[:danger] = "Selecione pelo menos um técnico"
+      redirect_to new_chamusership_path
+    else
+      cont = 0
+      (params[:chamusership][:user_ids].length-1).times do
+        @chamusership = Chamusership.new(user_id: params[:chamusership][:user_ids][cont], chamado_id: session[:chamado_id])
+        @chamusership.save
+        cont = cont + 1
+      end
+      session[:chamado_id] = nil
+      flash[:success] = "Chamado criado com sucesso!"
+      redirect_to current_user
     end
-    session[:chamado_id] = nil
-    flash[:success] = "Chamado criado com sucesso!"
-    redirect_to chamuserships_url
   end
   
   def destroy
     Chamusership.find(params[:id]).destroy
     flash[:success] = "Relação Chamado-Técnico deletada com sucesso!"
-    redirect_to chamuserships_url
+    redirect_to current_user
   end
   
   private

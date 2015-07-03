@@ -1,7 +1,11 @@
 <% provide(:title, "Chamado #{@chamado.id}") %>
 
 <p><strong>ID: </strong><%= @chamado.id %></p>
-<p><strong>Técnico responsável: </strong><%= @chamado.user.name %></p>
+<p><strong>Técnico responsável: </strong><%= link_to @chamado.user.name, @chamado.user %></p>
+<p><strong>Técnicos encarregados: </strong><br>
+<% @chamado.tecnicos.each do |t| %>
+  <%= link_to t.name, t %></p>
+<% end %>
 <p><strong>Solicitante: </strong><%= @chamado.solicitante.nome %></p>
 <p><strong>Setor: </strong><%= @chamado.solicitante.sector.nome %></p>
 <p><strong>Objeto: </strong><%= @chamado.objeto.nome %></p>

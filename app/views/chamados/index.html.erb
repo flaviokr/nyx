@@ -1,4 +1,13 @@
 <% provide(:title, 'Chamados') %>
 <h1>Chamados</h1>
 <%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default subtitulo" %>
-<%= render 'layouts/chamados_list' %>
+<ul class="listar">
+  <p><strong>Chamados: </strong></p>
+  <% @chamados.each do |chamado| %>
+    <li>
+      <%= link_to chamado.descricao, chamado %>
+      | <%= link_to "editar", edit_chamado_path(chamado) %>
+      | <%= link_to "deletar", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" } %>
+    </li>
+  <% end %>
+</ul>

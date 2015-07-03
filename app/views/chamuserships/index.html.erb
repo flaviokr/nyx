@@ -4,7 +4,11 @@
   <p><strong>Relações Técnico-Chamado: </strong></p>
   <% @chamuserships.each do |chamusership| %>
     <li>
-      <%= User.find_by(id: chamusership.user_id).name %> | <%= Chamado.find_by(id: chamusership.chamado_id).id %>
+      <% user = User.find_by(id: chamusership.user_id) %>
+      <% chamado = Chamado.find_by(id: chamusership.chamado_id) %>
+      <%= link_to user.name, user  %>
+      | <%= link_to chamado.descricao, chamado %>
+      | <%= link_to "deletar", chamusership, method: :delete, data: { confirm: "Tem certeza que deseja deletar esta relação?" } %>
     </li>
   <% end %>
 </ul>
