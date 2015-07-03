@@ -7,7 +7,6 @@ class ChamusershipsController < ApplicationController
   
   def new
     if !session[:chamado_id]
-      flash[:danger] = "Acesso negado"
       redirect_to current_user
     end
     @chamusership = Chamusership.new

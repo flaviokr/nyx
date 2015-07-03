@@ -10,6 +10,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @chamados = Chamado.all
+    @chamados_espera = Array.new
+    @chamados_andamento = Array.new
+    @chamados.each do |chamado|
+      chamado.tecnicos.each do |e|
+        if e.id == @user.id
+          if chamado.status == "E"
+            @chamados_espera << chamado
+          elsif chamado.status == "A"
+            @chamados_andamento << chamado
+          end
+        end
+      end
+    end
   end
 
   def new

@@ -51,7 +51,6 @@ class SolicitantesController < ApplicationController
        
     def user_is_admin
       if !admin?
-        flash[:danger] = "Acesso Negado."
         redirect_to(root_url)
       end
     end
