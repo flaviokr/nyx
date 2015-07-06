@@ -1,0 +1,47 @@
+Consertar bug do timezone
+
+Home Page -> Login
+
+Log In -> alinhar
+
+Show Users -> Melhorar sidebar
+
+Show Users -> Chamados em andamento -> Exibir numero do chamado
+		                    -> Objeto
+                                    -> Descrição
+	                            -> Setor
+                                    -> Abertura do Chamado
+				    -> Botão de concluir Chamado
+				    -> Fazer um div só dele
+
+Show Users -> Chamados em espera -> Organizar por prioridade				 
+		                 -> Número do chamado
+                                 -> Objeto
+		                 -> Descrição
+	                         -> Setor
+                                 -> Abertura do Chamado
+			         -> Prioridade
+				 -> Botão de aceitar Chamado
+				 -> Fazer um div só dele
+
+Deixar a side bar visível em todas as páginas
+
+Indexes -> Destacar os nomes
+        -> Trocar botões por Glyphicons
+
+Deixar footer sempre embaixo
+
+Bug borda vermelha combo box
+
+Chamados Index -> Separar por status (primeiro andamento, depois espera e concluídos)
+
+Não Admin tem que conseguir editar chamados
+
+Shows -> adicionar botões de editar e deletar para os Admins
+
+Chamado Show -> Melhorar layout
+
+Relação Objeto-Setor -> Colocar link para criação de relação nas show pages de setor e objeto
+                     -> Criar múltiplas relações de uma vez com combo box, e uma lista temporária das relações criadas
+
+Glyphicon na header
