@@ -1,13 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "nyx", root_path, id: "logo" %>
+    <%= link_to "nyx", current_user, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <!--<li><%= link_to "Home", root_path %></li>-->
         <% if logged_in? %>
           <li><a id="nolink"> <%= "#{current_user.name}" %> </a></li>
           <li><a id="nolink"> | </a></li>
-          <li><%= link_to "Painel de Controle", current_user %></li>
           <li><%= link_to "Log out", logout_path, method: "delete" %></li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
