@@ -2,7 +2,6 @@
 <h1>Objetos</h1>
 <%= link_to "Cadastrar novo objeto",   new_objeto_path, class: "btn btn-default subtitulo" %>
 <ul class="listar">
-  <p><strong>Objetos: </strong></p>
   <% @objetos.each do |objeto| %>
     <li>
       <%= link_to objeto.nome, objeto %>

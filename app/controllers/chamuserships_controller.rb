@@ -1,9 +1,5 @@
 class ChamusershipsController < ApplicationController
-  before_action :user_is_admin, only: [:index, :destroy]
-  
-  def index
-    @chamuserships = Chamusership.all
-  end
+  before_action :user_is_admin, only: [:destroy]
   
   def new
     if !session[:chamado_id]

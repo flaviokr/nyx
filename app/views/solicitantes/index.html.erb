@@ -2,7 +2,6 @@
 <h1>Solicitantes</h1>
 <%= link_to "Cadastrar novo solicitante",   new_solicitante_path, class: "btn btn-default subtitulo" %>
 <ul class="listar">
-  <p><strong>Solicitantes: </strong></p>
   <% @solicitantes.each do |solicitante| %>
     <li>
       <%= link_to solicitante.nome, solicitante %>

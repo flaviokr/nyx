@@ -4,6 +4,7 @@
     <% @chamados_andamento.each do |andamento| %>
       <li>
         <%= link_to andamento.descricao, andamento %>
+        | <%= link_to andamento.solicitante.sector.nome, andamento.solicitante.sector %>
         | <%= link_to "Concluir chamado", edit_chamado_path(andamento, :concluir => "concluir", :status => "C") %>
       </li>
     <% end %>
@@ -16,6 +17,7 @@
     <% @chamados_espera.each do |espera| %>
       <li>
         <%= link_to espera.descricao, espera %>
+        | <%= link_to espera.solicitante.sector.nome, espera.solicitante.sector %>
         | <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put) %>
       </li>
     <% end %>

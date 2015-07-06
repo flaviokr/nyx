@@ -2,7 +2,6 @@
 <h1>Setores</h1>
 <%= link_to "Cadastrar novo setor",   new_sector_path, class: "btn btn-default subtitulo" %>
 <ul class="listar">
-  <p><strong>Setores: </strong></p>
   <% @sectors.each do |sector| %>
     <li>
       <%= link_to sector.nome, sector %>

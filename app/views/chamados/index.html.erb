@@ -2,7 +2,6 @@
 <h1>Chamados</h1>
 <%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default subtitulo" %>
 <ul class="listar">
-  <p><strong>Chamados: </strong></p>
   <% @chamados.each do |chamado| %>
     <li>
       <%= link_to chamado.descricao, chamado %>

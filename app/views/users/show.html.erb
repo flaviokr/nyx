@@ -2,19 +2,17 @@
 
 <% if admin? && current_user.id != @user.id %>
   <p><strong>Nome: </strong><%= @user.name %></p>
+  <p><strong>RF: </strong><%= @user.rf %></p>
   <p><strong>Email: </strong><%= @user.email %></p>
   <p><strong>Celular: </strong><%= @user.celular %></p>
   <p><strong>Comunicador: </strong><%= @user.comunicador %></p>
   
-  <%= render 'layouts/listar_chamados' %>
+  <%= render 'chamados/listar_chamados_adm' %>
   
 <% else %>
 
   <div class="row">
     <aside class="col-md-3">
-      <section class="user_info">
-        <h1><%= @user.name %></h1>
-      </section>
       <section><%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default" %></section>
       
       <% if admin? %>
@@ -24,13 +22,12 @@
         <section><%= link_to "Objetos",                  objetos_path,        class: "btn btn-default" %></section>
         <section><%= link_to "Chamados",                 chamados_path,       class: "btn btn-default" %></section>
         <section><%= link_to "Relações Objeto-Setor",    objsecships_path,    class: "btn btn-default" %></section>
-        <section><%= link_to "Relações Chamado-Técnico", chamuserships_path,  class: "btn btn-default" %></section>
       <% end %>
       
     </aside>
     <div class="col-md-8">
     
-  <%= render 'layouts/listar_chamados' %>
+  <%= render 'chamados/listar_chamados' %>
     
     </div>
   </div>

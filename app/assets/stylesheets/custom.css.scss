@@ -116,7 +116,9 @@ footer {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
+  height: 34px;
   margin-bottom: 15px;
+  border-radius: 4px;
   @include box_sizing;
 }
 

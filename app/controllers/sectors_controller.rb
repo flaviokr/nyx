@@ -1,5 +1,5 @@
 class SectorsController < ApplicationController
-  before_action :user_is_admin
+  before_action :user_is_admin, only: [:index, :new, :create, :edit, :update, :destroy]
   
   def index
     @sectors = Sector.all
