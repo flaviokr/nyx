@@ -3,7 +3,6 @@
     <%= link_to "nyx", current_user, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <!--<li><%= link_to "Home", root_path %></li>-->
         <% if logged_in? %>
           <li><a id="nolink"> <%= "#{current_user.name}" %> </a></li>
           <li><a id="nolink"> | </a></li>

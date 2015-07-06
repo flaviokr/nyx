@@ -51,7 +51,7 @@ class SolicitantesController < ApplicationController
        
     def user_is_admin
       if !admin?
-        redirect_to(root_url)
+        redirect_to(current_user)
       end
     end
   

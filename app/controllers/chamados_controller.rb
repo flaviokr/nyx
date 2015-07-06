@@ -25,7 +25,7 @@ class ChamadosController < ApplicationController
   
   def edit
     if params.length == 3 && !admin?
-      redirect_to(root_url)
+      redirect_to(current_user)
     end
     @chamado = Chamado.find(params[:id])
   end
@@ -63,7 +63,7 @@ class ChamadosController < ApplicationController
        
     def user_is_admin
       if !admin? && params[:chamado] && params[:chamado].length != 3
-        redirect_to(root_url)
+        redirect_to(current_user)
       end
     end
   
