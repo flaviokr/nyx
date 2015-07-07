@@ -3,10 +3,10 @@ Consertar bug do timezone
 Show Users -> Melhorar sidebar
 
 Show Users -> Chamados em andamento -> Exibir numero do chamado
-		                    -> Objeto
-                                    -> Descrição
-	                            -> Setor
-                                    -> Abertura do Chamado
+		          -> Objeto
+                    -> Descrição
+	            -> Setor
+                 -> Abertura do Chamado
 				    -> Botão de concluir Chamado
 				    -> Fazer um div só dele
 
