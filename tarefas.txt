@@ -29,8 +29,6 @@ Bug borda vermelha combo box
 
 Chamados Index -> Separar por status (primeiro andamento, depois espera e concluídos)
 
-Não Admin tem que conseguir editar chamados
-
 Shows -> adicionar botões de editar e deletar para os Admins
 
 Chamado Show -> Melhorar layout
