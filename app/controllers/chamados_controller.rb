@@ -1,5 +1,5 @@
 class ChamadosController < ApplicationController
-  before_action :user_is_admin, only: [:index, :edit, :update, :destroy]
+  before_action :user_is_admin, only: [:index, :destroy]
   
   def index
     @chamados = Chamado.all
@@ -24,9 +24,6 @@ class ChamadosController < ApplicationController
   end
   
   def edit
-    if params.length == 3 && !admin?
-      redirect_to(current_user)
-    end
     @chamado = Chamado.find(params[:id])
   end
   
