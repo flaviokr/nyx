@@ -1,16 +1,12 @@
 Consertar bug do timezone
 
-Home Page -> Login
-
-Log In -> alinhar
-
 Show Users -> Melhorar sidebar
 
 Show Users -> Chamados em andamento -> Exibir numero do chamado
-		                    -> Objeto
-                                    -> Descrição
-	                            -> Setor
-                                    -> Abertura do Chamado
+		          -> Objeto
+                    -> Descrição
+	            -> Setor
+                 -> Abertura do Chamado
 				    -> Botão de concluir Chamado
 				    -> Fazer um div só dele
 
