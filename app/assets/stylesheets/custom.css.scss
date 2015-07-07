@@ -103,10 +103,8 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   height: 50px;
-  border-top: 1px solid $gray-medium-light;
-  position: fixed;
-  bottom: 0px;
-  background-color: #fffff;
+  border-top: 1px solid $gray-medium-light;  
+  background-color: #fff;
   color: $gray-light;
   a {
     color: $gray;
@@ -129,7 +127,8 @@ footer {
     margin: 10px;
   }
   #link{
-    margin-left: 700px;
+    position: absolute;
+    right: 100px;
   }
 }
 
