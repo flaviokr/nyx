@@ -1,5 +1,3 @@
-Show Users -> Melhorar sidebar
-
 Show Users -> Chamados em andamento -> Exibir numero do chamado
 		          -> Objeto
                     -> Descrição
@@ -18,7 +16,7 @@ Show Users -> Chamados em espera -> Organizar por prioridade
 				 -> Botão de aceitar Chamado
 				 -> Fazer um div só dele
 
-Deixar a side bar visível em todas as páginas
+
 
 Indexes -> Destacar os nomes
         -> Trocar botões por Glyphicons
@@ -28,8 +26,6 @@ Deixar footer sempre embaixo
 Bug borda vermelha combo box
 
 Chamados Index -> Separar por status (primeiro andamento, depois espera e concluídos)
-
-Não Admin tem que conseguir editar chamados
 
 Shows -> adicionar botões de editar e deletar para os Admins
 
