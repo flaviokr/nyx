@@ -1,7 +1,5 @@
 Consertar bug do timezone
 
-Home Page -> Login
-
 Log In -> alinhar
 
 Show Users -> Melhorar sidebar
