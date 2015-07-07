@@ -1,5 +1,3 @@
-Consertar bug do timezone
-
 Show Users -> Melhorar sidebar
 
 Show Users -> Chamados em andamento -> Exibir numero do chamado
