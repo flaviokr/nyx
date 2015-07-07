@@ -31,10 +31,6 @@
       
       <% end %>
       
-      <% if params[:concluir] %>
-        <%= f.hidden_field :status, :value => "C", class: 'form-control' %>
-      <% end %>
-      
       <%= f.label :resolvido, class: 'checkbox inline' do %>
         Resolvido?&nbsp;&nbsp;
         <%= f.check_box :resolvido %>
