@@ -1,5 +1,5 @@
 
-    <% if !(params[:controller] == 'sessions' && params[:action] == 'new') %>
+    <% if !((params[:controller] == 'sessions' ) && (params[:action] == 'new' || params[:action] == 'create')) %>
     <ul class="sidebar">
       <li><%= link_to "Cadastrar novo chamado",   new_chamado_path %></li>      
       <% if admin? %>
