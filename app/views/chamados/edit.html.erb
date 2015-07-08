@@ -1,5 +1,10 @@
-<% provide(:title, "Editar chamado") %>
-<h1>Editar chamado</h1>
+<% if !params[:concluir] %>
+  <% provide(:title, "Editar chamado") %>
+  <h1>Editar chamado</h1>
+<% else %>
+  <% provide(:title, "Concluir chamado") %>
+  <h1>Concluir chamado</h1>
+<% end %>
 
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
@@ -39,8 +44,13 @@
       
       <%= f.label :observacoes, "Observações"%>
       <%= f.text_area :observacoes, class: 'form-control' %>
-    
-      <%= f.submit "Salvar Mudanças", class: "btn btn-primary" %>
+      
+      <% if !params[:concluir] %>
+        <%= f.submit "Salvar Mudanças", class: "btn btn-primary" %>
+      <% else %>
+        <%= f.submit "Concluir chamado", class: "btn btn-primary" %>
+      <% end %>
+      
     <% end %>
 
   </div>

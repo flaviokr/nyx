@@ -34,9 +34,9 @@ class ChamadosController < ApplicationController
       redirect_to current_user
     else
       @chamado = Chamado.find(params[:id])
-      params[:chamado][:status] = 'C' if params[:chamado][:resolvido]  == '1'
+      params[:chamado][:status] = 'C' if !params[:descricao]
       if @chamado.update_attributes(chamado_params)
-        flash[:success] = "Chamado atualizado!"
+        # flash[:success] = "Chamado atualizado!"
         redirect_to current_user
       else
         render 'edit'
