@@ -7,7 +7,7 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :sector_id, "Setor" %>
-      <%= f.select :sector_id, Sector.all.collect {|s| [s.nome, s.id]}, class: 'form-control'  %>
+      <%= f.select(:sector_id, Sector.all.collect {|s| [s.nome, s.id]}, {:class => 'form-control'})  %>
       
       <%= f.label :rf, "RF" %>
       <%= f.text_field :rf, class: 'form-control' %>
