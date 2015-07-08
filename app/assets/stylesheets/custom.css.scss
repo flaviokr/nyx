@@ -99,12 +99,16 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 0px;
   padding-top: 5px;
   height: 50px;
   border-top: 1px solid $gray-medium-light;  
   background-color: #fff;
   color: $gray-light;
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   a {
     color: $gray;
     &:hover {
@@ -198,33 +202,43 @@ input {
 
 /* sidebar */
 
-aside {
+
+  .sidebar{
+  width: 300px;
+  min-height: 600px;
   border-right: solid black 2px;
   margin-top: -10px;
-  section.user_info {
-    margin-top: 20px;
+  float: left;
+  list-style-type: none;
+  background-color: #666; 
+  position: fixed;
+  z-index: 1;
+  left: -30px;
+    li{
+      background-color: #666;
+      padding: 20px;
+      
+      a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        width: 100%;
+        height: 100%;      
+      }
+    }
+    li:hover{
+      background-color: white;
+      text-align: right;
+      a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
+
 
 /* Users index */
 

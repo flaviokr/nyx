@@ -11,24 +11,9 @@
   
 <% else %>
 
-  <div class="row">
-    <aside class="col-md-3">
-      <section><%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default" %></section>
-      
-      <% if admin? %>
-        <section><%= link_to "Técnicos",                 users_path,          class: "btn btn-default" %></section>
-        <section><%= link_to "Setores",                  sectors_path,        class: "btn btn-default" %></section>
-        <section><%= link_to "Solicitantes",             solicitantes_path,   class: "btn btn-default" %></section>
-        <section><%= link_to "Objetos",                  objetos_path,        class: "btn btn-default" %></section>
-        <section><%= link_to "Chamados",                 chamados_path,       class: "btn btn-default" %></section>
-        <section><%= link_to "Relações Objeto-Setor",    objsecships_path,    class: "btn btn-default" %></section>
-      <% end %>
-      
-    </aside>
-    <div class="col-md-8">
-    
-  <%= render 'chamados/listar_chamados' %>
-    
+  <div class="row">   
+    <div class="col-md-8">    
+  	<%= render 'chamados/listar_chamados' %>    
     </div>
   </div>
 <% end %>
