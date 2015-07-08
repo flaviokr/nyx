@@ -9,21 +9,9 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>   
-    <ul class="sidebar">
-      <li><%= link_to "Cadastrar novo chamado",   new_chamado_path %></li>
-      
-      <% if admin? %>
-        <li><%= link_to "Técnicos", users_path %></li>
-        <li><%= link_to "Setores", sectors_path %></li>
-        <li><%= link_to "Solicitantes", solicitantes_path %></li>
-        <li><%= link_to "Objetos", objetos_path %></li>
-        <li><%= link_to "Chamados", chamados_path %></li>
-        <li><%= link_to "Relações Objeto-Setor", objsecships_path %></li>
-      <% end %>
-      </ul> 
-    <div class="container" style="min-height: 800px; width: 700px; margin-left: 300px;">
-    	 
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/sidebar' %>
+    <div class="container" style="min-height: 800px; width: 700px; margin-left: 300px;">    	 
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>

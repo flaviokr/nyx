@@ -1,0 +1,14 @@
+
+    <% if !(params[:controller] == 'sessions' && params[:action] == 'new') %>
+    <ul class="sidebar">
+      <li><%= link_to "Cadastrar novo chamado",   new_chamado_path %></li>      
+      <% if admin? %>
+        <li><%= link_to "Técnicos", users_path %></li>
+        <li><%= link_to "Setores", sectors_path %></li>
+        <li><%= link_to "Solicitantes", solicitantes_path %></li>
+        <li><%= link_to "Objetos", objetos_path %></li>
+        <li><%= link_to "Chamados", chamados_path %></li>
+        <li><%= link_to "Relações Objeto-Setor", objsecships_path %></li>
+      <% end %>
+      </ul>      
+     <% end %> 

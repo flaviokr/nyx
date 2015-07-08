@@ -1,8 +1,7 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
-
+<h1><br><br></h1>
 <div class="row-centered">
-  <div class="col-md-3 col-centered">
+  <div class="col-md-4 col-centered">
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :rf, "RF" %>
@@ -11,7 +10,7 @@
       <%= f.label :password, "Senha" %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Acessar", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
