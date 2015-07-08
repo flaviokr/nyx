@@ -9,25 +9,25 @@
       <% if !params[:concluir] %>
 
       <%= f.label :solicitante_id, "Selecione o solicitante" %>
-      <%= f.select :solicitante_id, Solicitante.all.collect {|s| [s.nome, s.id]}, include_blank: true, class: 'form-control'  %>
+      <%= f.select(:solicitante_id, Solicitante.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
       
       <%= f.label :objeto_id, "Selecione o objeto" %>
-      <%= f.select :objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, include_blank: true, class: 'form-control'  %>
+      <%= f.select(:objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
     
       <%= f.label :canal_contato, "Meio de contato" %>
-      <%= f.select :canal_contato, [["Email", "E"],["Telefone", "T"],["Pessoal", "P"]], include_blank: true, class: 'form-control' %>
+      <%= f.select(:canal_contato, [["Email", "E"],["Telefone", "T"],["Pessoal", "P"]], {include_blank: true}, {:class => 'form-control'}) %>
     
       <%= f.label :categoria, "Categoria do chamado" %>
-      <%= f.select :categoria, [["Hardware", "H"],["Software", "S"],["Rede", "R"]], include_blank: true, class: 'form-control' %>
+      <%= f.select(:categoria, [["Hardware", "H"],["Software", "S"],["Rede", "R"]], {include_blank: true}, {:class => 'form-control'}) %>
       
       <%= f.label :prioridade, "Prioridade do chamado" %>
-      <%= f.select :prioridade, 1..10, include_blank: true, class: 'form-control' %>
+      <%= f.select(:prioridade, 1..10, {include_blank: true}, {:class => 'form-control'}) %>
       
       <%= f.label :descricao, "Descrição"%>
       <%= f.text_area :descricao, class: 'form-control' %>
       
       <%= f.label :status, "Status do chamado" %>
-      <%= f.select :status, [["Em espera", "E"],["Em andamento", "A"],["Concluído", "C"]], include_blank: true, class: 'form-control' %>
+      <%= f.select(:status, [["Em espera", "E"],["Em andamento", "A"],["Concluído", "C"]], {include_blank: true}, {:class => 'form-control'}) %>
       
       <% end %>
       
