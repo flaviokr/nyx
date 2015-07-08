@@ -7,10 +7,10 @@
       <%= render 'shared/error_messages', object: f.object %>
       
       <%= f.label :objeto_id, "Selecione o objeto" %>
-      <%= f.select :objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, :include_blank => true, class: 'form-control'  %>
+      <%= f.select(:objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, {:include_blank => true}, {:class => 'form-control'})  %>
 
       <%= f.label :sector_id, "Selecione o setor" %>
-      <%= f.select :sector_id, Sector.all.collect {|s| [s.nome, s.id]}, :include_blank => true, class: 'form-control'  %>
+      <%= f.select(:sector_id, Sector.all.collect {|s| [s.nome, s.id]}, {:include_blank => true}, {:class => 'form-control'})  %>
 
       <%= f.submit "Criar relação", class: "btn btn-primary" %>
     <% end %>
