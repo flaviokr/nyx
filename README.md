@@ -10,10 +10,10 @@ Com o acesso a essas informações, a Assessoria pretende adquirir maior seguran
 
 2015
 
-####Idealizador do projeto:#### 
+####Idealizador do projeto:
 Elton Silva
 
-####Programadores:####
+####Programadores:
 Flavio Kon
 Lucas Correa Silva
 Makiesse Antonio
