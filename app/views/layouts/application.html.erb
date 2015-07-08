@@ -11,7 +11,7 @@
   <body>
     <%= render 'layouts/header' %>
     <%= render 'layouts/sidebar' %>
-    <div class="container" style="min-height: 800px; width: 700px; margin-left: 300px;">    	 
+    <div class="container" style="width: 700px; margin-left: 300px; padding-bottom: 100px;">    	 
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
