@@ -1,17 +1,19 @@
 <% provide(:title, 'Relações Objeto-Setor') %>
 <h1>Relações Objeto-Setor</h1>
 <section><%= link_to "Criar relação Objeto-Setor", new_objsecship_path, class: "btn btn-default subtitulo" %>
-<ul class="listar">
-  <p><strong>Relações Objeto-Setor: </strong></p>
-  <% @objsecship.each do |objsecship| %>
-    <li>
-      <% objeto = Objeto.find_by(id: objsecship.objeto_id) %>
-      <% sector = Sector.find_by(id: objsecship.sector_id) %>
-      <%= link_to objeto.nome, objeto %>
-      - <%= link_to sector.nome, sector %>
-      <% if admin? %>
-        | <%= link_to "deletar", objsecship, method: :delete, data: { confirm: "Tem certeza que deseja deletar esta relação?" } %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<% if @objsecship %>
+  <ul class="listar">
+    <p><strong>Relações Objeto-Setor: </strong></p>
+    <% @objsecship.each do |objsecship| %>
+      <li>
+        <% objeto = Objeto.find_by(id: objsecship.objeto_id) %>
+        <% sector = Sector.find_by(id: objsecship.sector_id) %>
+        <%= link_to objeto.nome, objeto %>
+        - <%= link_to sector.nome, sector %>
+        <% if admin? %>
+          | <%= link_to "deletar", objsecship, method: :delete, data: { confirm: "Tem certeza que deseja deletar esta relação?" } %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

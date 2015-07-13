@@ -2,7 +2,7 @@ class ObjsecshipsController < ApplicationController
   before_action :user_is_admin
   
   def index
-    @objsecship = Objsecship.all
+    @objsecship = Objsecship.all if Objsecship.all.any?
   end
   
   def new
