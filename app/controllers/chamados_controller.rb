@@ -14,10 +14,19 @@ class ChamadosController < ApplicationController
     @solicitante = Solicitante.new
   end
 
-  def create
+  def create    
     @solicitante = Solicitante.new(params.require(:solicitante).permit(:sector_id, :rf, :nome, :email, :ramal))
+    @solicitante_conferir = Solicitante.where("rf = :rf", { rf: @solicitante.rf }).take
+    
+    if @solicitante_conferir && @solicitante.rf == @solicitante_conferir.rf
+      @solicitante.id = @solicitante_conferir.id
+    elsif
+      @solicitante.save
+    end
+    
+    
     @chamado = current_user.chamados.build(chamado_params)       
-    if @chamado.save && @solicitante.save
+    if @chamado.save
       @chamado.update_attribute(:solicitante_id, @solicitante.id)
       session[:chamado_id] = @chamado.id.to_s
       redirect_to new_chamusership_path
