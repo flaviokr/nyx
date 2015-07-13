@@ -1,19 +1,19 @@
 <% provide(:title, "Chamado #{@chamado.id}") %>
 
 <h1>Informações do chamado</h1>
-
 <p><strong>Código: </strong><%= @chamado.id %></p>
 <p><strong>Técnico que criou o chamado: </strong><%= @chamado.user.name %></p>
 <p><strong>Técnicos encarregados: </strong><br>
 <% @chamado.tecnicos.each do |t| %>
-  &nbsp;&nbsp;&nbsp;&nbsp; <%= t.name %></p>
+  <%= t.name %></p>
 <% end %>
+
 <p><strong>Setor: </strong><%= @chamado.solicitante.sector.nome %></p>
-<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Bairro: </strong><%= @chamado.solicitante.sector.bairro %></p>
-<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Rua: </strong><%= @chamado.solicitante.sector.rua %></p>
-<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Número: </strong><%= @chamado.solicitante.sector.numero %></p>
+<p><strong>Bairro: </strong><%= @chamado.solicitante.sector.bairro %></p>
+<p><strong>Rua: </strong><%= @chamado.solicitante.sector.rua %></p>
+<p><strong>Número: </strong><%= @chamado.solicitante.sector.numero %></p>
 <% if !@chamado.solicitante.sector.complemento.blank? %>
-  <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Complemento: </strong><%= @chamado.solicitante.sector.complemento %></p>
+  <p><strong>Complemento: </strong><%= @chamado.solicitante.sector.complemento %></p>
 <% end %>
 <p><strong>Solicitante: </strong><%= @chamado.solicitante.nome %></p>
 <p>
