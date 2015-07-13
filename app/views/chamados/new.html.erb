@@ -5,10 +5,30 @@
   <div class="col-md-6 col-md-offset-4">
     <%= form_for(@chamado) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-		
-      <%= f.label :solicitante_id, "Solicitante" %>
-      <%= f.select(:solicitante_id, Solicitante.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
-      
+	
+	<fieldset>
+		<h3>Dados do Solicitante</h3>
+	<%= fields_for @solicitante do |s| %>
+		  <%= render 'shared/error_messages', object: s.object %>
+	      	      
+	      <%= s.label :rf, "RF do Solicitante" %>
+	      <%= s.text_field :rf, class: 'form-control', maxlength: 7 %>
+	      
+	      <%= s.label :nome, "Nome do Solicitante" %>
+	      <%= s.text_field :nome, class: 'form-control' %>
+	      
+	      <%= s.label :sector_id, "Setor" %>
+	      <%= s.select(:sector_id, Sector.all.collect {|s| [s.nome, s.id]}, {:include_blank => true}, {:class => 'form-control'})  %>
+	
+	      <%= s.label :email, "Endereço de email" %>
+	      <%= s.email_field :email, class: 'form-control' %>
+	      
+	      <%= s.label :ramal, "Ramal"%>
+	      <%= s.phone_field :ramal, class: 'form-control' %>
+      <% end %>
+      </fieldset>
+      <fieldset>
+      	<h3>Dados do Chamado</h3>
       <%= f.label :canal_contato, "Meio de contato" %>
       <%= f.select(:canal_contato, [["Email","E"],["Telefone", "T"],["Pessoal", "P"]], {include_blank: true}, {:class => 'form-control'}) %>
       
@@ -29,6 +49,6 @@
     
       <%= f.submit "Criar chamado", class: "btn btn-primary" %>
     <% end %>
-
+	</fieldset>
   </div>
 </div>
