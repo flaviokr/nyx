@@ -2,8 +2,8 @@
 
 <% if admin? %>
   <p style="float: right;">
-    <%= link_to "Editar", edit_sector_path(@sector), class: "btn btn-default" %>
-    <%= link_to "Deletar", @sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este sector?" }, class: "btn btn-default" %>
+    <%= link_to "", edit_sector_path(@sector), class: "glyphicon glyphicon-pencil btn btn-default btn-lg" %>
+    <%= link_to "", @sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este sector?" }, class: "glyphicon glyphicon-trash btn btn-default btn-lg" %>
   </p>
 <% end %>
 
@@ -17,26 +17,26 @@
 
 <% if admin? %>
   <p><strong>Funcionários: </strong></p>
-  <ul class="listar">
+  <ul class="listar_glyph">
     <% @sector.solicitantes.each do |solicitante| %>
       <li>
-        <%= link_to solicitante.nome, solicitante %>
-        | <%= link_to "editar", edit_solicitante_path(solicitante) %>
+        <%= link_to solicitante.nome, solicitante, class: "btn btn-default" %>
+        <%= link_to "", edit_solicitante_path(solicitante), class: "glyphicon glyphicon-pencil btn btn-default" %>
         <% if admin? %>
-          | <%= link_to "deletar", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" } %>
+          <%= link_to "", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
         <% end %>
       </li>
     <% end %>
   </ul>
   
   <p class="espaco"><strong>Equipamentos: </strong></p>
-  <ul class="listar">
+  <ul class="listar_glyph">
     <% @sector.objetos.each do |objeto| %>
       <li>
-        <%= link_to objeto.nome, objeto %>
-        | <%= link_to "editar", edit_objeto_path(objeto) %>
+        <%= link_to objeto.nome, objeto, class: "btn btn-default" %>
+        <%= link_to "", edit_objeto_path(objeto), class: "glyphicon glyphicon-pencil btn btn-default" %>
         <% if admin? %>
-          | <%= link_to "deletar", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" } %>
+          <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
         <% end %>
       </li>
     <% end %>
