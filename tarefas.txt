@@ -1,22 +1,20 @@
 Show Users -> Chamados em andamento -> Exibir numero do chamado
-		          -> Objeto
-                    -> Descrição
-	            -> Setor
-                 -> Abertura do Chamado
-				    -> Botão de concluir Chamado
-				    -> Fazer um div só dele
+		                            -> Objeto
+                                    -> Descrição
+	                                -> Setor
+                                    -> Abertura do Chamado
+			                	    -> Botão de concluir Chamado
+			                	    -> Fazer um div só dele
 
 Show Users -> Chamados em espera -> Organizar por prioridade				 
-		                 -> Número do chamado
+	        	                 -> Número do chamado
                                  -> Objeto
-		                 -> Descrição
-	                         -> Setor
+        		                 -> Descrição
+    	                         -> Setor
                                  -> Abertura do Chamado
-			         -> Prioridade
-				 -> Botão de aceitar Chamado
-				 -> Fazer um div só dele
-
-
+            			         -> Prioridade
+                				 -> Botão de aceitar Chamado
+                				 -> Fazer um div só dele
 
 Indexes -> Destacar os nomes
         -> Trocar botões por Glyphicons
@@ -35,3 +33,17 @@ Relação Objeto-Setor -> Colocar link para criação de relação nas show page
                      -> Criar múltiplas relações de uma vez com combo box, e uma lista temporária das relações criadas
 
 Glyphicon na header
+
+------------------------------------------------------------------
+
+Atualizações 
+
+1- Criar um campo subcategoria 
+    Ex: Categoria : Rede | Subrcategoria: Login 
+2- Mudar o campo objeto para Subcategoria
+3- Verificar nos processor os quisitos sobre nivel de prioridade
+4- Definir o prazo de acordo com a prioridade
+5- Definir quais os status possiveis
+    Dizer o porque o chamado esta em andamento e em espera.
+6- Mudar o campo de observação do chamado não resolvido 
+        
