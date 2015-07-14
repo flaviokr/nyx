@@ -17,10 +17,47 @@
     <p><strong>Chamados em espera: </strong></p>
     <% @chamados_espera.each do |espera| %>
       <li>
-        <%= link_to espera.descricao, espera %>
-        | <%= link_to espera.solicitante.sector.nome, espera.solicitante.sector %>
-        | <%= link_to "Editar", edit_chamado_path(espera) %>
-        | <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put) %>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= link_to espera.descricao, espera %></h3>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Objeto</th>
+                <th>Setor</th>
+                <th>Aberto em</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= espera.objeto.nome %></td>
+                <td><%= espera.solicitante.sector.nome %></td>
+                <td><%= espera.created_at.to_s.chomp(' -0300') %></td>
+                <td><%= espera.prioridade %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!--<div class="panel panel-primary">-->
+        <!--  <div class="panel-heading">-->
+        <!--    <h3 class="panel-title"><%= link_to espera.descricao, espera %></h3>-->
+        <!--  </div>-->
+        <!--  <div class="panel-body">-->
+        <!--    <%= espera.objeto.nome %>-->
+        <!--    | <%= espera.solicitante.sector.nome %>-->
+        <!--    | <%= espera.created_at.to_s.chomp(' -0300') %>-->
+        <!--    | <%= espera.prioridade %>-->
+        <!--    | <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put) %>-->
+        <!--  </div>-->
+        <!--</div>-->
+        
+        <!--<%= link_to espera.descricao, espera %>-->
+        <!--| <%= link_to espera.solicitante.sector.nome, espera.solicitante.sector %>-->
+        <!--| <%= link_to "Editar", edit_chamado_path(espera) %>-->
+        <!--| <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put) %>-->
       </li>
     <% end %>
   </ul>
