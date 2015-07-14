@@ -19,10 +19,6 @@ Show Users -> Chamados em espera -> Organizar por prioridade
 Indexes -> Destacar os nomes
         -> Trocar botões por Glyphicons
 
-Deixar footer sempre embaixo
-
-Bug borda vermelha combo box
-
 Chamados Index -> Separar por status (primeiro andamento, depois espera e concluídos)
 
 Shows -> adicionar botões de editar e deletar para os Admins

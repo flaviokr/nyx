@@ -40,7 +40,7 @@ class SolicitantesController < ApplicationController
   def destroy
     Solicitante.find(params[:id]).destroy
     flash[:success] = "Solicitante deletado com sucesso!"
-    redirect_to solicitantes_url
+    redirect_to current_userl
   end
   
   private

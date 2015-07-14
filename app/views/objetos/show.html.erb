@@ -1,7 +1,13 @@
 <% provide(:title, @objeto.nome) %>
 
-<p><strong>Nome: </strong><%= @objeto.nome %></p>
+<% if admin? %>
+  <p style="float: right;">
+    <%= link_to "Editar", edit_objeto_path(@objeto), class: "btn btn-default" %>
+    <%= link_to "Deletar", @objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" }, class: "btn btn-default" %>
+  </p>
+<% end %>
 
+<p><strong>Nome: </strong><%= @objeto.nome %></p>
 <p><strong>Existe nos setores: </strong></p>
 <ul class="listar">
   <% @objeto.sectors.each do |sector| %>

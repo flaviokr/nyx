@@ -40,7 +40,7 @@ class ObjetosController < ApplicationController
   def destroy
     Objeto.find(params[:id]).destroy
     flash[:success] = "Setor deletado com sucesso!"
-    redirect_to objetos_url
+    redirect_to current_user
   end
   
   private

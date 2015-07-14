@@ -40,7 +40,7 @@ class SectorsController < ApplicationController
   def destroy
     Sector.find(params[:id]).destroy
     flash[:success] = "Setor deletado com sucesso!"
-    redirect_to sectors_url
+    redirect_to current_user
   end
   
   private

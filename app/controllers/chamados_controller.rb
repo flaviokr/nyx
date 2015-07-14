@@ -59,7 +59,7 @@ class ChamadosController < ApplicationController
   def destroy
     Chamado.find(params[:id]).destroy
     flash[:success] = "Chamado deletado com sucesso!"
-    redirect_to chamados_url
+    redirect_to current_user
   end
   
   private

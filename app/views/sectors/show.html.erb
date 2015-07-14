@@ -1,5 +1,12 @@
 <% provide(:title, @sector.nome) %>
 
+<% if admin? %>
+  <p style="float: right;">
+    <%= link_to "Editar", edit_sector_path(@sector), class: "btn btn-default" %>
+    <%= link_to "Deletar", @sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este sector?" }, class: "btn btn-default" %>
+  </p>
+<% end %>
+
 <p><strong>Nome: </strong><%= @sector.nome %></p>
 <p><strong>Bairro: </strong><%= @sector.bairro %></p>
 <p><strong>Rua: </strong><%= @sector.rua %></p>
