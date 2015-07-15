@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @chamados = Chamado.all
     @chamados_espera = Array.new
     @chamados_andamento = Array.new
+    @chamados_concluido = Array.new
     @chamados.each do |chamado|
       chamado.tecnicos.each do |e|
         if e.id == @user.id
@@ -19,6 +20,8 @@ class UsersController < ApplicationController
             @chamados_espera << chamado
           elsif chamado.status == "A"
             @chamados_andamento << chamado
+          elsif chamado.status == "C"
+            @chamados_concluido << chamado
           end
         end
       end

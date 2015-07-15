@@ -4,10 +4,10 @@
 <ul class="listar">
   <% @objetos.each do |objeto| %>
     <li>
-      <%= link_to objeto.nome, objeto %>
-      | <%= link_to "editar", edit_objeto_path(objeto) %>
+      <%= link_to objeto.nome, objeto, class: "btn btn-default" %>
+      <%= link_to "", edit_objeto_path(objeto), class: "glyphicon glyphicon-pencil btn btn-default" %>
       <% if admin? %>
-        | <%= link_to "deletar", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" } %>
+        <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
       <% end %>
     </li>
   <% end %>

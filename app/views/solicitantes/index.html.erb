@@ -4,10 +4,10 @@
 <ul class="listar">
   <% @solicitantes.each do |solicitante| %>
     <li>
-      <%= link_to solicitante.nome, solicitante %>
-      | <%= link_to "editar", edit_solicitante_path(solicitante) %>
+      <%= link_to solicitante.nome, solicitante, class: "btn btn-default" %>
+      <%= link_to "", edit_solicitante_path(solicitante), class: "glyphicon glyphicon-pencil btn btn-default" %>
       <% if admin? %>
-        | <%= link_to "deletar", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" } %>
+        <%= link_to "", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
       <% end %>
     </li>
   <% end %>

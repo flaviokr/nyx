@@ -1,12 +1,24 @@
 <% provide(:title, 'Chamados') %>
 <h1>Chamados</h1>
 <%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default subtitulo" %>
-<ul class="listar">
-  <% @chamados.each do |chamado| %>
-    <li>
-      <%= link_to chamado.descricao, chamado %>
-      | <%= link_to "editar", edit_chamado_path(chamado) %>
-      | <%= link_to "deletar", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" } %>
-    </li>
-  <% end %>
-</ul>
+<p style="margin-top: 15px"><strong>Chamados em andamento: </strong></p>
+<% @chamados_andamento.each do |chamado| %>
+  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>
+  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>
+  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
+  <br><br>
+<% end %>
+<p style="margin-top: 15px"><strong>Chamados em espera: </strong></p>
+<% @chamados_espera.each do |chamado| %>
+  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>
+  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>
+  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
+  <br><br>
+<% end %>
+<p style="margin-top: 15px"><strong>Chamados concluídos: </strong></p>
+<% @chamados_concluido.each do |chamado| %>
+  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>
+  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>
+  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
+  <br><br>
+<% end %>

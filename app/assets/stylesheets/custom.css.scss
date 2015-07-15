@@ -254,7 +254,7 @@ input {
   }
 }
 
-.listar_glyph {
+.listar_no_border {
   list-style: none;
   margin: 0;
   li {
@@ -269,4 +269,29 @@ input {
 
 .espaco {
   margin-top: 20px;
+}
+
+.botao_chamado {
+  text-align: right;
+  float: right;
+  margin-top: -9px;
+  margin-right: -13px;
+}
+
+.botao_chamado_info {
+  text-align: right;
+  float: right;
+  margin-top: -9px;
+  margin-right: -13px;
+  background-color: rgb(217, 237, 247);
+  border-color: #BCE8F1;
+}
+
+.botao_chamado_info:hover{
+  color: rgb(49, 112, 143);
+  background-color: #CCE5FF;
+}
+
+.lab {
+  background-color: #C0C0C0;
 }
