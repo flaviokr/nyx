@@ -1,24 +1,138 @@
 <% provide(:title, 'Chamados') %>
 <h1>Chamados</h1>
 <%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default subtitulo" %>
-<p style="margin-top: 15px"><strong>Chamados em andamento: </strong></p>
-<% @chamados_andamento.each do |chamado| %>
-  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>
-  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>
-  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
-  <br><br>
+<% if @chamados_andamento.any? %>
+  <ul class="listar_no_border">
+    <!--<h1><span class="label label-default lab">Chamados em andamento</span></h1>-->
+    <p><strong>Chamados em andamento: </strong></p>
+    <% @chamados_andamento.each do |andamento| %>
+      <li>
+        <div class="panel panel-primary">
+          <div class="panel-heading head">
+            <h3 class="panel-title">
+              <%= link_to andamento.descricao, andamento %>
+              <%= link_to "", edit_chamado_path(andamento), class: "botao_chamado glyphicon glyphicon-pencil btn btn-primary" %>
+              <%= link_to "", andamento, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "botao_chamado glyphicon glyphicon-trash btn btn-primary" %>
+            </h3>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Objeto</th>
+                <th>Setor</th>
+                <th>Aberto em</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= andamento.objeto.nome %></td>
+                <td><%= andamento.solicitante.sector.nome %></td>
+                <td><%= andamento.created_at.to_s.chomp(' -0300') %></td>
+                <td><%= andamento.prioridade %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
-<p style="margin-top: 15px"><strong>Chamados em espera: </strong></p>
-<% @chamados_espera.each do |chamado| %>
-  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>
-  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>
-  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
-  <br><br>
+<br>
+<% if @chamados_espera.any? %>
+  <ul class="listar_no_border">
+    <!--<h1><span class="label label-default lab">Chamados em espera</span></h1>-->
+    <p><strong>Chamados em espera: </strong></p>
+    <% @chamados_espera.each do |espera| %>
+      <li>
+        <div class="panel panel-info">
+          <div class="panel-heading head">
+            <h3 class="panel-title">
+              <%= link_to espera.descricao, espera %>
+              <%= link_to "", edit_chamado_path(espera), class: "botao_chamado_info glyphicon glyphicon-pencil btn btn-info" %>
+              <%= link_to "", espera, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "botao_chamado_info glyphicon glyphicon-trash btn btn-info" %>
+            </h3>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Objeto</th>
+                <th>Setor</th>
+                <th>Aberto em</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= espera.objeto.nome %></td>
+                <td><%= espera.solicitante.sector.nome %></td>
+                <td><%= espera.created_at.to_s.chomp(' -0300') %></td>
+                <td><%= espera.prioridade %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
-<p style="margin-top: 15px"><strong>Chamados concluídos: </strong></p>
-<% @chamados_concluido.each do |chamado| %>
-  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>
-  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>
-  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
-  <br><br>
+<% if @chamados_concluido.any? %>
+  <ul class="listar_no_border">
+    <!--<h1><span class="label label-default lab">Chamados concluídos</span></h1>-->
+    <p><strong>Chamados concluídos: </strong></p>
+    <% @chamados_concluido.each do |concluido| %>
+      <li>
+        <div class="panel panel-default">
+          <div class="panel-heading head">
+            <h3 class="panel-title">
+              <%= link_to concluido.descricao, concluido %>
+              
+              <%= link_to "", edit_chamado_path(concluido), class: "botao_chamado_default glyphicon glyphicon-pencil btn btn-default" %>
+              <%= link_to "", concluido, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "botao_chamado_default glyphicon glyphicon-trash btn btn-default" %>
+            </h3>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Objeto</th>
+                <th>Setor</th>
+                <th>Aberto em</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= concluido.objeto.nome %></td>
+                <td><%= concluido.solicitante.sector.nome %></td>
+                <td><%= concluido.created_at.to_s.chomp(' -0300') %></td>
+                <td><%= concluido.prioridade %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
+
+<!--<p style="margin-top: 15px"><strong>Chamados em andamento: </strong></p>-->
+<!--<% @chamados_andamento.each do |chamado| %>-->
+<!--  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>-->
+<!--<%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>-->
+<!--<%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>-->
+<!--  <br><br>-->
+<!--<% end %>-->
+<!--<p style="margin-top: 15px"><strong>Chamados em espera: </strong></p>-->
+<!--<% @chamados_espera.each do |chamado| %>-->
+<!--  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>-->
+<!--  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>-->
+<!--  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>-->
+<!--  <br><br>-->
+<!--<% end %>-->
+<!--<p style="margin-top: 15px"><strong>Chamados concluídos: </strong></p>-->
+<!--<% @chamados_concluido.each do |chamado| %>-->
+<!--  <%= link_to chamado.descricao, chamado, class: "btn btn-default" %>-->
+<!--  <%= link_to "", edit_chamado_path(chamado), class: "glyphicon glyphicon-pencil btn btn-default" %>-->
+<!--  <%= link_to "", chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>-->
+<!--  <br><br>-->
+<!--<% end %>-->

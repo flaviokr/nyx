@@ -55,3 +55,6 @@
 <% if !@chamado.observacoes.blank? %>
   <p><strong>Observações: </strong><%= @chamado.observacoes %></p>
 <% end %>
+<% if !@chamado.resolucao.blank? %>
+  <p><strong>Resolução: </strong><%= @chamado.resolucao %></p>
+<% end %>

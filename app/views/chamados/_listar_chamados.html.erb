@@ -5,7 +5,7 @@
     <% @chamados_andamento.each do |andamento| %>
       <li>
         <div class="panel panel-primary">
-          <div class="panel-heading">
+          <div class="panel-heading caput">
             <h3 class="panel-title">
               <%= link_to andamento.descricao, andamento %>
               <%= link_to "Concluir chamado", edit_chamado_path(andamento, :concluir => "concluir", :status => "C"), class: "botao_chamado btn btn-primary" %>
@@ -42,7 +42,7 @@
     <% @chamados_espera.each do |espera| %>
       <li>
         <div class="panel panel-info">
-          <div class="panel-heading">
+          <div class="panel-heading caput">
             <h3 class="panel-title">
               <%= link_to espera.descricao, espera %>
               <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put, class: "botao_chamado_info btn btn-info") %>

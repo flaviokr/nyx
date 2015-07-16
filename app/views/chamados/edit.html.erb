@@ -42,7 +42,10 @@
         <br>
       <% end %>
       
-      <%= f.label :observacoes, "Observações"%>
+      <%= f.label :resolucao, "Resolução" %>
+      <%= f.text_area :resolucao, class: 'form-control' %>
+      
+      <%= f.label :observacoes, "Observações" %>
       <%= f.text_area :observacoes, class: 'form-control' %>
       
       <% if !params[:concluir] %>

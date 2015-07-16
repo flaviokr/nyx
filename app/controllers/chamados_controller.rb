@@ -81,7 +81,7 @@ class ChamadosController < ApplicationController
       params.require(:chamado).permit(:objeto_id, 
                                       :canal_contato, :status, :categoria, 
                                       :prioridade, :descricao, 
-                                      :observacoes, :status, :resolvido)
+                                      :observacoes, :status, :resolvido, :resolucao)
     end
        
     def user_is_admin
