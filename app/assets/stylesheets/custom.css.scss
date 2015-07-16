@@ -282,11 +282,18 @@ input {
   margin-right: -13px;
   background-color: rgb(217, 237, 247);
   border-color: #BCE8F1;
-}
-
-.botao_chamado_info:hover{
-  color: rgb(49, 112, 143);
-  background-color: #CCE5FF;
+  &:hover{
+    color: rgb(49, 112, 143);
+    background-color: #CCE5FF;
+  }
+  &:active{
+    color: rgb(49, 112, 143);
+    background-color: #CCE5FF;
+  }
+  &:focus{
+    color: rgb(49, 112, 143);
+    background-color: #CCE5FF;
+  }
 }
 
 .lab {

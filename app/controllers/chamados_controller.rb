@@ -36,12 +36,11 @@ class ChamadosController < ApplicationController
       @solicitante.save
     end
     
-    
     @chamado = current_user.chamados.build(chamado_params)       
     if @chamado.save
       @chamado.update_attribute(:solicitante_id, @solicitante.id)
-      session[:chamado_id] = @chamado.id.to_s
-      redirect_to new_chamusership_path
+      # session[:chamado_id] = @chamado.id.to_s
+      redirect_to current_user
     else
       render 'new'
     end
@@ -55,6 +54,8 @@ class ChamadosController < ApplicationController
     if !params[:chamado]
       @chamado = Chamado.find(params[:id])
       @chamado.update_attributes(status: params[:status])
+      @chamusership = Chamusership.new(user_id: current_user.id.to_s, chamado_id: @chamado.id.to_s)
+      @chamusership.save
       redirect_to current_user
     else
       @chamado = Chamado.find(params[:id])

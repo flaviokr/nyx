@@ -14,11 +14,12 @@ class UsersController < ApplicationController
     @chamados_andamento = Array.new
     @chamados_concluido = Array.new
     @chamados.each do |chamado|
+      if chamado.status == "E"
+        @chamados_espera << chamado
+      end
       chamado.tecnicos.each do |e|
         if e.id == @user.id
-          if chamado.status == "E"
-            @chamados_espera << chamado
-          elsif chamado.status == "A"
+          if chamado.status == "A"
             @chamados_andamento << chamado
           elsif chamado.status == "C"
             @chamados_concluido << chamado
