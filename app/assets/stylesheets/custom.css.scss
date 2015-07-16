@@ -256,7 +256,9 @@ input {
   margin: 0;
   li {
     overflow: auto;
-    padding: 10px 0;
+    padding: 0px 0;
+    box-sizing: content-box;
+    line-height: 5px;
   }
 }
 
@@ -319,4 +321,9 @@ th, td {
 .caput{
   padding-bottom: 11px;
   padding-top: 11px;
+}
+
+.chamadoPanel{
+  padding-bottom: 1px;
+  height: 110px;
 }
