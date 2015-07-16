@@ -1,27 +1,4 @@
-Show Users -> Chamados em andamento -> Exibir numero do chamado
-		                            -> Objeto
-                                    -> Descrição
-	                                -> Setor
-                                    -> Abertura do Chamado
-			                	    -> Botão de concluir Chamado
-			                	    -> Fazer um div só dele
-
-Show Users -> Chamados em espera -> Organizar por prioridade				 
-	        	                 -> Número do chamado
-                                 -> Objeto
-        		                 -> Descrição
-    	                         -> Setor
-                                 -> Abertura do Chamado
-            			         -> Prioridade
-                				 -> Botão de aceitar Chamado
-                				 -> Fazer um div só dele
-
-Indexes -> Destacar os nomes
-        -> Trocar botões por Glyphicons
-
-Chamados Index -> Separar por status (primeiro andamento, depois espera e concluídos)
-
-Shows -> adicionar botões de editar e deletar para os Admins
+Indexes -> Alinhar botoes EDITAR e DELETAR
 
 Chamado Show -> Melhorar layout
 
@@ -41,4 +18,3 @@ Atualizações
 4- Definir o prazo de acordo com a prioridade
 5- Definir quais os status possiveis
     Dizer o porque o chamado esta em andamento e em espera.
-6- Mudar o campo de observação do chamado não resolvido
