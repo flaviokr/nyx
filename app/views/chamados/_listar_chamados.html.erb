@@ -1,11 +1,10 @@
 <% if @chamados_andamento.any? %>
   <ul class="listar_no_border">
-    <!--<h1><span class="label label-default lab">Chamados em andamento</span></h1>-->
     <p><strong>Chamados em andamento: </strong></p>
     <% @chamados_andamento.each do |andamento| %>
       <li>
         <div class="panel panel-primary">
-          <div class="panel-heading caput">
+          <div class="panel-heading">
             <h3 class="panel-title">
               <%= link_to andamento.descricao, andamento %>
               <%= link_to "Concluir chamado", edit_chamado_path(andamento, :concluir => "concluir", :status => "C"), class: "botao_chamado btn btn-primary" %>
@@ -37,12 +36,11 @@
 <br>
 <% if @chamados_espera.any? %>
   <ul class="listar_no_border">
-    <!--<h1><span class="label label-default lab">Chamados em espera</span></h1>-->
     <p><strong>Chamados em espera: </strong></p>
     <% @chamados_espera.each do |espera| %>
       <li>
         <div class="panel panel-info ">
-          <div class="panel-heading caput">
+          <div class="panel-heading">
             <h3 class="panel-title">
               <%= link_to espera.descricao, espera %>
               <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put, class: "botao_chamado_info btn btn-info") %>
