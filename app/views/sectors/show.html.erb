@@ -17,7 +17,7 @@
 
 <% if admin? %>
   <p><strong>Funcionários: </strong></p>
-  <ul class="listar_no_border">
+  <ul class="listar">
     <% @sector.solicitantes.each do |solicitante| %>
       <li>
         <%= link_to solicitante.nome, solicitante, class: "btn btn-default" %>
@@ -30,7 +30,7 @@
   </ul>
   
   <p class="espaco"><strong>Equipamentos: </strong></p>
-  <ul class="listar_no_border">
+  <ul class="listar">
     <% @sector.objetos.each do |objeto| %>
       <li>
         <%= link_to objeto.nome, objeto, class: "btn btn-default" %>

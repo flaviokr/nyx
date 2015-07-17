@@ -275,8 +275,8 @@ input {
   padding-top: 4px;
   padding-bottom: 4px;
   margin-top: -7px;
-  margin-right: -14px;
-  margin-left: 16px;
+  margin-right: -13px;
+  margin-left: 15px;
 }
 
 .botao_chamado_info {
@@ -284,8 +284,8 @@ input {
   padding-top: 4px;
   padding-bottom: 4px;
   margin-top: -7px;
-  margin-right: -14px;
-  margin-left: 16px;
+  margin-right: -13px;
+  margin-left: 15px;
   background-color: rgb(217, 237, 247);
   border-color: #BCE8F1;
   &:hover{
@@ -307,8 +307,8 @@ input {
   padding-top: 4px;
   padding-bottom: 4px;
   margin-top: -7px;
-  margin-right: -14px;
-  margin-left: 16px;
+  margin-right: -13px;
+  margin-left: 15px;
   background-color: #f5f5f5;
 }
 
@@ -327,6 +327,10 @@ input {
   padding-bottom: 8px;
 }
 
-.glyphicon {
+.botao_chamado.glyphicon, .botao_chamado_info.glyphicon, .botao_chamado_default.glyphicon{
   margin-top: -8px;
+}
+
+li > a.glyphicon {
+  margin-top: -3px;
 }

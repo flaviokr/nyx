@@ -15,9 +15,6 @@ Consertar SideBar para diferentes resoluções
 
 Atualizações 
 
-1- Criar um campo subcategoria 
-    Ex: Categoria : Rede | Subrcategoria: Login
-2- Mudar o campo objeto para Subcategoria
 3- Verificar nos processor os quisitos sobre nivel de prioridade
 4- Definir o prazo de acordo com a prioridade
 5- Definir quais os status possiveis
