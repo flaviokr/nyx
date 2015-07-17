@@ -1,13 +1,13 @@
-<% provide(:title, 'Objetos') %>
-<h1>Objetos</h1>
-<%= link_to "Cadastrar novo objeto",   new_objeto_path, class: "btn btn-default subtitulo" %>
+<% provide(:title, 'Subcategorias') %>
+<h1>Subcategorias</h1>
+<%= link_to "Cadastrar nova subcategoria",   new_objeto_path, class: "btn btn-default subtitulo" %>
 <ul class="listar">
   <% @objetos.each do |objeto| %>
     <li>
       <%= link_to objeto.nome, objeto, class: "btn btn-default" %>
       <%= link_to "", edit_objeto_path(objeto), class: "glyphicon glyphicon-pencil btn btn-default" %>
       <% if admin? %>
-        <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
+        <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar esta subcategoria?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
       <% end %>
     </li>
   <% end %>

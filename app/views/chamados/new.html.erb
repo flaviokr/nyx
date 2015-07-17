@@ -35,7 +35,7 @@
       <%= f.label :categoria, "Categoria do chamado" %>
       <%= f.select(:categoria, [["Hardware","H"],["Software", "S"],["Rede", "R"]], {include_blank: true}, {:class => 'form-control'}) %>
       
-      <%= f.label :objeto_id, "Objeto" %>
+      <%= f.label :objeto_id, "Subcategoria" %>
       <%= f.select(:objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
     
       <%= f.label :descricao, "Descrição"%>

@@ -7,6 +7,10 @@ Relação Objeto-Setor -> Colocar link para criação de relação nas show page
 
 Glyphicon na header
 
+Consertar SideBar para diferentes resoluções
+
+#BUG# - No SHOW dos SETORES
+
 ------------------------------------------------------------------
 
 Atualizações 
