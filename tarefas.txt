@@ -1,7 +1,5 @@
 Indexes -> Alinhar botoes EDITAR e DELETAR
 
-Chamado Show -> Melhorar layout
-
 Relação Objeto-Setor -> Colocar link para criação de relação nas show pages de setor e objeto
                      -> Criar múltiplas relações de uma vez com combo box, e uma lista temporária das relações criadas
 
