@@ -9,8 +9,6 @@ Glyphicon na header
 
 Consertar SideBar para diferentes resoluções
 
-#BUG# - No SHOW dos SETORES
-
 ------------------------------------------------------------------
 
 Atualizações 
