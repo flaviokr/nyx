@@ -272,15 +272,19 @@ input {
 
 .botao_chamado {
   float: right;
-  margin-top: -9px;
-  margin-right: -13px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-top: -7px;
+  margin-right: -7px;
   margin-left: 17px;
 }
 
 .botao_chamado_info {
   float: right;
-  margin-top: -9px;
-  margin-right: -13px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-top: -7px;
+  margin-right: -7px;
   margin-left: 17px;
   background-color: rgb(217, 237, 247);
   border-color: #BCE8F1;
@@ -310,20 +314,20 @@ input {
   background-color: #C0C0C0;
 }
 
-th, td {
-  text-align: center;
-}
-
 .head{
   padding-bottom: 12px;
 }
 
 .caput{
-  padding-bottom: 11px;
-  padding-top: 11px;
+  padding: 9px;
 }
 
-.chamadoPanel{
-  padding-bottom: 1px;
-  height: 110px;
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+  text-align: center;
+  padding: 6px;
 }

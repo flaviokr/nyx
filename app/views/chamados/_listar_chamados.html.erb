@@ -4,7 +4,7 @@
     <p><strong>Chamados em andamento: </strong></p>
     <% @chamados_andamento.each do |andamento| %>
       <li>
-        <div class="panel panel-primary chamadoPanel">
+        <div class="panel panel-primary">
           <div class="panel-heading caput">
             <h3 class="panel-title">
               <%= link_to andamento.descricao, andamento %>
@@ -41,7 +41,7 @@
     <p><strong>Chamados em espera: </strong></p>
     <% @chamados_espera.each do |espera| %>
       <li>
-        <div class="panel panel-info chamadoPanel">
+        <div class="panel panel-info ">
           <div class="panel-heading caput">
             <h3 class="panel-title">
               <%= link_to espera.descricao, espera %>
