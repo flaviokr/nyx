@@ -1,17 +1,12 @@
-Indexes -> Alinhar botoes EDITAR e DELETAR
-
-Relação Objeto-Setor -> Colocar link para criação de relação nas show pages de setor e objeto
-                     -> Criar múltiplas relações de uma vez com combo box, e uma lista temporária das relações criadas
-
-Glyphicon na header
-
-Consertar SideBar para diferentes resoluções
+Relação Objeto-Setor -> Repensar
 
 ------------------------------------------------------------------
 
-Atualizações 
+Definir o prazo de acordo com a prioridade
 
-3- Verificar nos processor os quisitos sobre nivel de prioridade
-4- Definir o prazo de acordo com a prioridade
-5- Definir quais os status possiveis
-    Dizer o porque o chamado esta em andamento e em espera.
+Definir quais os status possiveis
+  Dizer o porque chamado esta em andamento ou em espera.
+    
+Mostrar subcategorias adequadas dependendo da categoria selecionada
+
+Formulário do chamado resolvido

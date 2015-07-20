@@ -42,7 +42,7 @@
       <%= f.text_area :descricao, class: 'form-control' %>
       
       <%= f.label :prioridade, "Prioridade do chamado" %>
-      <%= f.select(:prioridade, 1..10, {include_blank: true}, {:class => 'form-control'}) %>
+      <%= f.select(:prioridade, [["Baixa","B"],["Média", "M"],["Alta", "A"], ["Crítica", "C"]], {include_blank: true}, {:class => 'form-control'}) %>
       
       <%= f.label :observacoes, "Observações"%>
       <%= f.text_area :observacoes, class: 'form-control' %>

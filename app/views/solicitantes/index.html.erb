@@ -3,12 +3,18 @@
 <%= link_to "Cadastrar novo solicitante",   new_solicitante_path, class: "btn btn-default subtitulo" %>
 <ul class="listar">
   <% @solicitantes.each do |solicitante| %>
-    <li>
-      <%= link_to solicitante.nome, solicitante, class: "btn btn-default" %>
-      <%= link_to "", edit_solicitante_path(solicitante), class: "glyphicon glyphicon-pencil btn btn-default" %>
-      <% if admin? %>
-        <%= link_to "", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
-      <% end %>
+    <li style="margin-bottom: 25px">
+      <div class="row-fluid">
+        <div style="position: absolute;">
+          <%= link_to solicitante.nome, solicitante, class: "btn btn-default" %>
+        </div>
+        <div style="position: absolute; margin-left: 250px">
+          <%= link_to "", edit_solicitante_path(solicitante), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
+          <% if admin? %>
+            <%= link_to "", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" }, class: "ind glyphicon glyphicon-trash btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>

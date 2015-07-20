@@ -56,7 +56,13 @@
       <%= "Sim" if @chamado.resolvido %>
       <%= "Não" if !@chamado.resolvido %>
       </li>
-    <li class="list-group-item"><strong>Prioridade: </strong><%= @chamado.prioridade.to_s %></li>
+    <li class="list-group-item">
+      <strong>Prioridade: </strong>
+      <%= "Baixa" if @chamado.prioridade == 'B' %>
+      <%= "Média" if @chamado.prioridade == 'M' %>
+      <%= "Alta" if @chamado.prioridade == 'A' %>
+      <%= "Crítica" if @chamado.prioridade == 'C' %>
+    </li>
     <% #if !@chamado.observacoes.blank? %>
       <li class="list-group-item"><strong>Observações: </strong><%= @chamado.observacoes %></li>
     <% #end %>

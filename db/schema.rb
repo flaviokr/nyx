@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716161602) do
+ActiveRecord::Schema.define(version: 20150720132940) do
 
   create_table "chamados", force: :cascade do |t|
     t.string   "canal_contato"
-    t.integer  "prioridade"
     t.string   "categoria"
     t.integer  "user_id"
     t.integer  "objeto_id"
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150716161602) do
     t.string   "status",         default: "E"
     t.boolean  "resolvido",      default: false
     t.text     "resolucao"
+    t.string   "prioridade"
   end
 
   add_index "chamados", ["objeto_id"], name: "index_chamados_on_objeto_id"

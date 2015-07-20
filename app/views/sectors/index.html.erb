@@ -3,15 +3,15 @@
 <%= link_to "Cadastrar novo setor",   new_sector_path, class: "btn btn-default subtitulo" %>
 <ul class="listar">
   <% @sectors.each do |sector| %>
-    <li>
+    <li style="margin-bottom: 25px">
       <div class="row-fluid">
-        <div class='col-md-2'>
+        <div style="position: absolute;">
           <%= link_to sector.nome, sector, class: "btn btn-default" %>
         </div>
-        <div class='col-md-3'>
-          <%= link_to "", edit_sector_path(sector), class: "glyphicon glyphicon-pencil btn btn-default" %>
+        <div style="position: absolute; margin-left: 250px">
+          <%= link_to "", edit_sector_path(sector), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
           <% if admin? %>
-            <%= link_to "", sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este setor?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
+            <%= link_to "", sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este setor?" }, class: " ind glyphicon glyphicon-trash btn btn-default" %>
           <% end %>
         </div>
       </div>

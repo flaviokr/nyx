@@ -1,14 +1,13 @@
-
-    <% if !((params[:controller] == 'sessions' ) && (params[:action] == 'new' || params[:action] == 'create')) %>
-    <ul class="sidebar">
-      <a href="/chamados/new"><li>Cadastrar novo chamado</li></a>      
-      <% if admin? %>
-        <a href="/users"><li>Técnicos</li></a>
-        <a href="/chamados"><li>Chamados</li></a>
-        <a href="/sectors"><li>Setores</li></a>
-        <a href="/solicitantes"><li>Solicitantes</li></a>
-        <a href="/objetos"><li>Subcategorias</li></a>
-        <a href="/objsecships"><li>Relações Objeto-Setor</li></a>
-      <% end %>
-      </ul>      
-     <% end %> 
+<% if !((params[:controller] == 'sessions' ) && (params[:action] == 'new' || params[:action] == 'create')) %>
+  <ul class="sidebar">
+    <a href="/chamados/new"><li>Cadastrar novo chamado</li></a>      
+    <% if admin? %>
+      <a href="/users"><li>Técnicos</li></a>
+      <a href="/chamados"><li>Chamados</li></a>
+      <a href="/sectors"><li>Setores</li></a>
+      <a href="/solicitantes"><li>Solicitantes</li></a>
+      <a href="/objetos"><li>Subcategorias</li></a>
+      <a href="/objsecships"><li>Relações Objeto-Setor</li></a>
+    <% end %>
+  </ul>  
+<% end %> 
