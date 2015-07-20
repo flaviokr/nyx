@@ -28,7 +28,12 @@
                 <td><%= andamento.objeto.nome %></td>
                 <td><%= andamento.solicitante.sector.nome %></td>
                 <td><%= andamento.created_at.to_s.chomp(' -0300') %></td>
-                <td><%= andamento.prioridade %></td>
+                <td>
+                  <%= "Baixa" if andamento.prioridade == 'B' %>
+                  <%= "Média" if andamento.prioridade == 'M' %>
+                  <%= "Alta" if andamento.prioridade == 'A' %>
+                  <%= "Crítica" if andamento.prioridade == 'C' %>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -65,7 +70,12 @@
                 <td><%= espera.objeto.nome %></td>
                 <td><%= espera.solicitante.sector.nome %></td>
                 <td><%= espera.created_at.to_s.chomp(' -0300') %></td>
-                <td><%= espera.prioridade %></td>
+                <td>
+                  <%= "Baixa" if espera.prioridade == 'B' %>
+                  <%= "Média" if espera.prioridade == 'M' %>
+                  <%= "Alta" if espera.prioridade == 'A' %>
+                  <%= "Crítica" if espera.prioridade == 'C' %>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -101,7 +111,12 @@
                 <td><%= concluido.objeto.nome %></td>
                 <td><%= concluido.solicitante.sector.nome %></td>
                 <td><%= concluido.created_at.to_s.chomp(' -0300') %></td>
-                <td><%= concluido.prioridade %></td>
+                <td></td>
+                  <%= "Baixa" if concluido.prioridade == 'B' %>
+                  <%= "Média" if concluido.prioridade == 'M' %>
+                  <%= "Alta" if concluido.prioridade == 'A' %>
+                  <%= "Crítica" if concluido.prioridade == 'C' %>
+                </td>
               </tr>
             </tbody>
           </table>
