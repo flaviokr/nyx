@@ -9,10 +9,12 @@
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">
-              <%= link_to andamento.descricao, andamento %>
-              <%= link_to "", edit_chamado_path(andamento), class: "botao_chamado glyphicon glyphicon-pencil btn btn-primary" %>
-              <%= link_to "", andamento, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "botao_chamado glyphicon glyphicon-trash btn btn-primary" %>
+              <%= link_to andamento.descricao, andamento %>              
             </h3>
+              <div class="botoes_glyphons">
+              	<%= link_to "", edit_chamado_path(andamento), class: "botao_chamado glyphicon glyphicon-pencil btn btn-primary" %>
+             	<%= link_to "", andamento, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-primary" %>
+              </div>
           </div>
           <table class="table">
             <thead>
@@ -51,10 +53,12 @@
         <div class="panel panel-info">
           <div class="panel-heading">
             <h3 class="panel-title">
-              <%= link_to espera.descricao, espera %>
-              <%= link_to "", edit_chamado_path(espera), class: "botao_chamado_info glyphicon glyphicon-pencil btn btn-info" %>
-              <%= link_to "", espera, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "botao_chamado_info glyphicon glyphicon-trash btn btn-info" %>
+              <%= link_to espera.descricao, espera %>             
             </h3>
+            <div class="botoes_glyphons">
+              <%= link_to "", edit_chamado_path(espera), class: "botao_chamado_info glyphicon glyphicon-pencil btn btn-info" %>
+              <%= link_to "", espera, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-info" %>
+              </div>
           </div>
           <table class="table">
             <thead>
@@ -93,9 +97,11 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               <%= link_to concluido.descricao, concluido %>
-              <%= link_to "", edit_chamado_path(concluido), class: "botao_chamado_default glyphicon glyphicon-pencil btn btn-default" %>
-              <%= link_to "", concluido, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "botao_chamado_default glyphicon glyphicon-trash btn btn-default" %>
             </h3>
+            <div class="botoes_glyphons">
+              <%= link_to "", edit_chamado_path(concluido), class: "botao_chamado_default glyphicon glyphicon-pencil btn btn-default" %>
+              <%= link_to "", concluido, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
+          	</div>
           </div>
           <table class="table">
             <thead>

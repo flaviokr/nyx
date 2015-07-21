@@ -268,36 +268,28 @@ input {
   margin-bottom: 20px;
 }
 
-.espaco {
-  margin-top: 20px;
+.panel-title{
+   width: 250px; 
+   text-overflow: ellipsis; 
+   white-space: nowrap; 
+   overflow: hidden;
+   float: left;
+   line-height: 35px;
+   padding: 0px;
 }
 
-.botao_chamado{ 
+.botao_chamado{
+  margin-left: 50px;
 }
-
-.botao_chamado_info{}
-
-.botao_chamado_default{}
 
 .table td, .table th{
   text-align: center;
 }
 
 .panel-heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.botao_chamado.glyphicon, .botao_chamado_info.glyphicon, .botao_chamado_default.glyphicon{
-  margin-top: -8px;
-}
-
-li > a.glyphicon {
-  margin-top: -3px;
-}
-
-.ind{
-  position: static;
+  padding: 0px;
+  padding-left: 10px;
+  height: 35px;
 }
 
 .btn-overflow {
@@ -314,9 +306,8 @@ li > a.glyphicon {
   white-space: nowrap;
   
 }
-.panel-title{
-   width: 300px; 
-   text-overflow: ellipsis; 
-   white-space: nowrap; 
-   overflow: hidden;
+
+.botoes_glyphons{
+  float: right;
 }
+
