@@ -35,9 +35,14 @@
       <%= f.label :categoria, "Categoria do chamado" %>
       <%= f.select(:categoria, [["Hardware","H"],["Software", "S"],["Rede", "R"]], {include_blank: true}, {:class => 'form-control'}) %>
       
-      <%= f.label :objeto_id, "Subcategoria" %>
-      <%= f.select(:objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
-    
+      <input type=button id="teste" value="teste">
+      
+      <%= f.label :objeto_id, "Subcategoria" %>      
+      <div id="hardware" style="display: none;">
+      	<%= f.select(:objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
+      </div>
+      
+      
       <%= f.label :descricao, "Descrição"%>
       <%= f.text_area :descricao, class: 'form-control' %>
       

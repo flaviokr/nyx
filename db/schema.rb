@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720132940) do
+ActiveRecord::Schema.define(version: 20150721135601) do
 
   create_table "chamados", force: :cascade do |t|
     t.string   "canal_contato"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150720132940) do
     t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "categoria"
   end
 
   add_index "objetos", ["nome"], name: "index_objetos_on_nome", unique: true
