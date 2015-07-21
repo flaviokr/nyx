@@ -339,3 +339,18 @@ li > a.glyphicon {
 .ind{
   position: static;
 }
+
+.btn-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.div-overflow {
+  position: absolute;
+  width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+}

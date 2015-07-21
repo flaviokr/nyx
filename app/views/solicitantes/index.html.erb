@@ -5,8 +5,8 @@
   <% @solicitantes.each do |solicitante| %>
     <li style="margin-bottom: 25px">
       <div class="row-fluid">
-        <div style="position: absolute;">
-          <%= link_to solicitante.nome, solicitante, class: "btn btn-default" %>
+        <div class="div-overflow">
+          <%= link_to solicitante.nome, solicitante, class: "btn btn-default btn-block btn-overflow" %>
         </div>
         <div style="position: absolute; margin-left: 250px">
           <%= link_to "", edit_solicitante_path(solicitante), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
