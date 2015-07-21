@@ -75,8 +75,9 @@ p {
 /* header */
 
 #logo {
+  position: absolute;
   float: left;
-  margin-right: 10px;
+  left: 100px;  
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -271,56 +272,15 @@ input {
   margin-top: 20px;
 }
 
-.botao_chamado {
-  float: right;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-top: -7px;
-  margin-right: -13px;
-  margin-left: 15px;
+.botao_chamado{ 
 }
 
-.botao_chamado_info {
-  float: right;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-top: -7px;
-  margin-right: -13px;
-  margin-left: 15px;
-  background-color: rgb(217, 237, 247);
-  border-color: #BCE8F1;
-  &:hover{
-    color: rgb(49, 112, 143);
-    background-color: #CCE5FF;
-  }
-  &:active{
-    color: rgb(49, 112, 143);
-    background-color: #CCE5FF;
-  }
-  &:focus{
-    color: rgb(49, 112, 143);
-    background-color: #CCE5FF;
-  }
-}
+.botao_chamado_info{}
 
-.botao_chamado_default {
-  float: right;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-top: -7px;
-  margin-right: -13px;
-  margin-left: 15px;
-  background-color: #f5f5f5;
-}
+.botao_chamado_default{}
 
-.table > thead > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > th,
-.table > tbody > tr > td,
-.table > tfoot > tr > th,
-.table > tfoot > tr > td {
+.table td, .table th{
   text-align: center;
-  padding: 6px;
 }
 
 .panel-heading {
@@ -340,6 +300,7 @@ li > a.glyphicon {
   position: static;
 }
 
+<<<<<<< HEAD
 .btn-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -354,3 +315,11 @@ li > a.glyphicon {
   white-space: nowrap;
   
 }
+=======
+.panel-title{
+   width: 300px; 
+   text-overflow: ellipsis; 
+   white-space: nowrap; 
+   overflow: hidden;
+  }
+>>>>>>> Alteracoes_Layout_2
