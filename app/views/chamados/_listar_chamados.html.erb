@@ -47,9 +47,9 @@
         <div class="panel panel-info ">
           <div class="panel-heading">
             <h3 class="panel-title">
-              <%= link_to espera.descricao, espera %>
-              <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put, class: "botao_chamado_info btn btn-info") %>
+              <%= link_to espera.descricao, espera %>              
             </h3>
+            <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put, class: "botao_chamado btn btn-info") %>
           </div>
           <table class="table table-condensed">
             <thead>
