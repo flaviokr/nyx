@@ -6,7 +6,7 @@ class Chamado < ActiveRecord::Base
   has_many :tecnicos, through: :chamuserships, source: :user
   
   validates :user_id,        presence: true
-  validates :objeto_id,      presence: true
+  validates :objeto_id,      presence: true, allow_nil: true
   validates :canal_contato,  presence: true, inclusion: { in: %w(E T P), message: "%{value} não está em um formato válido" }
   validates :status,         inclusion: { in: %w(C A E), message: "%{value} não está em um formato válido" }, allow_nil: true
   validates :categoria,      presence: true, inclusion: { in: %w(H S R), message: "%{value} não está em um formato válido" }
