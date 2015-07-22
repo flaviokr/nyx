@@ -117,7 +117,7 @@
                 <td><%= concluido.objeto.nome %></td>
                 <td><%= concluido.solicitante.sector.nome %></td>
                 <td><%= concluido.created_at.to_s.chomp(' -0300') %></td>
-                <td></td>
+                <td>
                   <%= "Baixa" if concluido.prioridade == 'B' %>
                   <%= "Média" if concluido.prioridade == 'M' %>
                   <%= "Alta" if concluido.prioridade == 'A' %>

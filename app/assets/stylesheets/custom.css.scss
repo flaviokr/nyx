@@ -267,10 +267,8 @@ input {
 .subtitulo {
   margin-bottom: 20px;
 }
-.botao_chamado{ 
-}
 .panel-title{
-   width: 250px; 
+   width: 200px; 
    text-overflow: ellipsis; 
    white-space: nowrap; 
    overflow: hidden;
@@ -281,6 +279,11 @@ input {
 
 .botao_chamado{
   margin-left: 50px;
+  margin-top: -1px;
+}
+
+.glyphicon{
+  top: 0px;
 }
 
 .table td, .table th{

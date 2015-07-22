@@ -16,7 +16,7 @@
       <%= f.label :solicitante_id, "Selecione o solicitante" %>
       <%= f.select(:solicitante_id, Solicitante.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
       
-      <%= f.label :objeto_id, "Selecione o objeto" %>
+      <%= f.label :objeto_id, "Selecione a subcategoria" %>
       <%= f.select(:objeto_id, Objeto.all.collect {|s| [s.nome, s.id]}, {include_blank: true}, {:class => 'form-control'})  %>
     
       <%= f.label :canal_contato, "Meio de contato" %>
@@ -31,27 +31,22 @@
       <%= f.label :descricao, "Descrição"%>
       <%= f.text_area :descricao, class: 'form-control' %>
       
-      <%= f.label :status, "Status do chamado" %>
-      <%= f.select(:status, [["Em espera", "E"],["Em andamento", "A"],["Concluído", "C"]], {include_blank: true}, {:class => 'form-control'}) %>
-      
-      <% end %>
-      
-      <%= f.label :resolvido, class: 'checkbox inline' do %>
-        Resolvido?&nbsp;&nbsp;
-        <%= f.check_box :resolvido %>
-        <br>
-      <% end %>
-      
-      <%= f.label :resolucao, "Resolução" %>
-      <%= f.text_area :resolucao, class: 'form-control' %>
-      
-      <%= f.label :observacoes, "Observações" %>
+    <% else%>
+		  <%= f.label :resolvido, class: 'checkbox inline' do %>
+	      Resolvido?<%= f.check_box :resolvido %>        
+	      <% end %>
+	      
+	      <%= f.label :resolucao, "Resolução" %>
+	      <%= f.text_area :resolucao, class: 'form-control' %>
+	  <% end %>
+	  
+	  <%= f.label :observacoes, "Observações" %>
       <%= f.text_area :observacoes, class: 'form-control' %>
-      
+            
       <% if !params[:concluir] %>
         <%= f.submit "Salvar Mudanças", class: "btn btn-primary" %>
-      <% else %>
-        <%= f.submit "Concluir chamado", class: "btn btn-primary" %>
+      <% else %>           
+      <%= f.submit "Concluir chamado", class: "btn btn-primary" %>
       <% end %>
       
     <% end %>
