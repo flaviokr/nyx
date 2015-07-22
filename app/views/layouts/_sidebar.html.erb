@@ -1,13 +1,11 @@
 <% if !((params[:controller] == 'sessions' ) && (params[:action] == 'new' || params[:action] == 'create')) %>
   <ul class="sidebar">
-    <a href="<%= root_url %>"><li class="glyphicon glyphicon-home"> Inicial</li></a>
-    <a href="/chamados/new"><li>Cadastrar novo chamado</li></a>      
+    <a href="<%= root_url %>"><li><span class="glyphicon glyphicon-home" style="margin-right: 10px"></span>Inicial</li></a>
+    <a href="/chamados/new"><li><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado</li></a>      
     <% if admin? %>
-      <a href="/users"><li>Técnicos</li></a>
-      <a href="/chamados"><li>Chamados</li></a>
-      <a href="/sectors"><li>Setores</li></a>
-      <a href="/solicitantes"><li>Solicitantes</li></a>
-      <a href="/objetos"><li>Subcategorias</li></a>
+      <a href="/users"><li><span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos</span></li></a>
+      <a href="/chamados"><li><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados</span></li></a>
+      <a href="/solicitantes"><li><span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes</span></li></a>
     <% end %>
   </ul>  
-<% end %> 
+<% end %>

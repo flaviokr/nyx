@@ -7,6 +7,7 @@ class SolicitantesController < ApplicationController
   
   def show
     @solicitante = Solicitante.find(params[:id])
+    @chamados = @solicitante.chamados
   end
   
   def new

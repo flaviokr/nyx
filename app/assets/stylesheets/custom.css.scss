@@ -301,7 +301,7 @@ input {
 
 .div-overflow {
   position: absolute;
-  width: 160px;
+  width: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -310,5 +310,16 @@ input {
 
 .botoes_glyphons{
   float: right;
+}
+
+.font_botoes{
+  font-family: Arial;
+  text-align: left;
+}
+
+.teste{
+  font-family: Verdana;
+  font-style: normal;
+  font-size: 13px;
 }
 
