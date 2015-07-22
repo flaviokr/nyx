@@ -29,16 +29,16 @@
     <% end %>
   </ul>
   
-  <p><strong>Equipamentos: </strong></p>
-  <ul class="listar">
-    <% @sector.objetos.each do |objeto| %>
-      <li>
-        <%= link_to objeto.nome, objeto, class: "btn btn-default" %>
-        <%= link_to "", edit_objeto_path(objeto), class: "glyphicon glyphicon-pencil btn btn-default" %>
-        <% if admin? %>
-          <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+  <!--<p><strong>Equipamentos: </strong></p>-->
+  <!--<ul class="listar">-->
+  <!--  <% @sector.objetos.each do |objeto| %>-->
+  <!--    <li>-->
+  <!--      <%= link_to objeto.nome, objeto, class: "btn btn-default" %>-->
+  <!--      <%= link_to "", edit_objeto_path(objeto), class: "glyphicon glyphicon-pencil btn btn-default" %>-->
+  <!--      <% if admin? %>-->
+  <!--        <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" }, class: "glyphicon glyphicon-trash btn btn-default" %>-->
+  <!--      <% end %>-->
+  <!--    </li>-->
+  <!--  <% end %>-->
+  <!--</ul>-->
 <% end %>
