@@ -51,7 +51,7 @@
       </div>
       <div id="rede" style="display: none;">
       	<%= f.select(:objeto_id, Objeto.where(categoria: 'R').collect {|s| [s.nome, s.id]}, {}, {:class => 'form-control'})  %>
-      </div>   
+      </div>
       
       <%= f.label :descricao, "Descrição"%>
       <%= f.text_area :descricao, class: 'form-control' %>
