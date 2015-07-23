@@ -15,6 +15,9 @@ class ChamadosController < ApplicationController
         @chamados_concluido << chamado
       end
     end
+    @chamados_espera.sort! { |a,b| b.prioridade <=> a.prioridade}   
+    @chamados_andamento.sort! { |a,b| b.prioridade <=> a.prioridade} 
+    @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade} 
   end
   
   def show

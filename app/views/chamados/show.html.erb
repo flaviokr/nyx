@@ -58,10 +58,10 @@
       </li>
     <li class="list-group-item">
       <strong>Prioridade: </strong>
-      <%= "Baixa" if @chamado.prioridade == 'B' %>
-      <%= "Média" if @chamado.prioridade == 'M' %>
-      <%= "Alta" if @chamado.prioridade == 'A' %>
-      <%= "Crítica" if @chamado.prioridade == 'C' %>
+      <%= "Baixa" if @chamado.prioridade == '1' %>
+      <%= "Média" if @chamado.prioridade == '2' %>
+      <%= "Alta" if @chamado.prioridade == '3' %>
+      <%= "Crítica" if @chamado.prioridade == '4' %>
     </li>
     <% #if !@chamado.observacoes.blank? %>
       <li class="list-group-item"><strong>Observações: </strong><%= @chamado.observacoes %></li>

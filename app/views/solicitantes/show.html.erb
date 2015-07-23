@@ -39,10 +39,10 @@
                 <td><%= chamado.solicitante.sector.nome %></td>
                 <td><%= chamado.created_at.to_s.chomp(' -0300') %></td>
                 <td>
-                  <%= "Baixa" if chamado.prioridade == 'B' %>
-                  <%= "Média" if chamado.prioridade == 'M' %>
-                  <%= "Alta" if chamado.prioridade == 'A' %>
-                  <%= "Crítica" if chamado.prioridade == 'C' %>
+                  <%= "Baixa" if chamado.prioridade == '1' %>
+                  <%= "Média" if chamado.prioridade == '2' %>
+                  <%= "Alta" if chamado.prioridade == '3' %>
+                  <%= "Crítica" if chamado.prioridade == '4' %>
                 </td>
               </tr>
             </tbody>

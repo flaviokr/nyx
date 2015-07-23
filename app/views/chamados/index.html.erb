@@ -31,10 +31,10 @@
                 <td><%= andamento.solicitante.sector.nome %></td>
                 <td><%= andamento.created_at.to_s.chomp(' -0300') %></td>
                 <td>
-                  <%= "Baixa" if andamento.prioridade == 'B' %>
-                  <%= "Média" if andamento.prioridade == 'M' %>
-                  <%= "Alta" if andamento.prioridade == 'A' %>
-                  <%= "Crítica" if andamento.prioridade == 'C' %>
+                  <%= "Baixa" if andamento.prioridade == '1' %>
+                  <%= "Média" if andamento.prioridade == '2' %>
+                  <%= "Alta" if andamento.prioridade == '3' %>
+                  <%= "Crítica" if andamento.prioridade == '4' %>
                 </td>
               </tr>
             </tbody>
@@ -75,10 +75,10 @@
                 <td><%= espera.solicitante.sector.nome %></td>
                 <td><%= espera.created_at.to_s.chomp(' -0300') %></td>
                 <td>
-                  <%= "Baixa" if espera.prioridade == 'B' %>
-                  <%= "Média" if espera.prioridade == 'M' %>
-                  <%= "Alta" if espera.prioridade == 'A' %>
-                  <%= "Crítica" if espera.prioridade == 'C' %>
+                  <%= "Baixa" if espera.prioridade == '1' %>
+                  <%= "Média" if espera.prioridade == '2' %>
+                  <%= "Alta" if espera.prioridade == '3' %>
+                  <%= "Crítica" if espera.prioridade == '4' %>
                 </td>
               </tr>
             </tbody>
@@ -118,10 +118,10 @@
                 <td><%= concluido.solicitante.sector.nome %></td>
                 <td><%= concluido.created_at.to_s.chomp(' -0300') %></td>
                 <td>
-                  <%= "Baixa" if concluido.prioridade == 'B' %>
-                  <%= "Média" if concluido.prioridade == 'M' %>
-                  <%= "Alta" if concluido.prioridade == 'A' %>
-                  <%= "Crítica" if concluido.prioridade == 'C' %>
+                  <%= "Baixa" if concluido.prioridade == '1' %>
+                  <%= "Média" if concluido.prioridade == '2' %>
+                  <%= "Alta" if concluido.prioridade == '3' %>
+                  <%= "Crítica" if concluido.prioridade == '4' %>
                 </td>
               </tr>
             </tbody>
