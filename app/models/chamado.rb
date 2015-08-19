@@ -9,7 +9,6 @@ class Chamado < ActiveRecord::Base
   validates :objeto_id,      presence: true, allow_nil: true
   validates :canal_contato,  presence: true, inclusion: { in: %w(E T P), message: "%{value} não está em um formato válido" }
   validates :status,         inclusion: { in: %w(C A E), message: "%{value} não está em um formato válido" }, allow_nil: true
-  validates :categoria,      presence: true, inclusion: { in: %w(H S R), message: "%{value} não está em um formato válido" }
   validates :prioridade,     presence: true, inclusion: { in: %w(1 2 3 4), message: "%{value} não está em um formato válido" }
   validates :descricao,      presence: true
 # validates :solicitante_id

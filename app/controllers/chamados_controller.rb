@@ -27,6 +27,8 @@ class ChamadosController < ApplicationController
   def new
     @chamado = current_user.chamados.build
     @solicitante = Solicitante.new
+    @categorias = Categoria.all
+    @objetos = Objeto.all
   end
 
   def create    
@@ -39,7 +41,7 @@ class ChamadosController < ApplicationController
       @solicitante.save
     end
     
-    @chamado = current_user.chamados.build(chamado_params)       
+    @chamado = current_user.chamados.build(chamado_params)     
     if @chamado.save
       @chamado.update_attribute(:solicitante_id, @solicitante.id)
       # session[:chamado_id] = @chamado.id.to_s

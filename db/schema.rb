@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721135601) do
+ActiveRecord::Schema.define(version: 20150818232517) do
+
+  create_table "categorias", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "nome"
+  end
 
   create_table "chamados", force: :cascade do |t|
     t.string   "canal_contato"
@@ -45,11 +51,12 @@ ActiveRecord::Schema.define(version: 20150721135601) do
 
   create_table "objetos", force: :cascade do |t|
     t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "categoria"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "categoria_id"
   end
 
+  add_index "objetos", ["categoria_id"], name: "index_objetos_on_categoria_id"
   add_index "objetos", ["nome"], name: "index_objetos_on_nome", unique: true
 
   create_table "objsecships", force: :cascade do |t|
