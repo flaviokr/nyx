@@ -73,7 +73,7 @@
 	              <tr>
 	                <td><%= espera.objeto.nome %></td>
 	                <td><%= espera.solicitante.sector.nome %></td>
-	                <td><%= espera.created_at.to_s.chomp(' -0300') %></td>
+	                <td><%= espera.created_at.strftime("%d/%m/%y - %H:%M") %></td>
 	                <td>
 	                  <%= "Baixa" if espera.prioridade == '1' %>
 	                  <%= "Média" if espera.prioridade == '2' %>
