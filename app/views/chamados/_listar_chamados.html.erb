@@ -11,7 +11,7 @@
 	            <h3 class="panel-title">
 	              <%= link_to andamento.descricao, andamento %>              
 	            </h3>
-	            <%= link_to "Concluir chamado", edit_chamado_path(andamento, :concluir => "concluir", :status => "C"), class: "botao_chamado btn btn-primary" %>
+	            <%= link_to "Concluir chamado", edit_chamado_path(andamento, :concluir => "concluir", :status => "C"), class: "botao_chamado btn btn-primary btn-chamados-andamento" %>
 	          </div>
 	          <table class="table table-condensed">
 	            <thead>
@@ -26,7 +26,7 @@
 	              <tr>
 	                <td><%= andamento.objeto.nome %></td>
 	                <td><%= andamento.solicitante.sector.nome %></td>
-	                <td><%= andamento.created_at.to_s.chomp(' -0300') %></td>
+	                <td><%= andamento.created_at.strftime("%d/%m/%y - %H:%M") %></td>
 	                <td>
 	                  <%= "Baixa" if andamento.prioridade == '1' %>
 	                  <%= "Média" if andamento.prioridade == '2' %>
@@ -58,7 +58,7 @@
 	            <h3 class="panel-title">
 	              <%= link_to espera.descricao, espera %>              
 	            </h3>
-	              <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put, class: "botao_chamado btn btn-info btn-chamados") %>
+	              <%= link_to("Aceitar chamado", chamado_path(espera, :status => "A"), :method => :put, class: "botao_chamado btn btn-info btn-chamados-espera") %>
 	          </div>
 	          <table class="table table-condensed">
 	            <thead>
@@ -73,7 +73,7 @@
 	              <tr>
 	                <td><%= espera.objeto.nome %></td>
 	                <td><%= espera.solicitante.sector.nome %></td>
-	                <td><%= espera.created_at.to_s.chomp(' -0300') %></td>
+	                <td><%= espera.created_at.strftime("%d/%m/%y - %H:%M") %></td>
 	                <td>
 	                  <%= "Baixa" if espera.prioridade == '1' %>
 	                  <%= "Média" if espera.prioridade == '2' %>
