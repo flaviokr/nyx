@@ -1,0 +1,22 @@
+<%= fields_for @resolucao do |r| %>
+	<%= r.label :resolvido, "Resolvido?"%>
+	<%= r.select :resolvido, [["Sim", true], ["Não", false]], include_blank: true, class: 'form-control' %>
+
+	<%= r.label :contato_externo, "Houve contato externo?" %>
+	<%= r.select :contato_externo, [["Sim", true], ["Não", false]], include_blank: true, class: 'form-control' %>
+
+	<div id="form_contato_externo">
+		<%= r.label :empresa_contatada, "Nome da empresa contatada" %>
+		<%= r.select :empresa_contatada, [["Prodam"], ["CDS"], ["MR"]], include_blank: true, class: 'form-control' %>
+
+		<%= r.label :nome_atendente_empresa_contatada, "Nome do atendente da empresa contatada" %>
+		<%= r.text_field :nome_atendente_empresa_contatada, class: 'form-control' %>
+	</div>
+
+	<%= r.label :equipamento_trocado, "Houve troca de equipamento?" %>
+	<%= r.select :equipamento_trocado, [["Sim", true], ["Não", false]], include_blank: true, class: 'form-control' %>
+
+	<%= r.label :justificativa, "Que ações levaram ao fechamento do chamado?" %>
+	<%= r.text_area :justificativa, class: 'form-control' %>
+
+<% end %>
