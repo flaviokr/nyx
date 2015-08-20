@@ -27,11 +27,11 @@ class ChamadosController < ApplicationController
   def new
     @chamado = current_user.chamados.build
     @solicitante = Solicitante.new
-    @categorias = Categoria.all
     @objetos = Objeto.all
   end
 
   def create    
+    
     @solicitante = Solicitante.new(params.require(:solicitante).permit(:sector_id, :rf, :nome, :email, :ramal))
     @solicitante_conferir = Solicitante.where("rf = :rf", { rf: @solicitante.rf }).take
     
@@ -41,7 +41,10 @@ class ChamadosController < ApplicationController
       @solicitante.save
     end
     
-    @chamado = current_user.chamados.build(chamado_params)     
+    @chamado = current_user.chamados.build(chamado_params)
+    @categoria = Categoria.find(params[:chamado][:categoria_id])   
+    @chamado.update_attribute(:categoria_id, @categoria.id)
+
     if @chamado.save
       @chamado.update_attribute(:solicitante_id, @solicitante.id)
       # session[:chamado_id] = @chamado.id.to_s
@@ -53,6 +56,7 @@ class ChamadosController < ApplicationController
   
   def edit
     @chamado = Chamado.find(params[:id])
+    @resolucao = Resolucao.new
   end
   
   def update
@@ -64,6 +68,9 @@ class ChamadosController < ApplicationController
       redirect_to current_user
     else
       @chamado = Chamado.find(params[:id])
+      @resolucao = Resolucao.new(params.require(:resolucao).permit(:resolvido, :contato_externo, :empresa_contatada, :nome_atendente_empresa_contatada, :equipamento_trocado, :justificativa))
+      @resolucao.save
+      @chamado.update_attribute(:resolucao, @resolucao)
       params[:chamado][:status] = 'C' if !params[:chamado][:descricao]
       if @chamado.update_attributes(chamado_params)
         # flash[:success] = "Chamado atualizado!"
@@ -84,9 +91,9 @@ class ChamadosController < ApplicationController
 
     def chamado_params
       params.require(:chamado).permit(:objeto_id, 
-                                      :canal_contato, :status, :categoria, 
+                                      :canal_contato, :status, :categoria_id, 
                                       :prioridade, :descricao, 
-                                      :observacoes, :status, :resolvido, :resolucao)
+                                      :observacoes, :status, :resolucao_id)
     end
        
     def user_is_admin

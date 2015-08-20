@@ -15,5 +15,6 @@
 #   inflect.acronym 'RESTful'
 # end
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.irregular 'categoria', 'categorias'
+	inflect.irregular 'categoria', 'categorias'
+	inflect.irregular 'resolucao', 'resolucoes'
 end

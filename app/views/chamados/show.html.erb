@@ -29,11 +29,10 @@
     <li class="list-group-item"><strong>Solicitante: </strong><%= @chamado.solicitante.nome %></li>
     <li class="list-group-item">
       <strong>Categoria: </strong>
-      <%= "Hardware" if @chamado.categoria == 'H' %>
-      <%= "Software" if @chamado.categoria == 'S' %>
-      <%= "Rede" if @chamado.categoria == 'R' %>
+      <%= @chamado.categoria.nome %>
     </li>
   </div>
+
   <div class="col-md-6">
     <li class="list-group-item"><strong>Subcategoria: </strong><%= @chamado.objeto.nome %></li>
     <li class="list-group-item"><strong>Descrição: </strong><%= @chamado.descricao %></li>
@@ -53,8 +52,10 @@
     </li>
     <li class="list-group-item">
       <strong>Resolvido?: </strong>
-      <%= "Sim" if @chamado.resolvido %>
-      <%= "Não" if !@chamado.resolvido %>
+      <% if !@chamado.resolucao.blank? %>
+        <%= "Sim" if @chamado.resolucao.resolvido %>
+        <%= "Não" if !@chamado.resolucao.resolvido %>
+      <% end %>
       </li>
     <li class="list-group-item">
       <strong>Prioridade: </strong>
@@ -66,8 +67,8 @@
     <% #if !@chamado.observacoes.blank? %>
       <li class="list-group-item"><strong>Observações: </strong><%= @chamado.observacoes %></li>
     <% #end %>
-    <% #if !@chamado.resolucao.blank? %>
-      <li class="list-group-item"><strong>Resolução: </strong><%= @chamado.resolucao %></li>
-    <% #end %>
+    <% if !@chamado.resolucao.blank? %>
+      <li class="list-group-item"><strong>Resolução: </strong><%= @chamado.resolucao.justificativa %></li>
+    <% end %>
   </div>
 </div>
