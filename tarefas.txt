@@ -10,3 +10,41 @@ Definir quais os status possiveis
 Mostrar subcategorias adequadas dependendo da categoria selecionada
 
 Formulário do chamado resolvido
+
+-----------------------------------------------------------------------
+
+-> Resolvido (Combobox): 
+
+-> Houve contato externo ?(Combobox)
+
+	-> SIM: Abre os seguintes campos:
+
+		• EMPRESA CONTATADA (Prodam, CDS, MR)(Combobox): Uma lista com 		as empresas/fornecedores com os quais, geralmente, a equipe de 				Info. entra em contato ou tem relação direta.
+
+		• NOME DO ATENDENTE (Textfield): Nome do funcionário da empresa 			com o qual fez contato.
+
+	-> NÃO: Oculta os campos citados acima.
+
+
+-> Houve troca de equipamento ?(Combobox)
+
+	-> SIM: Abre os seguintes campos:
+
+		• EQUIPAMENTO DANIFICADO/RECOLHIDO (Mouse, teclado, nenhum)		(Combobox):
+
+		• EQUIPAMENTO REPOSTO (Mouse, teclado)(Combobox):
+
+	-> NÃO: Oculta os campos citados acima.
+
+
+-> Resolução
+
+-> Observações
+
+*********************************************************************** 
+Ao concluir o chamado, o sistema deverá enviar uma mensagem ao email do solicitante informando-o das seguintes informações: 
+	-> Chamado foi concluído?
+	-> Nome do técnico que solucionou o chamado.
+	-> Data de abertura do chamado.
+	-> Data de finalização do chamado.
+***********************************************************************
