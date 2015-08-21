@@ -13,6 +13,7 @@ class Chamado < ActiveRecord::Base
   validates :status,         inclusion: { in: %w(C A E), message: "%{value} não está em um formato válido" }, allow_nil: true
   validates :prioridade,     presence: true, inclusion: { in: %w(1 2 3 4), message: "%{value} não está em um formato válido" }
   validates :descricao,      presence: true
+  validates :categoria_id,   presence: true
 # validates :solicitante_id
 # validates :created_at
 # validates :updated_at
