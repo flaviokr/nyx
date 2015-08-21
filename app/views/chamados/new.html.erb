@@ -3,18 +3,16 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-4">
     <%= form_for(@chamado) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
 
     <fieldset>
       <h3>Dados do Solicitante</h3>
       <%= fields_for @solicitante do |s| %>
-      <%= render 'shared/error_messages', object: s.object %>
 
       <%= s.label :rf, "RF do Solicitante" %>
-      <%= s.text_field :rf, class: 'form-control', maxlength: 7 %>
+      <%= s.text_field :rf, class: 'form-control', maxlength: 7, :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence %>
 
       <%= s.label :nome, "Nome do Solicitante" %>
-      <%= s.text_field :nome, class: 'form-control' %>
+      <%= s.text_field :nome, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:nome).to_sentence %>
 
       <%= s.label :sector_id, "Setor" %>
       <%= s.select(:sector_id, Sector.all.collect {|s| [s.nome, s.id]}, {:include_blank => true}, {:class => 'form-control'})  %>

@@ -164,7 +164,12 @@ input {
   @extend .has-error;
   .form-control {
     color: $state-danger-text; 
+    border: 1px solid red;
   }
+}
+
+.field_with_errors select, .field_with_errors input {
+  border: 1px solid red;
 }
 
 .checkbox {

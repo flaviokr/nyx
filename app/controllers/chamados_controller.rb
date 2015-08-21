@@ -42,8 +42,10 @@ class ChamadosController < ApplicationController
     end
     
     @chamado = current_user.chamados.build(chamado_params)
-    @categoria = Categoria.find(params[:chamado][:categoria_id])   
-    @chamado.update_attribute(:categoria_id, @categoria.id)
+    if !params[:chamado][:categoria_id].blank?
+      @categoria = Categoria.find(params[:chamado][:categoria_id])
+      @chamado.update_attribute(:categoria_id, @categoria.id)
+    end
 
     if @chamado.save
       @chamado.update_attribute(:solicitante_id, @solicitante.id)
@@ -68,9 +70,17 @@ class ChamadosController < ApplicationController
       redirect_to current_user
     else
       @chamado = Chamado.find(params[:id])
-      @resolucao = Resolucao.new(params.require(:resolucao).permit(:resolvido, :contato_externo, :empresa_contatada, :nome_atendente_empresa_contatada, :equipamento_trocado, :justificativa))
-      @resolucao.save
-      @chamado.update_attribute(:resolucao, @resolucao)
+      if params[:resolucao]
+        @resolucao = Resolucao.new(params.require(:resolucao).permit(:resolvido, :contato_externo, :empresa_contatada, :nome_atendente_empresa_contatada, :equipamento_trocado, :justificativa))
+        if @resolucao.save
+          @chamado.update_attribute(:resolucao, @resolucao)
+        else
+          params[:concluir] ||= "concluir"
+          params[:status] ||= "C"
+          render 'edit'
+          return
+        end
+      end
       params[:chamado][:status] = 'C' if !params[:chamado][:descricao]
       if @chamado.update_attributes(chamado_params)
         # flash[:success] = "Chamado atualizado!"

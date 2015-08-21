@@ -4,8 +4,10 @@
 
 jQuery ->
 $(document).on 'ready page:load', ->
-	$("label[for='chamado_objeto_id']").hide()
-	$('#chamado_objeto_id').hide()
+	if window.location.href.indexOf("edit") == -1
+		$("label[for='chamado_objeto_id']").hide()
+		$('#chamado_objeto_id').hide()
+		
 	objetos = $('#chamado_objeto_id').html()	
 	$('#chamado_categoria_id').change ->
 		categoria = $('#chamado_categoria_id :selected').text()
