@@ -4,22 +4,21 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-4">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
       
       <%= f.label :name, "Nome" %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control', :placeholder => @user.errors.full_messages_for(:name).to_sentence %>
       
       <%= f.label :rf, "RF" %>
-      <%= f.text_field :rf, class: 'form-control' %>
+      <%= f.text_field :rf, class: 'form-control', :placeholder => @user.errors.full_messages_for(:rf).to_sentence %>
 
       <%= f.label :email, "Endereço de email" %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', :placeholder => @user.errors.full_messages_for(:email).to_sentence %>
       
       <%= f.label :celular, "Número do celular"%>
-      <%= f.phone_field :celular, class: 'form-control' %>
+      <%= f.phone_field :celular, class: 'form-control', :placeholder => @user.errors.full_messages_for(:celular).to_sentence %>
       
       <%= f.label :comunicador, "Número do comunicador"%>
-      <%= f.phone_field :comunicador, class: 'form-control' %>
+      <%= f.phone_field :comunicador, class: 'form-control', :placeholder => @user.errors.full_messages_for(:comunicador).to_sentence %>
 
       <%= f.label :admin, class: "checkbox" do %>
         É administrador?
@@ -27,10 +26,10 @@
       <% end %>
 
       <%= f.label :password, "Senha" %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control', :placeholder => @user.errors.full_messages_for(:password).to_sentence %>
 
       <%= f.label :password_confirmation, "Confirme a senha" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', :placeholder => @user.errors.full_messages_for(:password_confirmation).to_sentence %>
 
       <%= f.submit "Criar Técnico", class: "btn btn-primary" %>
     <% end %>
