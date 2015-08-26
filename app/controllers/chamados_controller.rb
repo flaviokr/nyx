@@ -49,7 +49,7 @@ class ChamadosController < ApplicationController
 
     if @chamado.save
       @chamado.update_attribute(:solicitante_id, @solicitante.id)
-      # session[:chamado_id] = @chamado.id.to_s
+      debugger
       redirect_to current_user
     else
       render 'new'
@@ -103,7 +103,7 @@ class ChamadosController < ApplicationController
       params.require(:chamado).permit(:objeto_id, 
                                       :canal_contato, :status, :categoria_id, 
                                       :prioridade, :descricao, 
-                                      :observacoes, :status, :resolucao_id)
+                                      :observacoes, :status, :resolucao_id, :solicitante_id)
     end
        
     def user_is_admin
