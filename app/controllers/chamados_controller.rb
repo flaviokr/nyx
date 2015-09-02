@@ -49,7 +49,6 @@ class ChamadosController < ApplicationController
 
     if @chamado.save
       @chamado.update_attribute(:solicitante_id, @solicitante.id)
-      debugger
       redirect_to current_user
     else
       render 'new'
