@@ -25,6 +25,7 @@ class ChamadosController < ApplicationController
   end
   
   def new
+    gon.solicitantes = Solicitante.all
     @chamado = current_user.chamados.build
     @solicitante = Solicitante.new
     @objetos = Objeto.all

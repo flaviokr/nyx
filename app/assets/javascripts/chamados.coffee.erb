@@ -20,4 +20,12 @@ $(document).on 'ready page:load', ->
 			$('#chamado_objeto_id').empty
 			$("label[for='chamado_objeto_id']").hide()
 			$('#chamado_objeto_id').hide()
-		
+	
+	$('#solicitante_rf').change ->
+		rf_solicitante = $('#solicitante_rf').val()
+		for i in gon.solicitantes				
+				if i["rf"] is rf_solicitante
+					$('#solicitante_nome').val(i['nome'])
+					$('#solicitante_sector_id').val(i['sector_id'])
+					$('#solicitante_email').val(i['email'])
+					$('#solicitante_ramal').val(i['ramal'])

@@ -17,6 +17,7 @@ gem 'jbuilder',                '2.2.3'
 gem 'tzinfo-data'
 gem 'table_print'
 gem 'sdoc',                    '0.4.0', group: :doc
+gem 'gon'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.10'
