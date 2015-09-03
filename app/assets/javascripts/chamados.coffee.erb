@@ -22,10 +22,14 @@ $(document).on 'ready page:load', ->
 			$('#chamado_objeto_id').hide()
 	
 	$('#solicitante_rf').change ->
+		$('#solicitante_nome').val('').prop("disabled", false)
+		$('#solicitante_sector_id').val('').prop("disabled", false)
+		$('#solicitante_email').val('').prop("disabled", false)
+		$('#solicitante_ramal').val('').prop("disabled", false)
 		rf_solicitante = $('#solicitante_rf').val()
 		for i in gon.solicitantes				
 				if i["rf"] is rf_solicitante
-					$('#solicitante_nome').val(i['nome'])
-					$('#solicitante_sector_id').val(i['sector_id'])
-					$('#solicitante_email').val(i['email'])
-					$('#solicitante_ramal').val(i['ramal'])
+					$('#solicitante_nome').val(i['nome']).prop("disabled", true)
+					$('#solicitante_sector_id').val(i['sector_id']).prop("disabled", true)
+					$('#solicitante_email').val(i['email']).prop("disabled", true)
+					$('#solicitante_ramal').val(i['ramal']).prop("disabled", true)
