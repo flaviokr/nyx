@@ -10,6 +10,7 @@
 
       <%= s.label :rf, "RF do Solicitante" %>
       <%= s.text_field :rf, class: 'form-control', autofocus: true, maxlength: 7, :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence %>
+      <input type="button" value="Verificar se existe RF" id="botao_verificar" style="background-color: #3399FF; color: white"/>
 
       <%= s.label :nome, "Nome do Solicitante" %>
       <%= s.text_field :nome, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:nome).to_sentence %>

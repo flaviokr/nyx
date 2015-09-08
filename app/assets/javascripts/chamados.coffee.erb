@@ -21,12 +21,13 @@ $(document).on 'ready page:load', ->
 			$("label[for='chamado_objeto_id']").hide()
 			$('#chamado_objeto_id').hide()
 	
-	$('#solicitante_rf').change ->
+	$('#botao_verificar').click ->
 		$('#solicitante_nome').val('').prop("disabled", false)
 		$('#solicitante_sector_id').val('').prop("disabled", false)
 		$('#solicitante_email').val('').prop("disabled", false)
 		$('#solicitante_ramal').val('').prop("disabled", false)
 		rf_solicitante = $('#solicitante_rf').val()
+		
 		for i in gon.solicitantes				
 				if i["rf"] is rf_solicitante
 					$('#solicitante_nome').val(i['nome']).prop("disabled", true)
