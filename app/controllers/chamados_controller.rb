@@ -40,9 +40,9 @@ class ChamadosController < ApplicationController
       @solicitante.id = @solicitante_conferir.id
     elsif
       @solicitante.save
-    end
-    
+    end    
     @chamado = current_user.chamados.build(chamado_params)
+    @chamado.status = "A"
     if !params[:chamado][:categoria_id].blank?
       @categoria = Categoria.find(params[:chamado][:categoria_id])
       @chamado.update_attribute(:categoria_id, @categoria.id)
@@ -65,8 +65,6 @@ class ChamadosController < ApplicationController
     if !params[:chamado]
       @chamado = Chamado.find(params[:id])
       @chamado.update_attributes(status: params[:status])
-      @chamusership = Chamusership.new(user_id: current_user.id.to_s, chamado_id: @chamado.id.to_s)
-      @chamusership.save
       redirect_to current_user
     else
       @chamado = Chamado.find(params[:id])
@@ -103,7 +101,7 @@ class ChamadosController < ApplicationController
       params.require(:chamado).permit(:objeto_id, 
                                       :canal_contato, :status, :categoria_id, 
                                       :prioridade, :descricao, 
-                                      :observacoes, :status, :resolucao_id, :solicitante_id)
+                                      :observacoes, :status, :resolucao_id, :solicitante_id, :encarregado_id)
     end
        
     def user_is_admin

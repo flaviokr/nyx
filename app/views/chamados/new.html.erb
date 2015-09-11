@@ -5,6 +5,13 @@
     <%= form_for(@chamado) do |f| %>
 
     <fieldset>
+    <% if current_user.admin %>
+      <h3>Selecionar Técnico Encarregado</h3>
+      <%= f.select :encarregado_id, User.all.collect {|s| [s.name, s.id]}, class: 'form-control' %>
+      <% else %>
+      <%= f.hidden_field :encarregado_id, :value => current_user.id %>
+      <% end %>
+
       <h3>Dados do Solicitante</h3>
       <%= fields_for @solicitante do |s| %>
 

@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
   has_many :chamados
-  has_many :chamuserships
-  has_many :encarregados, through: :chamuserships, source: :chamado
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

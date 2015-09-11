@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820195615) do
+ActiveRecord::Schema.define(version: 20150910201222) do
 
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 20150820195615) do
     t.string   "prioridade"
     t.integer  "resolucao_id"
     t.integer  "categoria_id"
+    t.integer  "encarregado_id"
   end
 
   add_index "chamados", ["categoria_id"], name: "index_chamados_on_categoria_id"
+  add_index "chamados", ["encarregado_id"], name: "index_chamados_on_encarregado_id"
   add_index "chamados", ["objeto_id"], name: "index_chamados_on_objeto_id"
   add_index "chamados", ["resolucao_id"], name: "index_chamados_on_resolucao_id"
   add_index "chamados", ["solicitante_id"], name: "index_chamados_on_solicitante_id"

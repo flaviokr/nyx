@@ -1,25 +1,6 @@
 <% provide(:title, @user.name) %>
-
-<% if admin? && current_user.id != @user.id %>
-
-  <p style="float: right;">
-    <%= link_to "", edit_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-default btn-lg" %>
-    <%= link_to "", @user, method: :delete, data: { confirm: "Tem certeza que deseja deletar este técnico?" }, class: "glyphicon glyphicon-trash btn btn-default btn-lg" %>
-  </p>
-
-  <p><strong>Nome: </strong><%= @user.name %></p>
-  <p><strong>RF: </strong><%= @user.rf %></p>
-  <p><strong>Email: </strong><%= @user.email %></p>
-  <p><strong>Celular: </strong><%= @user.celular %></p>
-  <p><strong>Comunicador: </strong><%= @user.comunicador %></p>
-  
-  <%= render 'chamados/listar_chamados_adm' %>
-  
-<% else %>
-
   <div class="row">   
-    <div class="col-md">    
+    <div class="col-md">
   	<%= render 'chamados/listar_chamados' %>    
     </div>
   </div>
-<% end %>

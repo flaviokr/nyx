@@ -14,9 +14,8 @@
     <li class="list-group-item"><strong>Código: </strong><%= @chamado.id %></li>
     <li class="list-group-item"><strong>Técnico que criou o chamado: </strong><%= @chamado.user.name %></li>
     <li class="list-group-item"><strong>Técnico encarregado: </strong>
-    <% @chamado.tecnicos.each do |t| %>
-      <%= t.name %></li>
-    <% end %>
+      <%= User.find(@chamado.encarregado_id).name %>
+    </li>
     
     <li class="list-group-item"><strong>Setor: </strong><%= @chamado.solicitante.sector.nome %></li>
     <li class="list-group-item"><strong>Bairro: </strong><%= @chamado.solicitante.sector.bairro %></li>

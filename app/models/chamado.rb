@@ -4,8 +4,7 @@ class Chamado < ActiveRecord::Base
   belongs_to :categoria
   belongs_to :solicitante
   has_one :resolucao
-  has_many :chamuserships
-  has_many :tecnicos, through: :chamuserships, source: :user
+  
   
   validates :user_id,        presence: true
   validates :objeto_id,      presence: true, allow_nil: true

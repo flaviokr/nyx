@@ -16,20 +16,15 @@ class UsersController < ApplicationController
     @chamados.each do |chamado|
       if chamado.status == "E"
         @chamados_espera << chamado
-      end
-      chamado.tecnicos.each do |e|
-        if e.id == @user.id
-          if chamado.status == "A"
-            @chamados_andamento << chamado
-          elsif chamado.status == "C"
-            @chamados_concluido << chamado
-          end
-        end
+      elsif chamado.status == "A"
+        @chamados_andamento << chamado
+      elsif chamado.status == "C"
+        @chamados_concluido << chamado
       end
     end
     @chamados_espera.sort! { |a,b| b.prioridade <=> a.prioridade}   
     @chamados_andamento.sort! { |a,b| b.prioridade <=> a.prioridade} 
-    @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade} 
+    @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade}   
   end
 
   def new
