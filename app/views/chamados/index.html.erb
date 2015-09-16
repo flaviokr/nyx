@@ -3,7 +3,7 @@
 <%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default subtitulo" %>
 <% if @chamados_andamento.any? %>
   <ul class="listar_no_border">
-    <p><strong>Chamados em andamento: </strong></p>
+    <p><strong>Chamados pendentes: </strong></p>
     <% @chamados_andamento.each do |andamento| %>
       <li>
         <div class="panel panel-primary">
@@ -29,7 +29,7 @@
               <tr>
                 <td><%= andamento.objeto.nome %></td>
                 <td><%= andamento.solicitante.sector.nome %></td>
-                <td><%= andamento.created_at.to_s.chomp(' -0300') %></td>
+                <td><%= andamento.abertura.strftime("%d/%m/%y - %H:%M") %></td>
                 <td>
                   <%= "Baixa" if andamento.prioridade == '1' %>
                   <%= "Média" if andamento.prioridade == '2' %>
@@ -44,50 +44,7 @@
     <% end %>
   </ul>
 <% end %>
-<br>
-<% if @chamados_espera.any? %>
-  <ul class="listar_no_border">
-    <p><strong>Chamados em espera: </strong></p>
-    <% @chamados_espera.each do |espera| %>
-      <li>
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <%= link_to espera.descricao, espera %>             
-            </h3>
-            <div class="botoes_glyphons">
-              <%= link_to "", edit_chamado_path(espera), class: "botao_chamado_info glyphicon glyphicon-pencil btn btn-info" %>
-              <%= link_to "", espera, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-info" %>
-              </div>
-          </div>
-          <table class="table table-condensed">
-            <thead>
-              <tr>
-                <th>Subcategoria</th>
-                <th>Setor</th>
-                <th>Aberto em</th>
-                <th>Prioridade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= espera.objeto.nome %></td>
-                <td><%= espera.solicitante.sector.nome %></td>
-                <td><%= espera.created_at.to_s.chomp(' -0300') %></td>
-                <td>
-                  <%= "Baixa" if espera.prioridade == '1' %>
-                  <%= "Média" if espera.prioridade == '2' %>
-                  <%= "Alta" if espera.prioridade == '3' %>
-                  <%= "Crítica" if espera.prioridade == '4' %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+
 <% if @chamados_concluido.any? %>
   <ul class="listar_no_border">
     <p><strong>Chamados concluídos: </strong></p>
@@ -116,7 +73,7 @@
               <tr>
                 <td><%= concluido.objeto.nome %></td>
                 <td><%= concluido.solicitante.sector.nome %></td>
-                <td><%= concluido.created_at.to_s.chomp(' -0300') %></td>
+                <td><%= concluido.abertura.to_s.chomp(' -0300') %></td>
                 <td>
                   <%= "Baixa" if concluido.prioridade == '1' %>
                   <%= "Média" if concluido.prioridade == '2' %>

@@ -34,6 +34,12 @@
     </fieldset>
     <fieldset>
      <h3>Dados do Chamado</h3>
+     <%= f.label :abertura, "Data e Hora da abertura do chamado"%>
+     
+     <span class="datetime">
+     <%= f.datetime_select :abertura %>
+     </span>
+
      <%= f.label :canal_contato, "Meio de contato" %>
      <%= f.select(:canal_contato, [["Email","E"],["Telefone", "T"],["Pessoal", "P"]], {:prompt => @chamado.errors.full_messages_for(:canal_contado).to_sentence}, {:class => 'form-control'}) %>
 

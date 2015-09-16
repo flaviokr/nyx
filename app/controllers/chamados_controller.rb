@@ -92,7 +92,7 @@ class ChamadosController < ApplicationController
   def destroy
     Chamado.find(params[:id]).destroy
     flash[:success] = "Chamado deletado com sucesso!"
-    redirect_to current_user
+    redirect_to chamados_path
   end
   
   private
@@ -101,7 +101,7 @@ class ChamadosController < ApplicationController
       params.require(:chamado).permit(:objeto_id, 
                                       :canal_contato, :status, :categoria_id, 
                                       :prioridade, :descricao, 
-                                      :observacoes, :status, :resolucao_id, :solicitante_id, :encarregado_id)
+                                      :observacoes, :status, :resolucao_id, :solicitante_id, :encarregado_id, :abertura)
     end
        
     def user_is_admin
