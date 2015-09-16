@@ -3,21 +3,18 @@ class ChamadosController < ApplicationController
   
   def index
     @chamados = Chamado.all
-    @chamados_espera = Array.new
     @chamados_andamento = Array.new
     @chamados_concluido = Array.new
+
     @chamados.each do |chamado|
-      if chamado.status == "E"
-        @chamados_espera << chamado
-      elsif chamado.status == "A"
+      if chamado.status == "A"
         @chamados_andamento << chamado
       elsif chamado.status == "C"
         @chamados_concluido << chamado
       end
     end
-    @chamados_espera.sort! { |a,b| b.prioridade <=> a.prioridade}   
     @chamados_andamento.sort! { |a,b| b.prioridade <=> a.prioridade} 
-    @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade} 
+    @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade}     
   end
   
   def show

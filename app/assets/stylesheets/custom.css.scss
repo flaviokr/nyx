@@ -331,3 +331,24 @@ input {
 .datetime select {
   width: 55px;
 }
+.panel-danger{
+  .panel-heading{
+    background: #b20000;
+    color: white;
+  }
+  .btn-chamados-andamento{
+    background: #ff7f7f;
+    border: red;
+  }
+}
+
+.sem_chamados{
+  width:100%; 
+  background-color: #428bca; 
+  height: 100px; 
+  line-height: 100px; 
+  color: white; 
+  text-align: center; 
+  border: 1px solid #428bca; 
+  border-radius: 10px;
+}
