@@ -77,12 +77,12 @@ p {
 #logo {
   position: absolute;
   float: left;
-  left: 100px;  
+  left: 70px;  
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 3px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -102,10 +102,10 @@ p {
 
 footer {
   margin-top: 0px;
-  padding-top: 5px;
   height: 50px;
+  line-height: 50px;
   border-top: 1px solid $gray-medium-light;  
-  background-color: #fff;
+  background-color: #E5E5E5;
   color: $gray-light;
   z-index: 1000;
   position: fixed;
@@ -133,7 +133,7 @@ footer {
   }
   #link{
     position: absolute;
-    right: 100px;    
+    right: 60px;
   }
 }
 
