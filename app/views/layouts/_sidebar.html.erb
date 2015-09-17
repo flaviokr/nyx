@@ -7,13 +7,13 @@
 	     <div class="row">
 
 	       <div class="col-md-10 col-sm-10"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
-	       <% if @chamados_estourados.any? %>
+	       <% if contadorAlerta > 0 %>
 		       	<div class="bola col-md-2 col-sm-2" id="aviso_estourados">
-		       		<%= @chamados_estourados.count %>
+		       		<%= contadorAlerta %>
 		       	</div>
 	       <% else %>
 	       <% end %>      
-	      	</div>
+	       </div>
 	   	</a>
 	   	</li>
 	    <li><a href="/chamados/new"><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado</a></li>

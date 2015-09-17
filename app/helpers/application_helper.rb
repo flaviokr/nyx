@@ -9,4 +9,16 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  	def contadorAlerta
+  		x = 0
+	  @chamados_estourados.each do |e| 
+		if current_user.admin?
+			x = x + 1 
+		elsif e.encarregado_id == current_user.id
+			x = x + 1 
+	  	end
+	  end
+	  return x
+	end
 end
