@@ -15,14 +15,15 @@ class UsersController < ApplicationController
     @chamados_concluido = Array.new
 
     @chamados.each do |chamado|
-      if chamado.status == "A" && Time.now.to_i - chamado.abertura.to_i > 100
+      if chamado.status == "A" && verificaAtencao(chamado.abertura.to_i, chamado.prioridade)
         @chamados_estourados << chamado
-      elsif chamado.status == "A" && !(Time.now.to_i - chamado.abertura.to_i > 100)
+      elsif chamado.status == "A" && !(verificaAtencao(chamado.abertura.to_i, chamado.prioridade))
         @chamados_andamento << chamado
       elsif chamado.status == "C"
         @chamados_concluido << chamado
       end
     end
+
     @chamados_estourados.sort! { |a,b| b.prioridade <=> a.prioridade}   
     @chamados_andamento.sort! { |a,b| b.prioridade <=> a.prioridade} 
     @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade}   
@@ -82,5 +83,26 @@ class UsersController < ApplicationController
     
     def user_is_admin
       redirect_to(current_user) unless admin?
+    end
+
+    def verificaAtencao(tempo_abertura, prioridade)
+      t = 0
+      
+      case prioridade
+      when "1"
+       t = 360
+      when "2"
+        t = 300
+      when "3"
+        t = 240
+      when "4"
+        t = 180
+      end
+
+      if Time.now.to_i - tempo_abertura > t
+        return true
+      else
+        return false
+      end
     end
 end
