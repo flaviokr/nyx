@@ -5,31 +5,22 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @chamados_estourados = array_estourados
   end
   
   def show
     @user = User.find(params[:id])
     @chamados = Chamado.all
-    @chamados_estourados = Array.new
+    @chamados_estourados = array_estourados
     @chamados_andamento = Array.new
     @chamados_concluido = Array.new
 
-    @chamados.each do |chamado|
-      if chamado.status == "A" && verificaAtencao(chamado.abertura.to_i, chamado.prioridade)
-        @chamados_estourados << chamado
-      elsif chamado.status == "A" && !(verificaAtencao(chamado.abertura.to_i, chamado.prioridade))
-        @chamados_andamento << chamado
-      elsif chamado.status == "C"
-        @chamados_concluido << chamado
-      end
-    end
-
-    @chamados_estourados.sort! { |a,b| b.prioridade <=> a.prioridade}   
     @chamados_andamento.sort! { |a,b| b.prioridade <=> a.prioridade} 
     @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade}   
   end
 
   def new
+    @chamados_estourados = array_estourados
     @user = User.new
   end
 
@@ -44,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @chamados_estourados = array_estourados
     @user = User.find(params[:id])
   end
 
@@ -105,4 +97,19 @@ class UsersController < ApplicationController
         return false
       end
     end
+    def array_estourados
+    @chamados = Chamado.all
+    @chamados_estourados = Array.new
+    @chamados.each do |chamado|
+      if chamado.status == "A" && verificaAtencao(chamado.abertura.to_i, chamado.prioridade)
+        @chamados_estourados << chamado
+      elsif chamado.status == "A" && !(verificaAtencao(chamado.abertura.to_i, chamado.prioridade))
+        @chamados_andamento << chamado
+      elsif chamado.status == "C"
+        @chamados_concluido << chamado
+      end
+    end
+    @chamados_estourados.sort! { |a,b| b.prioridade <=> a.prioridade}
+    return @chamados_estourados
+  end
 end

@@ -5,23 +5,18 @@ class ChamadosController < ApplicationController
     @chamados = Chamado.all
     @chamados_andamento = Array.new
     @chamados_concluido = Array.new
-
-    @chamados.each do |chamado|
-      if chamado.status == "A"
-        @chamados_andamento << chamado
-      elsif chamado.status == "C"
-        @chamados_concluido << chamado
-      end
-    end
+    @chamados_estourados = array_estourados
     @chamados_andamento.sort! { |a,b| b.prioridade <=> a.prioridade} 
     @chamados_concluido.sort! { |a,b| b.prioridade <=> a.prioridade}     
   end
   
   def show
+    @chamados_estourados = array_estourados
     @chamado = Chamado.find(params[:id])
   end
   
   def new
+    @chamados_estourados = array_estourados
     gon.solicitantes = Solicitante.all
     @chamado = current_user.chamados.build
     @solicitante = Solicitante.new
@@ -54,6 +49,7 @@ class ChamadosController < ApplicationController
   end
   
   def edit
+    @chamados_estourados = array_estourados
     @chamado = Chamado.find(params[:id])
     @resolucao = Resolucao.new
   end
@@ -106,5 +102,38 @@ class ChamadosController < ApplicationController
         redirect_to(current_user)
       end
     end
+    def verificaAtencao(tempo_abertura, prioridade)
+      t = 0      
+      case prioridade
+      when "1"
+       t = 360
+      when "2"
+        t = 300
+      when "3"
+        t = 240
+      when "4"
+        t = 180
+      end
+      if Time.now.to_i - tempo_abertura > t
+        return true
+      else
+        return false
+      end
+    end
   
+  def array_estourados
+    @chamados = Chamado.all
+    @chamados_estourados = Array.new
+    @chamados.each do |chamado|
+      if chamado.status == "A" && verificaAtencao(chamado.abertura.to_i, chamado.prioridade)
+        @chamados_estourados << chamado
+      elsif chamado.status == "A" && !(verificaAtencao(chamado.abertura.to_i, chamado.prioridade))
+        @chamados_andamento << chamado
+      elsif chamado.status == "C"
+        @chamados_concluido << chamado
+      end
+    end
+    @chamados_estourados.sort! { |a,b| b.prioridade <=> a.prioridade}
+    return @chamados_estourados
+  end
 end

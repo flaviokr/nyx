@@ -1,11 +1,27 @@
-<% if !((params[:controller] == 'sessions' ) && (params[:action] == 'new' || params[:action] == 'create')) %>
-  <ul class="sidebar">
-    <a href="<%= root_url %>"><li><span class="glyphicon glyphicon-home" style="margin-right: 10px"></span>Inicial</li></a>
-    <a href="/chamados/new"><li><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado</li></a>      
-    <% if admin? %>
-      <a href="/users"><li><span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos</span></li></a>
-      <a href="/chamados"><li><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados</span></li></a>
-      <a href="/solicitantes"><li><span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes</span></li></a>
-    <% end %>
-  </ul>  
-<% end %>
+	<% if !((params[:controller] == 'sessions' ) && (params[:action] == 'new' || params[:action] == 'create')) %>
+
+	  <ul class="sidebar">
+
+	    <li><a href="<%= root_url %>">
+
+	     <div class="row">
+
+	       <div class="col-md-10 col-sm-10"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
+	       <% if @chamados_estourados.any? %>
+		       	<div class="bola col-md-2 col-sm-2" id="aviso_estourados">
+		       		<%= @chamados_estourados.count %>
+		       	</div>
+	       <% else %>
+	       <% end %>      
+	      	</div>
+	   	</a>
+	   	</li>
+	    <li><a href="/chamados/new"><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado</a></li>
+	   
+	    <% if admin? %>
+	      <li><a href="/users"><span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos</a></li>
+	      <li><a href="/chamados"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados</a></li>
+	      <li><a href="/solicitantes"><span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes</a></li>
+	    <% end %>
+	  </ul>  
+	<% end %>
