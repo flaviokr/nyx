@@ -11,6 +11,8 @@
     <%= form_for(@chamado) do |f| %>
       
       <% if !params[:concluir] %>
+      <h3>Selecionar Técnico Encarregado</h3>
+      <%= f.select :encarregado_id, User.all.collect {|s| [s.name, s.id]}, class: 'form-control' %>      
 
       <%= f.label :solicitante_id, "Selecione o solicitante" %>
       <%= f.select(:solicitante_id, Solicitante.all.collect {|s| [s.nome, s.id]}, {:prompt => @chamado.errors.full_messages_for(:solicitante_id).to_sentence}, {:class => 'form-control'})  %>

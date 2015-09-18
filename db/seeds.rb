@@ -10,6 +10,8 @@ hardware = Categoria.create(nome:'Hardware')
 software = Categoria.create(nome:'Software')
 rede = Categoria.create(nome:'Rede')
 
+User.create(rf:'0000000', name: 'Administrador',admin: true, password: '123456', email: 'adm@adm.com', celular: '0000', comunicador: '0000')
+
 Objeto.create!(nome:'Impressora', categoria: hardware)
 Objeto.create(nome:'Teclado',categoria: hardware)
 Objeto.create(nome:'Formatação',categoria: hardware)

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150916182202) do
     t.datetime "updated_at",                   null: false
     t.text     "descricao"
     t.text     "observacoes"
-    t.string   "status",         default: "E"
+    t.string   "status",         default: "A"
     t.string   "prioridade"
     t.integer  "resolucao_id"
     t.integer  "categoria_id"
@@ -43,15 +43,7 @@ ActiveRecord::Schema.define(version: 20150916182202) do
   add_index "chamados", ["solicitante_id"], name: "index_chamados_on_solicitante_id"
   add_index "chamados", ["user_id"], name: "index_chamados_on_user_id"
 
-  create_table "chamuserships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "chamado_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "chamuserships", ["chamado_id"], name: "index_chamuserships_on_chamado_id"
-  add_index "chamuserships", ["user_id"], name: "index_chamuserships_on_user_id"
+  
 
   create_table "objetos", force: :cascade do |t|
     t.string   "nome"
@@ -62,13 +54,6 @@ ActiveRecord::Schema.define(version: 20150916182202) do
 
   add_index "objetos", ["categoria_id"], name: "index_objetos_on_categoria_id"
   add_index "objetos", ["nome"], name: "index_objetos_on_nome", unique: true
-
-  create_table "objsecships", force: :cascade do |t|
-    t.integer  "objeto_id"
-    t.integer  "sector_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "resolucoes", force: :cascade do |t|
     t.datetime "created_at",                       null: false
