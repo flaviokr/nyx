@@ -8,11 +8,15 @@ class ChamadosController < ApplicationController
   end
   
   def show
+     @chamados_andamento = populaArrays("A")
+    @chamados_concluido = populaArrays("C")
     @chamados_estourados = populaArrays("E")
     @chamado = Chamado.find(params[:id])
   end
   
   def new
+     @chamados_andamento = populaArrays("A")
+    @chamados_concluido = populaArrays("C")
     @chamados_estourados = populaArrays("E")
     gon.solicitantes = Solicitante.all
     @chamado = current_user.chamados.build
@@ -44,6 +48,8 @@ class ChamadosController < ApplicationController
   end
   
   def edit
+     @chamados_andamento = populaArrays("A")
+    @chamados_concluido = populaArrays("C")
     @chamados_estourados = populaArrays("E")
     @chamado = Chamado.find(params[:id])
     @resolucao = Resolucao.new

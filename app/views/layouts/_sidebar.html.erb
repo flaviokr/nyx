@@ -6,13 +6,10 @@
 
 	     <div class="row">
 
-	       <div class="col-md-10 col-sm-10"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
-	       <% if contadorAlerta > 0 %>
-		       	<div class="bola col-md-2 col-sm-2" id="aviso_estourados">
-		       		<%= contadorAlerta %>
-		       	</div>
-	       <% else %>
-	       <% end %>      
+	       <div class="col-md-6 col-sm-6"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
+
+	       	<%= render 'chamados/counter' %>  
+	       	
 	       </div>
 	   	</a>
 	   	</li>

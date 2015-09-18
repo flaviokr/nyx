@@ -1,7 +1,6 @@
 $(document).ready(
-	function(){
-		setInterval(function(){
-			var element = document.getElementById("aviso_estourados");
-			element.innerHTML = <%= '#{contadorAlerta()}' %>;
-		}, 3000);
+    function() {
+        setInterval(function() {
+            $('#avisos').load(location.href + " #avisos");
+        }, 3000);
 });

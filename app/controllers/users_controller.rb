@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @chamados_andamento = populaArrays("A")
+    @chamados_concluido = populaArrays("C")
     @chamados_estourados = populaArrays("E")
   end
   
@@ -16,6 +18,8 @@ class UsersController < ApplicationController
   end
 
   def new
+    @chamados_andamento = populaArrays("A")
+    @chamados_concluido = populaArrays("C")
     @chamados_estourados = populaArrays("E")
     @user = User.new
   end
@@ -31,6 +35,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @chamados_andamento = populaArrays("A")
+    @chamados_concluido = populaArrays("C")
     @chamados_estourados = populaArrays("E")
     @user = User.find(params[:id])
   end

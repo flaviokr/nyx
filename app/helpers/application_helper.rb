@@ -20,4 +20,17 @@ module ApplicationHelper
     end
     return x
   end
+
+  def contadorNovos
+    x = 0
+    @chamados_andamento.each do |e| 
+      if current_user.admin?
+        x = x + 1 
+      elsif e.encarregado_id == current_user.id
+        x = x + 1 
+      end
+    end
+    return x
+  end
+
 end
