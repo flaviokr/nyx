@@ -88,6 +88,13 @@ class ChamadosController < ApplicationController
     flash[:success] = "Chamado deletado com sucesso!"
     redirect_to chamados_path
   end
+
+  def filtro
+    @chamados_andamento = populaArrays("A")
+    @chamados_concluido = populaArrays("C")
+    @chamados_estourados = populaArrays("E")
+    @chamados = Chamado.all    
+  end
   
   private
 
