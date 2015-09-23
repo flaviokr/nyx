@@ -3,24 +3,15 @@ class SolicitantesController < ApplicationController
   
   def index
     @solicitantes = Solicitante.all
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
   end
   
   def show
     @solicitante = Solicitante.find(params[:id])
     @chamados = @solicitante.chamados
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
   end
   
   def new
     @solicitante = Solicitante.new
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
   end
 
   def create
@@ -34,9 +25,6 @@ class SolicitantesController < ApplicationController
   end
   
   def edit
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
     @solicitante = Solicitante.find(params[:id])
   end
   
