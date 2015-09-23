@@ -16,6 +16,7 @@ module Shared
     @chamados.each do |chamado|
       if verificaAtencao(chamado.abertura.to_i, chamado.prioridade)
         chamado.update_attributes(status: "E")
+        UserNotifier.send_signup_email(chamado).deliver
       end
     end
   end
