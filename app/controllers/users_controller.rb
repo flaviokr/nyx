@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserNotifier.send_signup_email(@user).deliver
+      
       flash[:success] = "Técnico criado com sucesso!"
       redirect_to current_user
     else
@@ -44,6 +46,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
+      UserNotifier.send_signup_email(@user).deliver
+      
       flash[:success] = "Informações de técnico atualizadas!"
       redirect_to @user
     else

@@ -19,6 +19,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 gem 'gon'
 gem 'jquery-turbolinks'
 
+
 group :development, :test do
   gem 'sqlite3',     '1.3.10'
   gem 'byebug',      '3.4.0'
