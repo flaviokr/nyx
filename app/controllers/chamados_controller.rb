@@ -1,23 +1,15 @@
 class ChamadosController < ApplicationController
-  before_action :user_is_admin, only: [:index, :destroy]
+  before_action :user_is_admin, only: [:index, :destroy, :filtro]
   
   def index
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
+    
   end
   
   def show
-     @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
     @chamado = Chamado.find(params[:id])
   end
   
   def new
-     @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
     gon.solicitantes = Solicitante.all
     @chamado = current_user.chamados.build
     @solicitante = Solicitante.new
@@ -48,9 +40,6 @@ class ChamadosController < ApplicationController
   end
   
   def edit
-     @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
     @chamado = Chamado.find(params[:id])
     @resolucao = Resolucao.new
   end
@@ -90,9 +79,6 @@ class ChamadosController < ApplicationController
   end
 
   def filtro
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
     @chamados = Chamado.all    
   end
   

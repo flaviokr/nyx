@@ -5,22 +5,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
   end
   
   def show
     @user = User.find(params[:id])
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
   end
 
   def new
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
     @user = User.new
   end
 
@@ -37,17 +28,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @chamados_andamento = populaArrays("A")
-    @chamados_concluido = populaArrays("C")
-    @chamados_estourados = populaArrays("E")
     @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      UserNotifier.send_signup_email(@user).deliver
-      
+      UserNotifier.send_signup_email(@user).deliver      
       flash[:success] = "Informações de técnico atualizadas!"
       redirect_to @user
     else
