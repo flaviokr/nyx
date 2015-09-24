@@ -78,8 +78,8 @@ class ChamadosController < ApplicationController
     redirect_to chamados_path
   end
 
-  def filtro
-    @chamados = Chamado.all    
+  def filtro       
+    @chamados = Chamado.all
   end
   
   private

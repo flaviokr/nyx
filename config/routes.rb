@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'filtro' => 'chamados#filtro'
+  post 'filtro' => 'chamados#filtro'
   resources :users
   resources :sectors
   resources :solicitantes

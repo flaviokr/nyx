@@ -1,1 +1,54 @@
-oi
+<div class="centralizar">
+	<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+	            <th>Encarregado</th>
+	            <th>Descrição</th>
+	            <th>Subcategoria</th>
+	            <th>Setor</th>
+	            <th>Prioridade</th>
+	            <th>Status</th>
+	            <th>Aberto em</th>
+	            <th>Fechado em</th>
+            </tr>
+        </thead>
+ 
+        <tfoot>
+            <tr>
+                <th>ID</th>
+	            <th>Encarregado</th>
+	            <th>Descrição</th>
+	            <th>Subcategoria</th>
+	            <th>Setor</th>
+	            <th>Prioridade</th>
+	            <th>Status</th>
+	            <th>Aberto em</th>
+	            <th>Fechado em</th>
+            </tr>
+        </tfoot>
+ 
+        <tbody>
+            <% if @chamados %>
+	                    <% @chamados.each do |chamado| %>
+	                    <tr>
+	                        <td><%= chamado.id %></td>
+	                        <td><%= User.find(chamado.encarregado_id).name %></td>
+	                        <td><%= chamado.descricao %></td>
+	                        <td><%= chamado.objeto.nome %></td>
+	                        <td><%= chamado.solicitante.sector.nome %></td>
+	                        <td><%= "Baixa" if chamado.prioridade == '1' %>
+				                  <%= "Média" if chamado.prioridade == '2' %>
+				                  <%= "Alta" if chamado.prioridade == '3' %>
+				                  <%= "Crítica" if chamado.prioridade == '4' %></td>
+			                  <td><%= "Andamento" if chamado.status == 'A' %>
+			                  <%= "Estourado" if chamado.status == 'E' %>
+			                  <%= "Concluído" if chamado.status == 'C' %></td>
+	                        <td><%= chamado.abertura.strftime("%d/%m/%y - %H:%M") %></td>
+	                        <td><%= chamado.updated_at.strftime("%d/%m/%y - %H:%M") if chamado.status == 'C' %></td>
+	                    </tr>
+	                    <% end %>
+	                    <% end %>
+        </tbody>
+    </table>
+</div>

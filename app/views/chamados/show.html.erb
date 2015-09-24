@@ -18,11 +18,6 @@
     </li>
     
     <li class="list-group-item"><strong>Setor: </strong><%= @chamado.solicitante.sector.nome %></li>
-    <li class="list-group-item"><strong>Bairro: </strong><%= @chamado.solicitante.sector.bairro %></li>
-    <li class="list-group-item"><strong>Rua: </strong><%= @chamado.solicitante.sector.rua %></li>
-    <li class="list-group-item"><strong>Número: </strong><%= @chamado.solicitante.sector.numero %></li>
-    <% #if !@chamado.solicitante.sector.complemento.blank? %>
-      <li class="list-group-item"><strong>Complemento: </strong><%= @chamado.solicitante.sector.complemento %></li>
     <% #end %>
     <li class="list-group-item"><strong>Solicitante: </strong><%= @chamado.solicitante.nome %></li>
     <li class="list-group-item">
