@@ -1,8 +1,7 @@
 class ChamadosController < ApplicationController
   before_action :user_is_admin, only: [:index, :destroy, :filtro]
   
-  def index
-    
+  def index    
   end
   
   def show

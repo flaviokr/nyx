@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include Shared
 
-  before_filter :arrays
+  before_filter :arrays, :checaLogin
   
   private
 
@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
   	@chamados_estourados = populaArrays("E")
   end
   
-
+  def checaLogin
+    if !logged_in? && request.path != '/login'
+      redirect_to login_path
+    end
+  end
 end
