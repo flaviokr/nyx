@@ -13,12 +13,12 @@ $(document).ready(function() {
                         column
                             .search( val ? '^'+val+'$' : '', true, false )
                             .draw();
-                    } );
- 
+                    } );                
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )
                 } );
             } );
         }
     } );
+
 } );
