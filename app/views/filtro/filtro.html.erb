@@ -47,14 +47,20 @@
 			  <%= "Andamento" if chamado.status == 'A' %>
 			  <%= "Estourado" if chamado.status == 'E' %>
 			  <%= "Concluído" if chamado.status == 'C' %></td>
-	        <td><%= chamado.abertura.strftime("%d/%m/%y - %H:%M") %></td>
-	        <td><%= chamado.updated_at.strftime("%d/%m/%y - %H:%M") if chamado.status == 'C' %></td>
+	        <td class="abertura"><%= chamado.abertura.strftime("%y/%m/%d %H:%M:%S") %></td>
+	        <td  class="encerramento"><%= chamado.updated_at.strftime("%y/%m/%d %H:%M:%S") if chamado.status == 'C' %></td>
 	      </tr>
 	    <% end %>
 	  <% end %>
     </tbody>
   </table>
 
-<h3>Tempo médio de chamado (pelo filtro):</h3>
-  <h3>Número de chamados (pelo filtro):</h3>
+  <div class="row">
+  	<div class="col-md-8"><h3>Tempo médio de chamado (pelo filtro):</h3></div>
+  	<div class="col-md-1"><h2><div id="tempo_medio"> </div></h2></div>
+  </div>
+  <div class="row">
+  	<div class="col-md-8"><h3>Número de chamados (pelo filtro):</h3></div>
+  	<div class="col-md-1"><h2><div id="n_chamados"> </div></h2></div>
+  </div>
 </div>

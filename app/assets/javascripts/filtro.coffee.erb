@@ -1,0 +1,17 @@
+#$(document).on 'ready page:load',->
+#  <% @chamados = Chamado.all %>
+
+#  hash = [
+#      <% @chamados.each do |chamado| %>
+#      {
+#      	contador: '<%= Chamado.all.count %>', encarregado: '<%= User.find(chamado.encarregado_id).name %>', descricao: '<%= chamado.descricao %>', subcategoria: '<%= chamado.objeto.nome %>', setor: '<%= chamado.solicitante.sector.nome %>', abertura: '<%= chamado.abertura %>', encerramento: '<%= chamado.updated_at %>', prioridade: '<%= chamado.prioridade %>', status: '<%= chamado.status %>'
+#  		}
+#      <% end %>
+#    ]
+
+#  Morris.Bar
+#    element: 'grafico'
+#    data: hash
+#    xkey: 'subcategoria'
+#    ykeys: ['contador']
+#    labels: ['Chamados por subcategoria']

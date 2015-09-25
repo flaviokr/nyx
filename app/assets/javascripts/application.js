@@ -15,5 +15,6 @@
 //= require bootstrap
 //= require raphael
 //= require morris
+//= require moment
 //= require dataTables
 //= require_tree .
