@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require raphael
 //= require morris
+//= require dataTables
 //= require_tree .
