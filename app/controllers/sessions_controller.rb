@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+  skip_before_filter :checaLogin
   def new
     redirect_to current_user if logged_in?
   end
