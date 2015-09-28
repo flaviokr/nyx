@@ -9,6 +9,9 @@ $(document).change(function() {
 
 	media = media/array_abertura.length;
 
-	$('#tempo_medio').html(parseInt(media/3600) + "&nbsp;horas&nbspe&nbsp;" + parseInt(media/60) + "&nbsp;minutos");
+	media_horas = media/3600;
+	media_min = parseInt((media%3600)*60/3600);
+
+	$('#tempo_medio').html(parseInt(media_horas) + "&nbsp;horas&nbspe&nbsp;" + media_min + "&nbsp;minutos");
 	$('#n_chamados').html(array_abertura.length);
 });
