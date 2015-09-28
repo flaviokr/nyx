@@ -1,41 +1,35 @@
 <% provide(:title, "Filtro de Chamado") %>
 <h1 style="margin-left: 110px;">Filtro de Chamados</h1>
-<div class="centralizar">
-  <!-- <div id="grafico"></div> -->  
-  <table id="filtro" class="display" cellspacing="0" width="100%">
+<div class="row">
+<div class="col-md-8">
+  <table id="filtro" class="display" cellspacing="0" width="100">
     <thead>
       <tr>
-        <th>ID</th>
 	    <th>Encarregado</th>
-	    <th>Descrição</th>
 	    <th>Subcategoria</th>
 	    <th>Setor</th>
 	    <th>Prioridade</th>
 	    <th>Status</th>
-	    <th>Aberto em</th>
-	    <th>Fechado em</th>
+	    <th>Abertura</th>
+	    <th>Encerramento</th>
       </tr>
     </thead> 
     <tfoot>
       <tr>
-        <th>ID</th>
 	    <th>Encarregado</th>
-	    <th>Descrição</th>
 	    <th>Subcategoria</th>
 	    <th>Setor</th>
 	    <th>Prioridade</th>
 	    <th>Status</th>
-	    <th>Aberto em</th>
-	    <th>Fechado em</th>
+	    <th>Abertura</th>
+	    <th>Encerramento</th>
       </tr>
     </tfoot>
     <tbody>
       <% if @chamados %>
 	    <% @chamados.each do |chamado| %>
 	      <tr>
-	        <td><%= chamado.id %></td>
 	        <td><%= User.find(chamado.encarregado_id).name %></td>
-	        <td><%= chamado.descricao %></td>
 	        <td><%= chamado.objeto.nome %></td>
 	        <td><%= chamado.solicitante.sector.nome %></td>
 	        <td>
@@ -53,14 +47,13 @@
 	    <% end %>
 	  <% end %>
     </tbody>
-  </table>
+  </table>  
+</div>
 
-  <div class="row">
-  	<div class="col-md-8"><h3>Tempo médio de chamado (pelo filtro):</h3></div>
-  	<div class="col-md-1"><h2><div id="tempo_medio"> </div></h2></div>
-  </div>
-  <div class="row">
-  	<div class="col-md-8"><h3>Número de chamados (pelo filtro):</h3></div>
-  	<div class="col-md-1"><h2><div id="n_chamados"> </div></h2></div>
-  </div>
+<div class="col-md-4">
+ <h3>Tempo médio de chamado (pelo filtro):</h3>
+ <h2><div id="tempo_medio"> </div></h2>
+ <h3>Número de chamados (pelo filtro):</h3>
+ <h2><div id="n_chamados"> </div></h2>
+</div>
 </div>

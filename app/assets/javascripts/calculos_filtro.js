@@ -8,7 +8,7 @@ $(document).change(function() {
 	}
 
 	media = media/array_abertura.length;
-	
-	$('#tempo_medio').html(parseInt(media/60) + "&nbsp;minutos");
+
+	$('#tempo_medio').html(parseInt(media/3600) + "&nbsp;horas&nbspe&nbsp;" + parseInt(media/60) + "&nbsp;minutos");
 	$('#n_chamados').html(array_abertura.length);
 });

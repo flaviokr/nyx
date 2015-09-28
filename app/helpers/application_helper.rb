@@ -37,4 +37,9 @@ module ApplicationHelper
     return x
   end
 
+  def checaSidebar
+    # Retorna true se estiver em uma pagina que nao deve ter sidebar
+    (params[:controller] == 'sessions' || params[:controller] == 'filtro') && (params[:action] == 'new' || params[:action] == 'create' || params[:action] == 'filtro')
+  end
+
 end
