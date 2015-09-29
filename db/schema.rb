@@ -11,8 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916182202) do
-
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,7 +32,8 @@ ActiveRecord::Schema.define(version: 20150916182202) do
     t.integer  "categoria_id"
     t.integer  "encarregado_id"
     t.datetime "abertura"
-  end
+    t.boolean  "estourado",      default: false
+
 
   add_index "chamados", ["categoria_id"], name: "index_chamados_on_categoria_id"
   add_index "chamados", ["encarregado_id"], name: "index_chamados_on_encarregado_id"

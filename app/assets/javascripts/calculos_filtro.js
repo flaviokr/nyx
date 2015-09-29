@@ -24,12 +24,10 @@ function calcular() {
 			abr = moment(array_abertura[i].innerHTML).unix()
 	    media = media + enc - abr;
 		}
-	}
-	
+	}	
 	
 	media = media/(array_abertura.length - contador);
-	if (isNaN(media)) media = 0;
-	
+	if (isNaN(media)) media = 0;	
 
 	media_horas = media/3600;
 	media_min = parseInt((media%3600)*60/3600);

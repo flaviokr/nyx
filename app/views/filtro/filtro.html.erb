@@ -12,6 +12,7 @@
 	    <th>Status</th>
 	    <th>Abertura</th>
 	    <th>Encerramento</th>
+	    <th>Estourado?</th>
       </tr>
     </thead> 
     <tfoot>
@@ -23,6 +24,7 @@
 	    <th>Status</th>
 	    <th>Abertura</th>
 	    <th>Encerramento</th>
+	    <th>Estourado?</th>
       </tr>
     </tfoot>
     <tbody>
@@ -32,7 +34,7 @@
 	        <td><%= User.find(chamado.encarregado_id).name %></td>
 	        <td><%= chamado.objeto.nome %></td>
 	        <td><%= chamado.solicitante.sector.nome %></td>
-	        <td>
+	        <td class="prioridade">
 	          <%= "Baixa" if chamado.prioridade == '1' %>
 			  <%= "Média" if chamado.prioridade == '2' %>
 			  <%= "Alta" if chamado.prioridade == '3' %>
@@ -43,6 +45,7 @@
 			  <%= "Concluído" if chamado.status == 'C' %></td>
 	        <td class="abertura"><%= chamado.abertura.strftime("%Y/%m/%d %H:%M") %></td>
 	        <td  class="encerramento"><%= chamado.updated_at.strftime("%Y/%m/%d %H:%M") if chamado.status == 'C' %></td>
+	        <td><%= chamado.estourado ? "Sim" : "Não" %></td>
 	      </tr>
 	    <% end %>
 	  <% end %>
@@ -55,6 +58,7 @@
  <h1>Dashboard</h1>
  <h3>Tempo médio de chamado (pelo filtro): <span id="tempo_medio"> </span></h3>
  <h3>Número de ocorrências filtradas: <span id="n_chamados"> </span></h3>
+ <h3>Número de chamados estourados (pelo filtro): <span id="n_estourados"> </span></h3>
 <div style="height: 1000px"></div>
 </div>
 </div>
