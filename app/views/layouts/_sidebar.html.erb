@@ -1,33 +1,28 @@
-
-	  <ul class="sidebar">
-
-	    <a href="<%= root_url %>"><li>
-
-	     <div class="row">
-
-	       <div class="col-md-6 col-sm-6"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
-
-	       	<%= render 'chamados/counter' %>  
-	       	
-	       </div>
-	   	</li></a>
-	   	
-	    <a href="/chamados/new"><li><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado</li></a>
-	   
-	    <% if admin? %>
-	      <a href="/users"><li><span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos</li></a>
-	      <li><div class="row">
-	      	<div class="col-md-8">
-	      <a href="/chamados"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados</a>
-	      	</div>
-	      <div id="showmenu" class="glyphicon glyphicon-chevron-down col-md-2"></div>
-	      </div></li>
-	      	<ul class="menu" style="display: none; position: relative;">
-	      		<a href=""><li><span class="glyphicon glyphicon-chevron-right"></span> estourados</li></a>
-	      		<a href=""><li><span class="glyphicon glyphicon-chevron-right"></span> pendentes</li></a>
-	      		<a href=""><li><span class="glyphicon glyphicon-chevron-right"></span> concluidos</li></a>
-	      	</ul>
-	      	
-	      <a href="/solicitantes"><li><span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes</li></a>
-	    <% end %>
-	  </ul>  
+<ul class="sidebar">
+  <a href="<%= root_url %>">
+  	<li>
+   		<div class="row">
+	     	<div class="col-md-6 col-sm-6"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
+	     	<%= render 'chamados/counter' %>  
+     	</div>
+ 		</li>
+ 	</a>
+  <a href="/chamados/new"><li><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado</li></a>
+ 
+  <% if admin? %>
+    <a href="/users"><li><span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos</li></a>
+    <li><div class="row">
+    	<div class="col-md-8">
+    <a href="/chamados"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados</a>
+    	</div>
+    <div id="showmenu" class="glyphicon glyphicon-chevron-down col-md-4"></div>
+    </div></li>
+    	<ul class="menu" style="display: none; position: relative;">
+    		<a href="/chamados?tipo=estourados"><li><span class="glyphicon glyphicon-chevron-right"></span> estourados</li></a>
+    		<a href="/chamados?tipo=pendentes"><li><span class="glyphicon glyphicon-chevron-right"></span> pendentes</li></a>
+    		<a href="/chamados?tipo=concluidos"><li><span class="glyphicon glyphicon-chevron-right"></span> concluidos</li></a>
+    	</ul>
+    	
+    <a href="/solicitantes"><li><span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes</li></a>
+  <% end %>
+</ul>
