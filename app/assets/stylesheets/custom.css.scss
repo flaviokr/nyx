@@ -216,48 +216,39 @@ input {
   background-color: #666;
   position: fixed;
   z-index: 1;
-  left: -40px; 
+  left: -40px;    
    
     li{  
       background-color: #666;
       padding: 20px;
+      text-decoration: none;
       font-weight: bold;
       color: white;
       width: 100%;
-      height: 60px;
-      position: relative;  
-      
-      ul {
-        display: none;
-        list-style-type: none;
-      }
-
+      height: 60px; 
+      list-style-type: none;
     }
 
     li:hover{      
       background-color: white;
-      text-align: left;
+      text-decoration: none;
       color: black;
       font-weight: bold;
       width: 100%;
-      height: auto;
+      height: 60px;
+      
+      border-radius: 20px;
+      margin-left: 20px;
+      
+      -webkit-transform:scale(1.15, 1.15);
+    -moz-transform:scale(1.15, 1.15);
+    -o-transform:scale(1.15, 1.15);
+    -ms-transform:scale(1.15, 1.15);
+    transform:scale(1.15, 1.15);
 
       a {
       color: black;
       }      
-      ul{
-        li{
-          color: black;
-          background: blue;
-          text-align: left;
-        }
-      }
-    }
-
-    .plus{
-      margin-left: 100px;
-      position: relative;
-      cursor: pointer;
     }
 
     a{
@@ -269,6 +260,14 @@ input {
       background: red;
       border-radius: 10px;
     }    
+  }
+  
+  .glyphicon:hover{
+    -webkit-transform:scale(1.15, 1.15);
+    -moz-transform:scale(1.15, 1.15);
+    -o-transform:scale(1.15, 1.15);
+    -ms-transform:scale(1.15, 1.15);
+    transform:scale(1.15, 1.15);
   }
 
 /* Users index */
@@ -408,4 +407,8 @@ input {
 }
 .filterable .filters input[disabled]:-ms-input-placeholder {
     color: #333;
+}
+
+#showmenu {
+  cursor: pointer;
 }
