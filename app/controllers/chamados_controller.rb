@@ -1,8 +1,7 @@
 class ChamadosController < ApplicationController
   before_action :user_is_admin, only: [:index, :destroy, :filtro]
   
-  def index
-    
+  def index    
   end
   
   def show
@@ -76,10 +75,6 @@ class ChamadosController < ApplicationController
     Chamado.find(params[:id]).destroy
     flash[:success] = "Chamado deletado com sucesso!"
     redirect_to chamados_path
-  end
-
-  def filtro       
-    @chamados = Chamado.all
   end
   
   private

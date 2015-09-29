@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery ->
-$(document).on 'ready page:load', ->
+$(document).on 'ready page:load', ->	
 	if window.location.href.indexOf("edit") == -1
 		$("label[for='chamado_objeto_id']").hide()
 		$('#chamado_objeto_id').hide()

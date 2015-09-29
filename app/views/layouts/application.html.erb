@@ -11,8 +11,13 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <% if !checaSidebar %>
     <%= render 'layouts/sidebar' %>
-    <div class="container" style="width: 700px; margin-left: auto; margin-right: auto; padding-bottom: 100px;">    	 
+      <div class="container" style="width: 700px; margin-left: auto; margin-right: auto; padding-bottom: 100px;"> 
+    <% else %>
+      <div class="container">
+    <% end %>
+     	 
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
