@@ -2,23 +2,37 @@
 
 	  <ul class="sidebar">
 
-	    <li><a href="<%= root_url %>">
-
+	    <a href="<%= root_url %>">
+	    <li>
 	     <div class="row">
-
 	       <div class="col-md-6 col-sm-6"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
-
 	       	<%= render 'chamados/counter' %>  
-	       	
 	       </div>
-	   	</a>
 	   	</li>
-	    <li><a href="/chamados/new"><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado</a></li>
+	   	</a>
+	    <a href="/chamados/new"><li><span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Cadastrar novo chamado
+	    </li></a>
 	   
 	    <% if admin? %>
-	      <li><a href="/users"><span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos</a></li>
-	      <li><a href="/chamados"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados</a></li>
-	      <li><a href="/solicitantes"><span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes</a></li>
+	      	<a href="/users">
+	      		<li id="user"><span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos
+	      		</li>
+	      	</a>
+	      		<li>
+	      		<a href="/chamados">
+	      		<span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados</a>
+	      		</button>	
+	      			<ul class="op-chamados">
+            			<li>Estourado</li>
+            			<li>Em andamento</li>
+            			<li>Concluído</li>
+        			</ul>
+        			<span class="glyphicon glyphicon-chevron-down plus" id="cham"></span>
+        		</li>
+	      	<a href="/solicitantes">
+	      		<li class="lucas-chato"><span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes
+	      		</li>
+	      	</a>
 	    <% end %>
 	  </ul>  
 	<% end %>
