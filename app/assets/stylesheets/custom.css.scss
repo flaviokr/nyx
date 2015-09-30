@@ -252,6 +252,10 @@ input {
       #titulo_icone {
         margin-top: -5px;
       }
+
+      .bola{
+      margin-left: 60px;
+      }
     }
 
     a{
@@ -261,6 +265,7 @@ input {
     .bola{
       width: 20px;
       background: red;
+      margin-left: 90px;
       border-radius: 10px;
     }
 
@@ -268,7 +273,12 @@ input {
       cursor: pointer;
     }
 }    
-  
+
+.avisos {
+  #aviso_novos {
+    margin-left: -65px;
+  }
+}
   .glyphicon:hover{
     -webkit-transform:scale(1.15, 1.15);
   }
