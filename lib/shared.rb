@@ -26,13 +26,13 @@ module Shared
     t = 0      
     case prioridade
      when "1"
-      t = 360
+      t = 28800
      when "2"
-      t = 300
+      t = 14400
     when "3"
-      t = 240
+      t = 3600
     when "4"
-      t = 180
+      t = 900
     end
 
     if Time.now.to_i - tempo_abertura > t
