@@ -259,16 +259,19 @@ input {
       text-decoration: none;
     }
     .bola{
-      width: 20px;
+      width: 30px;
       background: red;
       border-radius: 10px;
+      display: inline-block;
+      text-align: center;
+      margin-left: 60px;
     }
 
     #showmenu {
       cursor: pointer;
     }
 }    
-  
+
   .glyphicon:hover{
     -webkit-transform:scale(1.15, 1.15);
   }
