@@ -5,7 +5,18 @@ $(function() {
 
 $(document).change(function() {
 	calcular();
+	calcular_intervalo();
 });
+
+function calcular_intervalo() {
+	var tabela = $('#filtro');
+	var linhas = $('#filtro tbody tr');
+	var data_inicio;
+	var data_fim;
+	var resultado;
+	
+	// alert(linhas.length)
+}
 
 function calcular() {
 	var array_abertura = $('#filtro td.abertura');
