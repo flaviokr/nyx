@@ -1,6 +1,7 @@
 $(function() {
 	$('#n_chamados').html($('#filtro td.abertura').length);
 	calcular();
+	$('input[name="daterange"]').daterangepicker();
 });
 
 $(document).change(function() {

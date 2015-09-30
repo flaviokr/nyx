@@ -17,4 +17,5 @@
 //= require morris
 //= require moment
 //= require dataTables
+//= require daterangepicker
 //= require_tree .
