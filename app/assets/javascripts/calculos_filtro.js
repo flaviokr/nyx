@@ -1,21 +1,38 @@
 $(function() {
 	$('#n_chamados').html($('#filtro td.abertura').length);
 	calcular();
-	$('input[name="daterange"]').daterangepicker();
+	$('#daterange').daterangepicker();
+	calcular_intervalo();
 });
 
 $(document).change(function() {
 	calcular();
-	calcular_intervalo();
 });
 
 function calcular_intervalo() {
+	var range = $('#daterange');
 	var tabela = $('#filtro');
 	var linhas = $('#filtro tbody tr');
 	var data_inicio;
 	var data_fim;
 	var resultado;
+	var contador = 0;
 	
+	$('#daterange').on('apply.daterangepicker', function(ev, picker) {
+    	data_inicio = picker.startDate;
+    	data_fim = picker.endDate;
+    	linhas.each(function() {
+    		var string_data = $(this).find('td.abertura').text().substring(0, 10);
+    		var moment_data = moment(string_data);
+			if ((moment_data <= data_fim && moment_data >= data_inicio)){  //se nao esta dentro
+				$(this).show();
+				contador++;
+			} else {
+				$(this).hide();
+			}
+    	})
+    	$('#resultado').html(contador);
+});
 	// alert(linhas.length)
 }
 
