@@ -5,6 +5,7 @@
   <table id="filtro" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>
+        <th>Link</th>
 	    <th>Encarregado</th>
 	    <th>Subcategoria</th>
 	    <th>Setor</th>
@@ -17,6 +18,7 @@
     </thead> 
     <tfoot>
       <tr>
+      	<th>Link</th>
 	    <th>Encarregado</th>
 	    <th>Subcategoria</th>
 	    <th>Setor</th>
@@ -31,6 +33,7 @@
       <% if @chamados %>
 	    <% @chamados.each do |chamado| %>
 	      <tr>
+	      	<th><%= link_to chamado.id, chamado %></th>
 	        <td><%= User.find(chamado.encarregado_id).name %></td>
 	        <td><%= chamado.objeto.nome %></td>
 	        <td><%= chamado.solicitante.sector.nome %></td>
@@ -45,7 +48,7 @@
 			  <%= "Concluído" if chamado.status == 'C' %></td>
 	        <td class="abertura"><%= chamado.abertura.strftime("%Y/%m/%d %H:%M") %></td>
 	        <td  class="encerramento"><%= chamado.updated_at.strftime("%Y/%m/%d %H:%M") if chamado.status == 'C' %></td>
-	        <td><%= chamado.estourado ? "Sim" : "Não" %></td>
+	        <td class="estourado"><%= chamado.estourado ? "Sim" : "Não" %></td>
 	      </tr>
 	    <% end %>
 	  <% end %>
