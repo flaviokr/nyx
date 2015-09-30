@@ -2,6 +2,14 @@
 <h1>Filtro de Chamados</h1>
 <div class="row centralizar">
 <div class="col-md-12">
+  <table>
+    <tr>
+      <td><div id="seletor_datas">
+      <strong>Filtrar por intervalo</strong>
+			<input id="daterange"> </input>
+		</div></td>
+    </tr>
+  </table>
   <table id="filtro" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>
@@ -60,14 +68,7 @@
 	<h1>Dashboard</h1>
 	<h3>Tempo médio de chamado (pelo filtro): <span id="tempo_medio"> </span></h3>
 	<h3>Número de ocorrências filtradas: <span id="n_chamados"> </span></h3>
-	<h3>Número de chamados estourados (pelo filtro): <span id="n_estourados"> </span></h3>
-	<h3>
-		Chamados filtrados no intervalo
-		<div id="seletor_datas">
-			<input id="daterange"> </input>
-		</div>
-		: <span id="resultado"> </span>
-	</h3>
+	<h3>Número de chamados concluídos estourados (pelo filtro): <span id="n_estourados"> </span></h3>
 	<div style="height: 1000px"></div>
 </div>
 	
