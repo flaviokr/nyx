@@ -38,8 +38,8 @@
       <li><b>Categoria: </b><%= @chamado.categoria.nome %></li>
       <li><b>Subcategoria: </b><%= @chamado.objeto.nome %></li>
       
-      <li><b>Abertura: </b><%= @chamado.created_at.to_s.chomp(' -0300').strftime("%d/%m/%y - %H:%M") %></li>
-      <li><b>Última Atualização: </b><%= @chamado.updated_at.to_s.chomp(' -0300') %></li>
+      <li><b>Abertura: </b><%= @chamado.abertura.strftime("%d/%m/%y - %H:%M") %></li>
+      <li><b>Última Atualização: </b><%= @chamado.updated_at.strftime("%d/%m/%y - %H:%M") %></li>
     </ul>
     
     <ul>
