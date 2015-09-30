@@ -29,8 +29,8 @@
   <div class="col-md-6">
     <li class="list-group-item"><strong>Subcategoria: </strong><%= @chamado.objeto.nome %></li>
     <li class="list-group-item"><strong>Descrição: </strong><%= @chamado.descricao %></li>
-    <li class="list-group-item"><strong>Abertura: </strong><%= @chamado.created_at.to_s.chomp(' -0300') %></li>
-    <li class="list-group-item"><strong>Última Atualização: </strong><%= @chamado.updated_at.to_s.chomp(' -0300') %></li>
+    <li class="list-group-item"><strong>Abertura: </strong><%= @chamado.abertura.strftime("%d/%m/%y - %H:%M") %></li>
+    <li class="list-group-item"><strong>Última Atualização: </strong><%= @chamado.updated_at.strftime("%d/%m/%y - %H:%M") %></li>
     <li class="list-group-item">
       <strong>Canal do contato: </strong>
       <%= "Email" if @chamado.canal_contato == 'E' %>
