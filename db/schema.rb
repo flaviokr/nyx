@@ -11,6 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20150929185811) do
+
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,8 +24,8 @@
     t.integer  "user_id"
     t.integer  "objeto_id"
     t.integer  "solicitante_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.text     "descricao"
     t.text     "observacoes"
     t.string   "status",         default: "A"
@@ -33,7 +35,7 @@
     t.integer  "encarregado_id"
     t.datetime "abertura"
     t.boolean  "estourado",      default: false
-
+  end
 
   add_index "chamados", ["categoria_id"], name: "index_chamados_on_categoria_id"
   add_index "chamados", ["encarregado_id"], name: "index_chamados_on_encarregado_id"

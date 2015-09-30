@@ -237,19 +237,21 @@ input {
       font-weight: bold;
       width: 100%;
       
-      
       border-radius: 50px;
       margin-left: 20px;
       
       -webkit-transform:scale(1.15, 1.15);
-      -moz-transform:scale(1.15, 1.15);
-      -o-transform:scale(1.15, 1.15);
-      -ms-transform:scale(1.15, 1.15);
-      transform:scale(1.15, 1.15);
 
       a {
       color: black;
-      }      
+      }
+
+      #showmenu {
+        margin-left: 30px;
+      }
+      #titulo_icone {
+        margin-top: -5px;
+      }
     }
 
     a{
@@ -260,15 +262,15 @@ input {
       width: 20px;
       background: red;
       border-radius: 10px;
-    }    
-  }
+    }
+
+    #showmenu {
+      cursor: pointer;
+    }
+}    
   
   .glyphicon:hover{
     -webkit-transform:scale(1.15, 1.15);
-    -moz-transform:scale(1.15, 1.15);
-    -o-transform:scale(1.15, 1.15);
-    -ms-transform:scale(1.15, 1.15);
-    transform:scale(1.15, 1.15);
   }
 
 /* Users index */
@@ -408,8 +410,4 @@ input {
 }
 .filterable .filters input[disabled]:-ms-input-placeholder {
     color: #333;
-}
-
-#showmenu {
-  cursor: pointer;
 }
