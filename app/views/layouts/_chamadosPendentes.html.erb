@@ -1,6 +1,5 @@
 <% provide(:title, 'Chamados Pendentes') %>
 <h1>Chamados Pendentes</h1>
-<%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default subtitulo" %>
 <% if @chamados_andamento.any? %>
   <ul class="listar_no_border">
     <p><strong>Chamados pendentes: </strong></p>
