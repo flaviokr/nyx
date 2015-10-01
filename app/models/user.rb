@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :chamados
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  #VALID_RF_REGEX = /[XFxf]+[0-9]/
   
   before_save { self.email = email.downcase }
   before_save { self.rf = rf.downcase }
