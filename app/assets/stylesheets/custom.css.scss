@@ -252,10 +252,13 @@ input {
       #titulo_icone {
         margin-top: -5px;
       }
-
-      .bola{
-      margin-left: 60px;
+      .avisos{
+        margin-right: 20px;
       }
+    }
+    
+    .avisos{
+      margin-right: -15px;
     }
 
     a{
@@ -265,11 +268,19 @@ input {
     .bola{
       width: 30px;
       background: red;
-      margin-left: 90px;
       border-radius: 10px;
-      display: inline-block;
       text-align: center;
-      margin-left: 92px;
+      float: right;
+      position: relative;
+    }
+    
+    .bola1{
+      width: 30px;
+      background: blue;
+      border-radius: 10px;
+      text-align: center;
+      float: right;
+      position: relative;
     }
 
     #showmenu {
@@ -277,11 +288,6 @@ input {
     }
 }    
 
-.avisos {
-  #aviso_novos {
-    margin-left: -65px;
-  }
-}
   .glyphicon:hover{
     -webkit-transform:scale(1.15, 1.15);
   }
