@@ -48,14 +48,7 @@
         <%= "Em andamento" if @chamado.status == 'A' %>
         <%= "Em espera" if @chamado.status == 'E' %>
       </li>
-        
-      <li><b>Resolvido?: </b>
-        <% if !@chamado.resolucao.blank? %>
-          <%= "Sim" if @chamado.resolucao.resolvido %>
-          <%= "Não" if !@chamado.resolucao.resolvido %>
-        <% end %>
-      </li>
-        
+
       <% #if !@chamado.observacoes.blank? %>
         <li><b>Observações: </b><%= @chamado.observacoes %></li>
       <% #end %>
