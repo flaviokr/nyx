@@ -12,7 +12,7 @@ class UserNotifier < ActionMailer::Base
   def send_signup_email(chamado)
     # @user = user
     @chamado = chamado
-    mail( :to => 'rodrigo25.25@gmail.com',
+    mail( :to => 'eltonsilva@prefeitura.sp.gov.br',
     :subject => "[Suporte Informática] Chamado #{@chamado.id} em estado de Alerta!" )
   end
 end
