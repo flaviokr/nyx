@@ -15,7 +15,8 @@ class ChamadosController < ApplicationController
     @objetos = Objeto.all
   end
 
-  def create    
+  def create
+    gon.solicitantes = Solicitante.all
     @solicitante = Solicitante.new(params.require(:solicitante).permit(:sector_id, :rf, :nome, :email, :ramal))
     @solicitante_conferir = Solicitante.where("rf = :rf", { rf: @solicitante.rf }).take
     
@@ -35,6 +36,10 @@ class ChamadosController < ApplicationController
       redirect_to current_user
     else
       render 'new'
+      @solicitante = nil if @solicitante
+      @solicitante_conferir = nil if @solicitante_conferir
+      @chamado = nil if @chamado
+      @categoria = nil if @categoria
     end
   end
   
@@ -83,7 +88,7 @@ class ChamadosController < ApplicationController
       params.require(:chamado).permit(:objeto_id, 
                                       :canal_contato, :status, :categoria_id, 
                                       :prioridade, :descricao, 
-                                      :observacoes, :status, :resolucao_id, :solicitante_id, :encarregado_id, :abertura)
+                                      :observacoes, :status, :resolucao_id, :encarregado_id, :abertura)
     end
        
     def user_is_admin

@@ -9,7 +9,7 @@
       <%= f.text_field :name, class: 'form-control', autofocus: true, :placeholder => @user.errors.full_messages_for(:name).to_sentence %>
       
       <%= f.label :rf, "RF" %>
-      <%= f.text_field :rf, class: 'form-control', :placeholder => @user.errors.full_messages_for(:rf).to_sentence, maxlength: 7 %>
+      <%= f.text_field :rf, class: 'form-control', :placeholder => @user.errors.full_messages_for(:rf).to_sentence, maxlength: 7, :disabled => true %>
 
       <%= f.label :email, "Endereço de email" %>
       <%= f.email_field :email, class: 'form-control', :placeholder => @user.errors.full_messages_for(:email).to_sentence %>

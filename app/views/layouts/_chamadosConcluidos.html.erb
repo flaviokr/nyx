@@ -1,3 +1,5 @@
+<% provide(:title, 'Chamados Concluídos') %>
+<h1>Chamados Concluídos</h1>
 <% if @chamados_concluido.any? %>
   <ul class="listar_no_border">
     <p><strong>Chamados concluídos: </strong></p>
@@ -40,4 +42,8 @@
       </li>
     <% end %>
   </ul>
+<% else %>
+	<div class="sem_chamados">
+		Não há chamados concluidos
+	</div>
 <% end %>
