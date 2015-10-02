@@ -2,7 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'ready page:load', ->	
+
+$(document).on 'ready page:load', ->
+	
+	#if window.location.href.indexOf("chamados") isnt -1
+		#$('#solicitante_nome').prop("disabled", true)
+		#$('#solicitante_sector_id').prop("disabled", true)
+		#$('#solicitante_email').prop("disabled", true)
+		#$('#solicitante_ramal').prop("disabled", true)
+ 
 	if window.location.href.indexOf("edit") == -1
 		$("label[for='chamado_objeto_id']").hide()
 		$('#chamado_objeto_id').hide()

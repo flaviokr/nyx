@@ -1,6 +1,6 @@
 #class UserNotifier < ApplicationMailer
 class UserNotifier < ActionMailer::Base
-  default :from => 'testenyx@gmail.com'
+  default :from => 'sistemanyx@gmail.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   # def send_signup_email(user)
@@ -13,6 +13,6 @@ class UserNotifier < ActionMailer::Base
     # @user = user
     @chamado = chamado
     mail( :to => 'rodrigo25.25@gmail.com',
-    :subject => "Chamado #{@chamado.id} em estado de Alerta!" )
+    :subject => "[Suporte Informática] Chamado #{@chamado.id} em estado de Alerta!" )
   end
 end
