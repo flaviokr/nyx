@@ -2,14 +2,15 @@
 <h1>Filtro de Chamados</h1>
 <div class="row centralizar">
 <div class="col-md-12">
-  <table>
-    <tr>
-      <td><div id="seletor_datas">
-      <strong>Filtrar por intervalo</strong>
-			<input id="daterange"> </input>
-		</div></td>
-    </tr>
-  </table>
+	<div id="resetar">
+		<input type="button" class="btn btn-primary" value="Resetar Filtro" onClick="location.reload();"></input>
+	</div>
+	<div id="seletor_datas">
+		<strong>Filtrar por intervalo</strong>
+		<input id="daterange"> </input>
+	</div>
+	
+
   <table id="filtro" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>

@@ -1,6 +1,5 @@
 <% provide(:title, 'Todos os Chamados') %>
 <h1>Todos os Chamados</h1>
-<%= link_to "Cadastrar novo chamado",   new_chamado_path, class: "btn btn-default subtitulo" %>
 <% if @chamados_estourados.any? %>
   <ul class="listar_no_border">
     <p><strong>Chamados estourados: </strong></p>

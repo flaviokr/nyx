@@ -357,7 +357,6 @@ input {
   height: 28px;
   padding-top: 3px;
   background-color: #336699;
-  border-color: #555599;
 }
 
 .div-overflow {
@@ -432,6 +431,11 @@ input {
 }
 
 #seletor_datas{
-  display: inline-block;
-  width: auto;
+  width: 300px;
+  float: left;
+}
+
+#resetar{
+  width: 300px;
+  margin: auto;
 }
