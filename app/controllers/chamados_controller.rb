@@ -19,27 +19,36 @@ class ChamadosController < ApplicationController
     gon.solicitantes = Solicitante.all
     @solicitante = Solicitante.new(params.require(:solicitante).permit(:sector_id, :rf, :nome, :email, :ramal))
     @solicitante_conferir = Solicitante.where("rf = :rf", { rf: @solicitante.rf }).take
-    
-    if @solicitante_conferir && @solicitante.rf == @solicitante_conferir.rf
-      @solicitante.id = @solicitante_conferir.id
-    elsif
-      @solicitante.save
-    end    
     @chamado = current_user.chamados.build(chamado_params)
-    if !params[:chamado][:categoria_id].blank?
-      @categoria = Categoria.find(params[:chamado][:categoria_id])
-      @chamado.update_attribute(:categoria_id, @categoria.id)
-    end
-
-    if @chamado.save
-      @chamado.update_attribute(:solicitante_id, @solicitante.id)
-      redirect_to current_user
+    if @solicitante_conferir && @solicitante_conferir.rf == @solicitante.rf
+      if @chamado.save
+        @chamado.update_attribute(:solicitante_id, @solicitante_conferir.id)
+        if !params[:chamado][:categoria_id].blank?
+          @categoria = Categoria.find(params[:chamado][:categoria_id])
+          @chamado.update_attribute(:categoria_id, @categoria.id)
+        end
+        redirect_to current_user
+        return
+      else
+        render 'new'
+        return
+      end
+    elsif @solicitante.save
+    @aux = Solicitante.where("rf = :rf", { rf: @solicitante.rf }).take
+      if @chamado.save
+        @chamado.update_attribute(:solicitante_id, @aux.id)
+        if !params[:chamado][:categoria_id].blank?
+          @categoria = Categoria.find(params[:chamado][:categoria_id])
+          @chamado.update_attribute(:categoria_id, @categoria.id)
+        end
+        redirect_to current_user
+        return
+      else
+        render 'new'
+        return
+      end
     else
       render 'new'
-      @solicitante = nil if @solicitante
-      @solicitante_conferir = nil if @solicitante_conferir
-      @chamado = nil if @chamado
-      @categoria = nil if @categoria
     end
   end
   

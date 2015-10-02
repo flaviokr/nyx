@@ -10,9 +10,6 @@
         </div>
         <div style="position: absolute; margin-left: 250px">
           <%= link_to "", edit_solicitante_path(solicitante), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
-          <% if admin? %>
-            <%= link_to "", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" }, class: "ind glyphicon glyphicon-trash btn btn-default" %>
-          <% end %>
         </div>
       </div>
     </li>
