@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(rf: params[:session][:rf].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
+      remember user
       redirect_to user
     else
       flash.now[:danger] = 'Combinação RF/Senha inválida'
