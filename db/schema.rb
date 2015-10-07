@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006164546) do
+ActiveRecord::Schema.define(version: 20151006183441) do
 
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20151006164546) do
 
   add_index "objetos", ["categoria_id"], name: "index_objetos_on_categoria_id"
   add_index "objetos", ["nome"], name: "index_objetos_on_nome", unique: true
+
+  create_table "registros", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "n_chamados", default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "registros", ["user_id"], name: "index_registros_on_user_id"
 
   create_table "resolucoes", force: :cascade do |t|
     t.datetime "created_at",                       null: false
