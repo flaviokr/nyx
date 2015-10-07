@@ -1,0 +1,28 @@
+<!--<div>-->
+<!--  <ul class="nav nav-tabs" role="tablist">-->
+<!--    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Alexandre Henrique</a></li>-->
+<!--    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Luciano Rodrigues Melhado</a></li>-->
+<!--    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Handré Padros</a></li>-->
+<!--    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Lucas Silva</a></li>-->
+<!--  </ul>-->
+<!--  <div class="tab-content">-->
+<!--    <div role="tabpanel" class="tab-pane active" id="home"><%= render 'static_pages/info', object: @alexandre_henrique %></div>-->
+<!--    <div role="tabpanel" class="tab-pane" id="profile"><%= render 'static_pages/info', object: @luciano_rodrigues %></div>-->
+<!--    <div role="tabpanel" class="tab-pane" id="messages"><%= render 'static_pages/info', object: @handre_prado %></div>-->
+<!--    <div role="tabpanel" class="tab-pane" id="settings"><%= render 'static_pages/info', object: @lucas_silva %></div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<% provide(:title, 'Registro') %>
+<h1>Registros</h1>
+<ul class="listar">
+  <% @users.each do |user| %>
+    <li style="margin-bottom: 25px">
+      <div class="row-fluid">
+        <div class="div-overflow">
+          <%= link_to user.name, user, class: "btn btn-default btn-block btn-overflow" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

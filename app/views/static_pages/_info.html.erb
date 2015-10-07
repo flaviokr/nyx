@@ -1,0 +1,22 @@
+<div id="tabela_users">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Login</th>
+        <th>Logout</th>
+        <th>Chamados atendidos nesta sessão</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if object.registros.any? %>
+        <% object.registros.each do |r| %>
+          <tr>
+            <td><%= r.created_at.strftime("%d/%m/%y - %H:%M") %></td>
+            <td><%= r.updated_at == r.created_at ? '---' : r.updated_at.strftime("%d/%m/%y - %H:%M")%></td>
+            <td><%= r.n_chamados %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

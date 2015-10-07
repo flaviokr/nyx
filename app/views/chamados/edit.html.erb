@@ -32,7 +32,7 @@
       <%= f.label :descricao, "Descrição"%>
       <%= f.text_area :descricao, class: 'form-control', :placeholder => @chamado.errors.full_messages_for(:descricao).to_sentence %>
       
-    <% else%>
+    <% else %>
       
 		    <%= render 'resolucao/form_resolucao' %>
       
@@ -43,7 +43,8 @@
             
       <% if !params[:concluir] %>
         <%= f.submit "Salvar Mudanças", class: "btn btn-primary" %>
-      <% else %>           
+      <% else %>
+        <%= hidden_field_tag :pagina_edit, "1" %>
         <%= f.submit "Concluir chamado", class: "btn btn-primary" %>
       <% end %>
     <% end %> 

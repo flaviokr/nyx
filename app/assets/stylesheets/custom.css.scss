@@ -439,3 +439,19 @@ input {
   width: 300px;
   margin: auto;
 }
+
+#tabela_users {
+  padding-top: 20px;
+}
+
+@media print {
+  .noPrint {
+    display: none;
+  }
+}
+
+@media screen {
+  .justPrint {
+    display: none;
+  }
+}

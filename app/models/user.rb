@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :chamados
+  has_many :registros
   
   attr_accessor :remember_token
   

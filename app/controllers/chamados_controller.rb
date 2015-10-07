@@ -77,6 +77,7 @@ class ChamadosController < ApplicationController
       end
       params[:chamado][:status] = 'C' if !params[:chamado][:descricao]
       if @chamado.update_attributes(chamado_params)
+        registra_chamado if params[:pagina_edit] == "1"
         # flash[:success] = "Chamado atualizado!"
         redirect_to current_user
       else

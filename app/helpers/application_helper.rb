@@ -39,7 +39,36 @@ module ApplicationHelper
 
   def checaSidebar
     # Retorna true se estiver em uma pagina que nao deve ter sidebar
-    (params[:controller] == 'sessions' || params[:controller] == 'filtro') && (params[:action] == 'new' || params[:action] == 'create' || params[:action] == 'filtro')
+    (params[:controller] == 'sessions' || params[:controller] == 'filtro' || params[:controller] == 'registros') && (params[:action] == 'new' || params[:action] == 'create' || params[:action] == 'filtro' || params[:action] =='index' || params[:action] == 'show' || params[:action] == 'resultado')
   end
-
+  
+  def traduz(string)
+    case string
+      when "January"
+        return "Janeiro"
+      when "February"
+        return "Fevereiro"
+      when "March"
+        return "Março"
+      when "April"
+        return "Abril"
+      when "May"
+        return "Maio"
+      when "June"
+        return "Junho"
+      when "July"
+        return "Julho"
+      when "August"
+        return "Agosto"
+      when "September"
+        return "Setembro"
+      when "October"
+        return "Outubro"
+      when "November"
+        return "Novembro"
+      when "December"
+        return "Dezembro"
+    end
+  end
+  
 end

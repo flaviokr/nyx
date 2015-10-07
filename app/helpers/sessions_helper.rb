@@ -18,6 +18,22 @@ module SessionsHelper
     end
   end
   
+  def current_registro
+    @registro = Registro.where(user_id: current_user.id).last
+  end
+  
+  def abre_registro
+    @registro = Registro.create(user_id: current_user.id)
+  end
+  
+  def fecha_registro
+    current_registro.touch if current_registro
+  end
+  
+  def registra_chamado
+    current_registro.update_column(:n_chamados, current_registro.n_chamados + 1)
+  end
+  
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id

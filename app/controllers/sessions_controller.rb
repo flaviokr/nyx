@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       remember user
-      # abre_registro
+      abre_registro
       redirect_to user
     else
       flash.now[:danger] = 'Combinação RF/Senha inválida'
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    # fecha_registro
+    fecha_registro
     log_out if logged_in?
     redirect_to root_url
   end
