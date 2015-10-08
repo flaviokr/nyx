@@ -5,6 +5,15 @@
 
 $(document).on 'ready page:load', ->
 	
+	
+	nomes = []
+	
+	for i in gon.solicitantes
+		nomes.push i['nome']
+
+	$('#teste').autocomplete
+		source: nomes
+	
 	#if window.location.href.indexOf("chamados") isnt -1
 		#$('#solicitante_nome').prop("disabled", true)
 		#$('#solicitante_sector_id').prop("disabled", true)

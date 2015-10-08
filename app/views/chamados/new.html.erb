@@ -14,6 +14,8 @@
 
       <h3>Dados do Solicitante</h3>
       <%= fields_for @solicitante do |s| %>
+      
+      <%= text_field_tag :search, params[:serach], class: 'form-control', id: 'teste' %>
 
       <%= s.label :rf, "RF do Solicitante" %>
       <%= s.text_field :rf, class: 'form-control', autofocus: true, maxlength: 7, :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence %>

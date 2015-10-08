@@ -13,6 +13,7 @@
  *= require morris 
  *= require dataTables
  *= require daterangepicker
+ *= require jquery-ui
  *= require_tree .
  *= require_self
  */
