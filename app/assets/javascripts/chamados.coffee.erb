@@ -5,14 +5,12 @@
 
 $(document).on 'ready page:load', ->
 	
-	
-	nomes = []
-	
-	for i in gon.solicitantes
-		nomes.push i['nome']
-
-	$('#teste').autocomplete
-		source: nomes
+	if typeof gon isnt 'undefined'
+		nomes = []
+		for i in gon.solicitantes
+			nomes.push i['nome']
+		$('#teste').autocomplete
+			source: nomes
 	
 	#if window.location.href.indexOf("chamados") isnt -1
 		#$('#solicitante_nome').prop("disabled", true)
@@ -45,8 +43,8 @@ $(document).on 'ready page:load', ->
 		rf_solicitante = $('#solicitante_rf').val()
 		
 		for i in gon.solicitantes				
-				if i["rf"] is rf_solicitante
-					$('#solicitante_nome').val(i['nome']).prop("disabled", true)
-					$('#solicitante_sector_id').val(i['sector_id']).prop("disabled", true)
-					$('#solicitante_email').val(i['email']).prop("disabled", true)
-					$('#solicitante_ramal').val(i['ramal']).prop("disabled", true)
+			if i["rf"] is rf_solicitante
+				$('#solicitante_nome').val(i['nome']).prop("disabled", true)
+				$('#solicitante_sector_id').val(i['sector_id']).prop("disabled", true)
+				$('#solicitante_email').val(i['email']).prop("disabled", true)
+				$('#solicitante_ramal').val(i['ramal']).prop("disabled", true)
