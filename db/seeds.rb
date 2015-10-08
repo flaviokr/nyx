@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+outros = Categoria.create(nome:'Outros')
 hardware = Categoria.create(nome:'Hardware')
 software = Categoria.create(nome:'Software')
 rede = Categoria.create(nome:'Rede')
@@ -15,8 +16,9 @@ User.create(rf:'f002814', name: 'Alexandre Henrique',admin: false, password: 'ny
 User.create(rf:'f002651', name: 'Daniel Sonni',admin: false, password: 'nyx123', email: 'danielssilva@prefeitura.sp.gov.br', celular: '0000', comunicador: '0000')
 User.create(rf:'f002626', name: 'Handré Padro',admin: false, password: 'nyx123', email: 'handreprado@prefeitura.sp.gov.br', celular: '0000', comunicador: '0000')
 User.create(rf:'f002807', name: 'Lucas Silva',admin: false, password: 'nyx123', email: 'lucascsilva@prefeitura.sp.gov.br', celular: '0000', comunicador: '0000')
-User.create(rf:'x554376', name: 'Luciano Rodrigues Melhado',admin: false, password: 'nyx123', email: 'lmelhado@prefeitura.sp.gov.br', celular: '0000', comunicador: '0000')
 
+
+Objeto.create!(nome:'Outro', categoria: outros)
 Objeto.create!(nome:'Impressora', categoria: hardware)
 Objeto.create(nome:'Teclado',categoria: hardware)
 Objeto.create(nome:'Formatação',categoria: hardware)
