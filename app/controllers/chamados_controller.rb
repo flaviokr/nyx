@@ -65,7 +65,9 @@ class ChamadosController < ApplicationController
     else
       @chamado = Chamado.find(params[:id])
       if params[:resolucao]
+
         @resolucao = Resolucao.new(params.require(:resolucao).permit(:resolvido, :encerramento, :contato_externo, :empresa_contatada, :nome_atendente_empresa_contatada, :equipamento_trocado, :justificativa))
+
         if @resolucao.save
           @chamado.update_attribute(:resolucao, @resolucao)
         else
