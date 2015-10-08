@@ -14,15 +14,14 @@
 
       <h3>Dados do Solicitante</h3>
       <%= fields_for @solicitante do |s| %>
-      
-      <%= text_field_tag :search, params[:serach], class: 'form-control', id: 'teste' %>
-
-      <%= s.label :rf, "RF do Solicitante" %>
-      <%= s.text_field :rf, class: 'form-control', autofocus: true, maxlength: 7, :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence %>
-      <input type="button" value="Verificar se existe RF" id="botao_verificar" style="background-color: #3399FF; color: white"/>
 
       <%= s.label :nome, "Nome do Solicitante" %>
-      <%= s.text_field :nome, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:nome).to_sentence %>
+      <%= s.text_field :nome, class: 'form-control', id: 'campo_nome', autofocus: true, :placeholder => @solicitante.errors.full_messages_for(:nome).to_sentence %>
+      <!--<input type="button" value="Verificar se existe solicitante" id="botao_nome" style="background-color: #3399FF; color: white"/>-->
+
+      <%= s.label :rf, "RF do Solicitante" %>
+      <%= s.text_field :rf, class: 'form-control', id:'campo_rf',  maxlength: 7, :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence %>
+      <!--<input type="button" value="Verificar se existe RF" id="botao_verificar" style="background-color: #3399FF; color: white"/>-->
 
       <%= s.label :sector_id, "Setor" %>
       <%= s.select(:sector_id, Sector.all.collect {|s| [s.nome, s.id]}, {:prompt => @solicitante.errors.full_messages_for(:sector_id).to_sentence}, {:class => 'form-control'})  %>
