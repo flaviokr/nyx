@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Chamado <%= @chamado.id %> em estado de Alerta!</h3>
+    
+    
+    <p>Informações do chamado</p>
+
+    <ul>
+      <li><b>Código: </b><%= @chamado.id %></li>
+      <li><b>Técnico que criou o chamado: </b><%= @chamado.user.name %></li>
+      <li><b>Técnico encarregado: </b> <%= User.find(@chamado.encarregado_id).name %> </li>
+    </ul>
+    
+    <ul>
+      <li><b>Solicitante: </b><%= @chamado.solicitante.nome %></li>
+      <li><b>Setor: </b><%= @chamado.solicitante.sector.nome %></li>
+      <li><b>Email: </b><%= @chamado.solicitante.email %></li>
+      <li><b>Ramal: </b><%= @chamado.solicitante.ramal %></li>
+      <li><b>Canal do contato: </b>
+        <%= "Email" if @chamado.canal_contato == 'E' %>
+        <%= "Telefone" if @chamado.canal_contato == 'T' %>
+        <%= "Pessoalmente" if @chamado.canal_contato == 'P' %>
+      </li>
+    </ul>  
+  
+    <ul>
+      <li><b>Descrição: </b><%= @chamado.descricao %></li>
+      <li><b>Prioridade: </b>
+        <%= "Baixa" if @chamado.prioridade == '1' %>
+        <%= "Média" if @chamado.prioridade == '2' %>
+        <%= "Alta" if @chamado.prioridade == '3' %>
+        <%= "Crítica" if @chamado.prioridade == '4' %>
+      </li>
+      <li><b>Categoria: </b><%= @chamado.categoria.nome %></li>
+      <li><b>Subcategoria: </b><%= @chamado.objeto.nome %></li>
+      
+      <li><b>Abertura: </b><%= @chamado.abertura.strftime("%d/%m/%y - %H:%M") %></li>
+      <li><b>Última Atualização: </b><%= @chamado.updated_at.strftime("%d/%m/%y - %H:%M") %></li>
+    </ul>
+    
+    <ul>
+      <li><b>Status: </b>
+        <%= "Concluído" if @chamado.status == 'C' %>
+        <%= "Em andamento" if @chamado.status == 'A' %>
+        <%= "Em espera" if @chamado.status == 'E' %>
+      </li>
+
+      <% #if !@chamado.observacoes.blank? %>
+        <li><b>Observações: </b><%= @chamado.observacoes %></li>
+      <% #end %>
+        
+      <% if !@chamado.resolucao.blank? %>
+        <li><b>Resolução: </b><%= @chamado.resolucao.justificativa %></li>
+      <% end %>
+    </ul>
+    
+  </body>
+</html>

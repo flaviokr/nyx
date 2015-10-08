@@ -1,0 +1,103 @@
+	<div class="row" style="width: 1000px;" id="index_chamados">
+	<div class="col-md-12">
+		<% if contadorAlerta > 0 %>
+		<p><strong>Chamados estourados: </strong></p>	
+		  <ul class="listar_no_border">    
+		    <% @chamados_estourados.each do |estourado| %>
+		      <% if User.find(estourado.encarregado_id).name == current_user.name || current_user.admin%>
+			      <li>
+			       <div class="panel panel-danger">		        
+			          <div class="panel-heading">
+			            <h3 class="panel-title">
+			              <%= link_to estourado.descricao, estourado %>              
+			            </h3>
+			            <%= link_to "Concluir chamado", edit_chamado_path(estourado, :concluir => "concluir", :status => "C"), class: "botao_chamado btn btn-primary btn-chamados-andamento" %>
+			          </div>
+			          <table class="table table-condensed">
+			            <thead>
+			              <tr>
+			                <th>Subcategoria</th>
+			                <th>Setor</th>
+			                <th>Aberto</th>
+			                <th>Prioridade</th>
+			                <th>Encarregado</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td><%= estourado.objeto.nome %></td>
+			                <td><%= estourado.solicitante.sector.nome %></td>
+			                <td>
+			                	<%= estourado.abertura.strftime("%d/%m/%y - %H:%M") %>
+			                </td>
+			                <td>
+			                  <%= "Baixa" if estourado.prioridade == '1' %>
+			                  <%= "Média" if estourado.prioridade == '2' %>
+			                  <%= "Alta" if estourado.prioridade == '3' %>
+			                  <%= "Crítica" if estourado.prioridade == '4' %>
+			                </td>
+			              	<td><%= User.find(estourado.encarregado_id).name %></td>
+			              </tr>
+			              
+			            </tbody>
+			          </table>
+			        </div>
+			      </li>
+		      <% end %>
+		    <% end %>
+		  </ul>
+		<% end %>
+		<% if @chamados_andamento.any? %>
+		<p><strong>Chamados pendentes: </strong></p>	
+		  <ul class="listar_no_border">    
+		    <% @chamados_andamento.each do |andamento| %>
+		      <% if User.find(andamento.encarregado_id).name == current_user.name || current_user.admin%>
+			      <li>
+			       <div class="panel panel-primary">		        
+			          <div class="panel-heading">
+			            <h3 class="panel-title">
+			              <%= link_to andamento.descricao, andamento %>              
+			            </h3>
+			            <%= link_to "Concluir chamado", edit_chamado_path(andamento, :concluir => "concluir", :status => "C"), class: "botao_chamado btn btn-primary btn-chamados-andamento" %>
+			          </div>
+			          <table class="table table-condensed">
+			            <thead>
+			              <tr>
+			                <th>Subcategoria</th>
+			                <th>Setor</th>
+			                <th>Aberto</th>
+			                <th>Prioridade</th>
+			                <th>Encarregado</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td><%= andamento.objeto.nome %></td>
+			                <td><%= andamento.solicitante.sector.nome %></td>
+			                <td>
+			                	<%= andamento.abertura.strftime("%d/%m/%y - %H:%M") %>
+			                </td>
+			                <td>
+			                  <%= "Baixa" if andamento.prioridade == '1' %>
+			                  <%= "Média" if andamento.prioridade == '2' %>
+			                  <%= "Alta" if andamento.prioridade == '3' %>
+			                  <%= "Crítica" if andamento.prioridade == '4' %>
+			                </td>
+			              	<td><%= User.find(andamento.encarregado_id).name %></td>
+			              </tr>
+			              
+			            </tbody>
+			          </table>
+			        </div>
+			      </li>
+		      <% end %>
+		    <% end %>
+		  </ul>
+		<% else %>
+		<p><strong>Chamados pendentes: </strong></p>
+		<div class="sem_chamados">
+			Não há chamados em andamento
+		</div>
+		<% end %>
+	</div>
+	</div>

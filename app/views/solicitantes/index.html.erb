@@ -1,0 +1,17 @@
+<% provide(:title, 'Solicitantes') %>
+<h1>Solicitantes</h1>
+<%= link_to "Cadastrar novo solicitante",   new_solicitante_path, class: "btn btn-default subtitulo" %>
+<ul class="listar">
+  <% @solicitantes.each do |solicitante| %>
+    <li style="margin-bottom: 25px">
+      <div class="row-fluid">
+        <div class="div-overflow">
+          <%= link_to "#{solicitante.nome} | #{solicitante.sector.nome}", solicitante, class: "btn btn-default btn-block btn-overflow" %>
+        </div>
+        <div style="position: absolute; margin-left: 250px">
+          <%= link_to "", edit_solicitante_path(solicitante), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

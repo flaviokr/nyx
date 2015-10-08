@@ -1,0 +1,26 @@
+<% provide(:title, "Registrar solicitante") %>
+<h1 style="margin-left: 110px;">Registrar solicitante</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-4">
+    <%= form_for @solicitante do |f| %>
+      <%= f.label :sector_id, "Setor" %>
+      <%= f.select(:sector_id, Sector.all.collect {|s| [s.nome, s.id]}, {:class => 'form-control'}, { :prompt => @solicitante.errors.full_messages_for(:sector_id).to_sentence})  %>
+      
+      <%= f.label :rf, "RF" %>
+      <%= f.text_field :rf, class: 'form-control', maxlength: 7, :pattern => "(X|x|F|f)[0-9]{6}", :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence %>
+      
+      <%= f.label :nome, "Nome" %>
+      <%= f.text_field :nome, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:nome).to_sentence %>
+
+      <%= f.label :email, "Endereço de email" %>
+      <%= f.email_field :email, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:email).to_sentence %>
+      
+      <%= f.label :ramal, "Ramal"%>
+      <%= f.phone_field :ramal, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:ramal).to_sentence %>
+
+      <%= f.submit "Criar solicitante", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

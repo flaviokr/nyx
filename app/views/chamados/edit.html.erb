@@ -1,0 +1,52 @@
+<% if !params[:concluir] %>
+  <% provide(:title, "Editar chamado") %>
+  <h1 style="margin-left: 110px;">Editar chamado</h1>
+<% else %>
+  <% provide(:title, "Concluir chamado") %>
+  <h1 style="margin-left: 110px;">Concluir chamado</h1>
+<% end %>
+
+<div class="row" style="height: 800px;">
+  <div class="col-md-6 col-md-offset-4">
+    <%= form_for(@chamado) do |f| %>
+      
+      <% if !params[:concluir] %>
+      <h3>Selecionar Técnico Encarregado</h3>
+      <%= f.select :encarregado_id, User.all.collect {|s| [s.name, s.id]}, class: 'form-control' %>      
+
+      <%= f.label :solicitante_id, "Selecione o solicitante" %>
+      <%= f.select(:solicitante_id, Solicitante.all.collect {|s| [s.nome, s.id]}, {:prompt => @chamado.errors.full_messages_for(:solicitante_id).to_sentence}, {:class => 'form-control'})  %>
+    
+      <%= f.label :canal_contato, "Meio de contato" %>
+      <%= f.select(:canal_contato, [["Email", "E"],["Telefone", "T"],["Pessoal", "P"]], {:prompt => @chamado.errors.full_messages_for(:canal_contato).to_sentence}, {:class => 'form-control'}) %>
+    
+      <%= f.label :categoria_id, "Categoria do chamado" %>
+     <%= f.select(:categoria_id, Categoria.all.collect {|c| [c.nome, c.id]}, {:prompt => @chamado.errors.full_messages_for(:categoria_id).to_sentence}, {:class => 'form-control'}) %>
+     
+     <%= f.label :objeto_id, "Subcategoria" %>      
+     <%= f.grouped_collection_select :objeto_id, Categoria.order(:nome), :objetos, :nome, :id, :nome, {:prompt => @chamado.errors.full_messages_for(:objeto_id).to_sentence} , class: 'form-control'%>
+      
+      <%= f.label :prioridade, "Prioridade do chamado" %>
+      <%= f.select(:prioridade, [["Baixa","1"],["Média", "2"],["Alta", "3"], ["Crítica", "4"]], {:prompt => @chamado.errors.full_messages_for(:prioridade).to_sentence}, {:class => 'form-control'}) %>
+      
+      <%= f.label :descricao, "Descrição"%>
+      <%= f.text_area :descricao, class: 'form-control', :placeholder => @chamado.errors.full_messages_for(:descricao).to_sentence %>
+      
+    <% else %>
+      
+		    <%= render 'resolucao/form_resolucao' %>
+      
+	  <% end %>
+	  
+	  <%= f.label :observacoes, "Observações" %>
+      <%= f.text_area :observacoes, class: 'form-control', :placeholder => @chamado.errors.full_messages_for(:observacoes).to_sentence %>
+            
+      <% if !params[:concluir] %>
+        <%= f.submit "Salvar Mudanças", class: "btn btn-primary" %>
+      <% else %>
+        <%= hidden_field_tag :pagina_edit, "1" %>
+        <%= f.submit "Concluir chamado", class: "btn btn-primary" %>
+      <% end %>
+    <% end %> 
+  </div>
+</div>

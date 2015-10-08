@@ -1,0 +1,20 @@
+<% provide(:title, 'Setores') %>
+<h1>Setores</h1>
+<%= link_to "Cadastrar novo setor",   new_sector_path, class: "btn btn-default subtitulo" %>
+<ul class="listar">
+  <% @sectors.each do |sector| %>
+    <li style="margin-bottom: 25px">
+      <div class="row-fluid">
+        <div class="div-overflow">
+          <%= link_to sector.nome, sector, class: "btn btn-default btn-block btn-overflow" %>
+        </div>
+        <div style="position: absolute; margin-left: 250px">
+          <%= link_to "", edit_sector_path(sector), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
+          <% if admin? %>
+            <%= link_to "", sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este setor?" }, class: " ind glyphicon glyphicon-trash btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

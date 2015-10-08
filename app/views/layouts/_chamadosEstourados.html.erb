@@ -1,0 +1,48 @@
+<% provide(:title, 'Chamados Estourados') %>
+<h1>Chamados Estourados</h1>
+<% if @chamados_estourados.any? %>
+  <ul class="listar_no_border">
+    <p><strong>Chamados estourados: </strong></p>
+    <% @chamados_estourados.each do |estourado| %>
+      <li>
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <%= link_to estourado.descricao, estourado %>              
+            </h3>
+              <div class="botoes_glyphons">
+                <%= link_to "", edit_chamado_path(estourado), class: "botao_chamado glyphicon glyphicon-pencil btn btn-danger" %>
+              </div>
+          </div>
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Subcategoria</th>
+                <th>Setor</th>
+                <th>Aberto em</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= estourado.objeto.nome %></td>
+                <td><%= estourado.solicitante.sector.nome %></td>
+                <td><%= estourado.abertura.strftime("%d/%m/%y - %H:%M") %></td>
+                <td>
+                  <%= "Baixa" if estourado.prioridade == '1' %>
+                  <%= "Média" if estourado.prioridade == '2' %>
+                  <%= "Alta" if estourado.prioridade == '3' %>
+                  <%= "Crítica" if estourado.prioridade == '4' %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+	<div class="sem_chamados">
+		Não há chamados estourados
+	</div>
+<% end %>

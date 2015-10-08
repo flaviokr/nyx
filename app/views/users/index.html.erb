@@ -1,0 +1,20 @@
+<% provide(:title, 'Técnicos') %>
+<h1>Técnicos</h1>
+<%= link_to "Cadastrar novo técnico", signup_path, class: "btn btn-default subtitulo" %>
+<ul class="listar">
+  <% @users.each do |user| %>
+    <li style="margin-bottom: 25px">
+      <div class="row-fluid">
+        <div class="div-overflow">
+          <%= link_to user.name, user, class: "btn btn-default btn-block btn-overflow" %>
+        </div>
+        <div style="position: absolute; margin-left: 250px">
+          <%= link_to "", edit_user_path(user), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
+          <% if admin? && !current_user?(user) %>
+            <%= link_to "", user, method: :delete, data: { confirm: "Tem certeza que deseja deletar este técnico?" }, class: "ind glyphicon glyphicon-trash btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,9 @@
+<% if !params["tipo"] %>
+  <%= render 'layouts/chamadosGeral'%>
+<% elsif params["tipo"] == "pendentes" %>
+  <%= render 'layouts/chamadosPendentes' %>
+<% elsif params["tipo"] == "estourados" %>  
+  <%= render 'layouts/chamadosEstourados' %>
+<% elsif params["tipo"] == "concluidos" %>
+  <%= render 'layouts/chamadosConcluidos' %>
+<% end %>

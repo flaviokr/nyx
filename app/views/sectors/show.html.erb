@@ -1,0 +1,44 @@
+<% provide(:title, @sector.nome) %>
+
+<% if admin? %>
+  <p style="float: right;">
+    <%= link_to "", edit_sector_path(@sector), class: "glyphicon glyphicon-pencil btn btn-default btn-lg" %>
+    <%= link_to "", @sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este sector?" }, class: "glyphicon glyphicon-trash btn btn-default btn-lg" %>
+  </p>
+<% end %>
+
+<p><strong>Nome: </strong><%= @sector.nome %></p>
+<p><strong>Bairro: </strong><%= @sector.bairro %></p>
+<p><strong>Rua: </strong><%= @sector.rua %></p>
+<p><strong>Número: </strong><%= @sector.numero %></p>
+<% if !@sector.complemento.blank? %>
+  <p><strong>Complemento: </strong><%= @sector.complemento %></p>
+<% end %>
+
+<% if admin? %>
+  <p><strong>Funcionários: </strong></p>
+  <ul class="listar">
+    <% @sector.solicitantes.each do |solicitante| %>
+      <li>
+        <%= link_to solicitante.nome, solicitante, class: "btn btn-default" %>
+        <%= link_to "", edit_solicitante_path(solicitante), class: "glyphicon glyphicon-pencil btn btn-default" %>
+        <% if admin? %>
+          <%= link_to "", solicitante, method: :delete, data: { confirm: "Tem certeza que deseja deletar este solicitante?" }, class: "glyphicon glyphicon-trash btn btn-default" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  
+  <!--<p><strong>Equipamentos: </strong></p>-->
+  <!--<ul class="listar">-->
+  <!--  <% @sector.objetos.each do |objeto| %>-->
+  <!--    <li>-->
+  <!--      <%= link_to objeto.nome, objeto, class: "btn btn-default" %>-->
+  <!--      <%= link_to "", edit_objeto_path(objeto), class: "glyphicon glyphicon-pencil btn btn-default" %>-->
+  <!--      <% if admin? %>-->
+  <!--        <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar este objeto?" }, class: "glyphicon glyphicon-trash btn btn-default" %>-->
+  <!--      <% end %>-->
+  <!--    </li>-->
+  <!--  <% end %>-->
+  <!--</ul>-->
+<% end %>

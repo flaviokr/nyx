@@ -1,0 +1,16 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to image_tag("logo.png", size:"46x46", alt: "Nyx Logo"), current_user, id:"logo" %>
+	<%= link_to image_tag("logo_texto.png", size:"46x46", alt: "Nyx Logo", style: "margin-left: 45px"), current_user, id:"logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right" style="margin-right: -60px;">
+        <% if logged_in? %>
+          <li><a id="nolink"> <%= "#{current_user.name}" %> </a></li>
+          <li><a id="nolink"> | </a></li>
+          <li style="font-size: 18px;"><%= link_to "", logout_path, method: "delete", class: "glyphicon glyphicon-off" %></li>
+        <% else %>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

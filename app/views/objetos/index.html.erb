@@ -1,0 +1,20 @@
+<% provide(:title, 'Subcategorias') %>
+<h1>Subcategorias</h1>
+<%= link_to "Cadastrar nova subcategoria",   new_objeto_path, class: "btn btn-default subtitulo" %>
+<ul class="listar">
+  <% @objetos.each do |objeto| %>
+    <li style="margin-bottom: 25px">
+      <div class="row-fluid">
+        <div class="div-overflow">
+          <%= link_to objeto.nome, objeto, class: "btn btn-default btn-block btn-overflow" %>
+        </div>
+        <div style="position: absolute; margin-left: 250px">
+          <%= link_to "", edit_objeto_path(objeto), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
+          <% if admin? %>
+            <%= link_to "", objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar esta subcategoria?" }, class: " ind glyphicon glyphicon-trash btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

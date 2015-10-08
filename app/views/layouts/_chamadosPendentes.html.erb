@@ -1,0 +1,48 @@
+<% provide(:title, 'Chamados Pendentes') %>
+<h1>Chamados Pendentes</h1>
+<% if @chamados_andamento.any? %>
+  <ul class="listar_no_border">
+    <p><strong>Chamados pendentes: </strong></p>
+    <% @chamados_andamento.each do |andamento| %>
+      <li>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <%= link_to andamento.descricao, andamento %>              
+            </h3>
+              <div class="botoes_glyphons">
+              	<%= link_to "", edit_chamado_path(andamento), class: "botao_chamado glyphicon glyphicon-pencil btn btn-primary" %>
+              </div>
+          </div>
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Subcategoria</th>
+                <th>Setor</th>
+                <th>Aberto em</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= andamento.objeto.nome %></td>
+                <td><%= andamento.solicitante.sector.nome %></td>
+                <td><%= andamento.abertura.strftime("%d/%m/%y - %H:%M") %></td>
+                <td>
+                  <%= "Baixa" if andamento.prioridade == '1' %>
+                  <%= "Média" if andamento.prioridade == '2' %>
+                  <%= "Alta" if andamento.prioridade == '3' %>
+                  <%= "Crítica" if andamento.prioridade == '4' %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+	<div class="sem_chamados">
+		Não há chamados em andamento
+	</div>
+<% end %>

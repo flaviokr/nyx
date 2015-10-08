@@ -1,0 +1,16 @@
+<% provide(:title, "Log in") %>
+<h1><br><br></h1>
+<div class="row-centered">
+  <div class="col-md-4 col-centered">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :rf, "RF" %>
+      <%= f.text_field :rf, class: 'form-control', maxlength: 7, autofocus: true %>
+
+      <%= f.label :password, "Senha" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Acessar", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

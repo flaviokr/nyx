@@ -1,0 +1,64 @@
+<ul class="sidebar">
+  <!-- INICIAL -->
+  <a href="<%= root_url %>">
+  	<li>
+   		<div class="row">
+	     	<div class="col-md-6 col-sm-6"><span class="glyphicon glyphicon-home" style="margin-right:10px"></span>Inicial</div>
+	     	<div class="col-md-6 col-sm-6">
+	     	<%= render 'chamados/counter' %>  
+	     	</div>
+     	</div>
+ 		</li>
+ 	</a>
+  <!-- CADASTRAR NOVO CHAMADO -->
+  <a href="/chamados/new">
+    <li>
+      <div id="titulo_icone">
+        <span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span>Novo chamado        
+      </div>  
+    </li>
+  </a>
+  <!-- OPÇÕES VISÍVEIS APENAS PARA O ADMINISTRADOR -->
+  <% if admin? %>
+    <!-- TÉCNICOS -->
+    <a href="/users">
+      <li>
+        <div id="titulo_icone">
+          <span class="glyphicon glyphicon-wrench" style="margin-right: 10px"></span>Técnicos
+        </div>  
+      </li>
+    </a>
+    <!-- LISTA DE CHAMADOS -->
+    <a href="/chamados">
+      <li>
+        <div class="row">
+            <div id="titulo_icone" class="col-md-8">
+               <span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Chamados
+            </div>
+          <a href="#"><div id="showmenu" class="glyphicon glyphicon-chevron-down col-md-offset-3"></div></a>
+        </div>
+      </li>
+    </a>
+    <!-- LISTA DE CHAMADOS - SUBMENU -->
+    <ul class="menu" style="display: none; position: relative;">
+    	<a href="/chamados?tipo=estourados"><li><span class="glyphicon glyphicon-chevron-right"></span> estourados</li></a>
+    	<a href="/chamados?tipo=pendentes"><li><span class="glyphicon glyphicon-chevron-right"></span> pendentes</li></a>
+    	<a href="/chamados?tipo=concluidos"><li><span class="glyphicon glyphicon-chevron-right"></span> concluídos</li></a>
+    </ul>
+    <!-- SOLICITANTES -->
+    <a href="/solicitantes">
+      <li>
+        <div id="titulo_icone">
+          <span class="glyphicon glyphicon-user" style="margin-right: 10px"></span>Solicitantes
+        </div>
+      </li>
+    </a>
+     <a href="/filtro">
+      <li>
+        <div id="titulo_icone">
+          <span class="glyphicon glyphicon glyphicon-search" style="margin-right: 10px"></span>Filtro
+        </div>
+      </li>
+    </a>
+  <% end %>
+</ul>

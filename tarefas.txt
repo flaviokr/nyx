@@ -1,0 +1,37 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+if [ "$PS1" ]; then
+  if [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+    # The file bash.bashrc already sets the default PS1.
+    # PS1='\h:\w\$ '
+    if [ -f /etc/bash.bashrc ]; then
+      . /etc/bash.bashrc
+    fi
+  else
+    if [ "`id -u`" -eq 0 ]; then
+      PS1='# '
+    else
+      PS1='$ '
+    fi
+  fi
+fi
+
+# The default umask is now handled by pam_umask.
+# See pam_umask(8) and /etc/login.defs.
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+export https_proxy=http://f002800:bOb12345@10.10.190.25:3128
+export http_proxy=http://f002800:bOb12345@10.10.190.25:3128
+export ftp_proxy=http://f002800:bOb12345@10.10.190.25:3128
+
+export PATH=$PATH:/Área\ de\ Trabalho/Trabalhos/Desenvolvimento
+export SECRET_KEY_BASE=bf05f76afae24671905bfd5072239f57e1af18ba5765d0cc75990b773d1dd364fa8680c91b99fc9aad593b8c7bbc245ad4d721b2a6520d33f5d080a966ebe964

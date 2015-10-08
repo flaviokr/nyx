@@ -1,0 +1,81 @@
+<% provide(:title, "Filtro de Chamado") %>
+<h1>Filtro de Chamados</h1>
+<div class="row centralizar">
+<div class="col-md-12">
+	<div id="resetar">
+		<input type="button" class="btn btn-primary" value="Resetar Filtro" onClick="location.reload();"></input>
+	</div>
+	<div id="seletor_datas">
+		<strong>Filtrar por intervalo</strong>
+		<input id="daterange"> </input>
+	</div>
+	
+
+  <table id="filtro" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Link</th>
+	    <th>Encarregado</th>
+	    <th>Subcategoria</th>
+	    <th>Setor</th>
+	    <th>Prioridade</th>
+	    <th>Status</th>
+	    <th>Abertura</th>
+	    <th>Encerramento</th>
+	    <th>Estourado?</th>
+      </tr>
+    </thead> 
+    <tfoot>
+      <tr>
+      	<th>Link</th>
+	    <th>Encarregado</th>
+	    <th>Subcategoria</th>
+	    <th>Setor</th>
+	    <th>Prioridade</th>
+	    <th>Status</th>
+	    <th>Abertura</th>
+	    <th>Encerramento</th>
+	    <th>Estourado?</th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <% if @chamados %>
+	    <% @chamados.each do |chamado| %>
+	      <tr>
+	      	<th><%= link_to chamado.id, chamado %></th>
+	        <td><%= User.find(chamado.encarregado_id).name %></td>
+	        <td><%= chamado.objeto.nome %></td>
+	        <td><%= chamado.solicitante.sector.nome %></td>
+	        <td class="prioridade">
+	          <%= "Baixa" if chamado.prioridade == '1' %>
+			  <%= "Média" if chamado.prioridade == '2' %>
+			  <%= "Alta" if chamado.prioridade == '3' %>
+			  <%= "Crítica" if chamado.prioridade == '4' %></td>
+			<td>
+			  <%= "Andamento" if chamado.status == 'A' %>
+			  <%= "Estourado" if chamado.status == 'E' %>
+			  <%= "Concluído" if chamado.status == 'C' %></td>
+	        <td class="abertura"><%= chamado.abertura.strftime("%Y/%m/%d %H:%M") %></td>
+	        <td  class="encerramento">
+			<%= chamado.resolucao.encerramento.strftime("%Y/%m/%d %H:%M") if chamado.status == 'C' && chamado.resolucao.encerramento %>	
+			<%= chamado.updated_at.strftime("%Y/%m/%d %H:%M") if chamado.status == 'C' && !chamado.resolucao.encerramento %>
+		</td>
+	        <td class="estourado"><%= chamado.estourado ? "Sim" : "Não" %></td>
+	      </tr>
+	    <% end %>
+	  <% end %>
+    </tbody>
+  </table>  
+</div>
+
+<div class="row">
+	<h1>Dashboard</h1>
+	<h3>Tempo médio de chamado (pelo filtro): <span id="tempo_medio"> </span></h3>
+	<h3>Número de ocorrências filtradas: <span id="n_chamados"> </span></h3>
+	<h3>Número de chamados concluídos estourados (pelo filtro): <span id="n_estourados"> </span></h3>
+	<div style="height: 1000px"></div>
+</div>
+	
+	
+	
+</div>

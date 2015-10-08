@@ -1,0 +1,12 @@
+<div class="center jumbotron">
+  <h1>Sistema Nyx</h1>
+
+  <h2>
+    Serviço Funerário do Município de São Paulo
+  </h2>
+  <% if !logged_in? %>
+    <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= link_to "Painel de Controle", current_user, class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>

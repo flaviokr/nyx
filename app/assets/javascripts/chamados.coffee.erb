@@ -1,0 +1,67 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+
+$(document).on 'ready page:load', ->
+
+	if window.location.href.indexOf("edit") == -1
+		$("label[for='chamado_objeto_id']").hide()
+		$('#chamado_objeto_id').hide()
+		
+	objetos = $('#chamado_objeto_id').html()	
+	$('#chamado_categoria_id').change ->
+		categoria = $('#chamado_categoria_id :selected').text()
+		resultado = $(objetos).filter("optgroup[label='#{categoria}']").html()
+		if resultado
+			$("label[for='chamado_objeto_id']").show()
+			$('#chamado_objeto_id').show()
+			$('#chamado_objeto_id').html(resultado)
+		else
+			$('#chamado_objeto_id').empty
+			$("label[for='chamado_objeto_id']").hide()
+			$('#chamado_objeto_id').hide()
+	
+	#$('#botao_verificar').click ->
+		#rf_solicitante = $('#solicitante_rf').val()
+		#for i in gon.solicitantes				
+			#if i["rf"] is rf_solicitante
+				#$('#solicitante_nome').val(i['nome'])
+				#$('#solicitante_sector_id').val(i['sector_id']).prop("disabled", true)
+				#$('#solicitante_email').val(i['email']).prop("disabled", true)
+				#$('#solicitante_ramal').val(i['ramal']).prop("disabled", true)
+	
+	if typeof gon isnt 'undefined'
+		
+		rfs = []
+		for i in gon.solicitantes
+			rfs.push i['rf']
+		$('#campo_rf').autocomplete
+			source: rfs
+			minLength: 3
+		rf_selected = ''
+		$('#campo_rf').on("autocompleteselect", (event, ui) ->
+			rf_selected = ui.item.value
+			for i in gon.solicitantes				
+				if i["rf"] is rf_selected
+					$('#campo_nome').val(i['nome'])
+					$('#solicitante_sector_id').val(i['sector_id']).prop("disabled", true)
+					$('#solicitante_email').val(i['email']).prop("disabled", true)
+					$('#solicitante_ramal').val(i['ramal']).prop("disabled", true)
+		)
+		
+		nomes = []
+		for i in gon.solicitantes
+			nomes.push i['nome']
+		$('#campo_nome').autocomplete
+			source: nomes
+		selected = ''
+		$('#campo_nome').on("autocompleteselect", (event, ui) ->
+			selected = ui.item.value
+			for i in gon.solicitantes				
+				if i["nome"] is selected
+					$('#campo_rf').val(i['rf'])
+					$('#solicitante_sector_id').val(i['sector_id']).prop("disabled", true)
+					$('#solicitante_email').val(i['email']).prop("disabled", true)
+					$('#solicitante_ramal').val(i['ramal']).prop("disabled", true)
+		)

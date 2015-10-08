@@ -1,0 +1,22 @@
+<% provide(:title, @objeto.nome) %>
+
+<% if admin? %>
+  <p style="float: right;">
+    <%= link_to "", edit_objeto_path(@objeto), class: "glyphicon glyphicon-pencil btn btn-default btn-lg" %>
+    <%= link_to "", @objeto, method: :delete, data: { confirm: "Tem certeza que deseja deletar esta subcategoria?" }, class: "glyphicon glyphicon-trash btn btn-default btn-lg" %>
+  </p>
+<% end %>
+
+<p><strong>Nome: </strong><%= @objeto.nome %></p>
+<!--<p><strong>Existe nos setores: </strong></p>-->
+<!--<ul class="listar">-->
+<!--  <% @objeto.sectors.each do |sector| %>-->
+<!--    <li>-->
+<!--      <%= link_to sector.nome, sector, class: "btn btn-default" %>-->
+<!--      <%= link_to "", edit_sector_path(sector), class: "glyphicon glyphicon-pencil btn btn-default" %>-->
+<!--      <% if admin? %>-->
+<!--        <%= link_to "", sector, method: :delete, data: { confirm: "Tem certeza que deseja deletar este setor?" }, class: "glyphicon glyphicon-trash btn btn-default" %>-->
+<!--      <% end %>-->
+<!--    </li>-->
+<!--  <% end %>-->
+<!--</ul>-->

@@ -1,0 +1,67 @@
+<% provide(:title, "Chamado #{@chamado.id}") %>
+
+<% if admin? %>
+  <p style="float: right;">
+    <%= link_to "", edit_chamado_path(@chamado), class: "glyphicon glyphicon-pencil btn btn-default btn-lg" %>
+    <%= link_to "", @chamado, method: :delete, data: { confirm: "Tem certeza que deseja deletar este chamado?" }, class: "glyphicon glyphicon-trash btn btn-default btn-lg" %>
+  </li>
+<% end %>
+
+<h1>Informações do chamado</h1>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <li class="list-group-item"><strong>Código: </strong><%= @chamado.id %></li>
+    <li class="list-group-item"><strong>Técnico que criou o chamado: </strong><%= @chamado.user.name %></li>
+    <li class="list-group-item"><strong>Técnico encarregado: </strong>
+      <%= User.find(@chamado.encarregado_id).name %>
+    </li>
+    
+    <li class="list-group-item"><strong>Setor: </strong><%= @chamado.solicitante.sector.nome %></li>
+    <% #end %>
+    <li class="list-group-item"><strong>Solicitante: </strong><%= @chamado.solicitante.nome %></li>
+    <li class="list-group-item">
+      <strong>Categoria: </strong>
+      <%= @chamado.categoria.nome %>
+    </li>
+  </div>
+
+  <div class="col-md-6">
+    <li class="list-group-item"><strong>Subcategoria: </strong><%= @chamado.objeto.nome %></li>
+    <li class="list-group-item"><strong>Descrição: </strong><%= @chamado.descricao %></li>
+    <li class="list-group-item"><strong>Abertura: </strong><%= @chamado.abertura.strftime("%d/%m/%y - %H:%M") %></li>
+    <li class="list-group-item"><strong>Última Atualização: </strong><%= @chamado.updated_at.strftime("%d/%m/%y - %H:%M") %></li>
+    <li class="list-group-item">
+      <strong>Canal do contato: </strong>
+      <%= "Email" if @chamado.canal_contato == 'E' %>
+      <%= "Telefone" if @chamado.canal_contato == 'T' %>
+      <%= "Pessoalmente" if @chamado.canal_contato == 'P' %>
+    </li>
+    <li class="list-group-item">
+      <strong>Status: </strong>
+      <%= "Concluído" if @chamado.status == 'C' %>
+      <%= "Em andamento" if @chamado.status == 'A' %>
+      <%= "Em espera" if @chamado.status == 'E' %>
+    </li>
+    <li class="list-group-item">
+      <strong>Resolvido?: </strong>
+      <% if !@chamado.resolucao.blank? %>
+        <%= "Sim" if @chamado.resolucao.resolvido %>
+        <%= "Não" if !@chamado.resolucao.resolvido %>
+      <% end %>
+      </li>
+    <li class="list-group-item">
+      <strong>Prioridade: </strong>
+      <%= "Baixa" if @chamado.prioridade == '1' %>
+      <%= "Média" if @chamado.prioridade == '2' %>
+      <%= "Alta" if @chamado.prioridade == '3' %>
+      <%= "Crítica" if @chamado.prioridade == '4' %>
+    </li>
+    <% #if !@chamado.observacoes.blank? %>
+      <li class="list-group-item"><strong>Observações: </strong><%= @chamado.observacoes %></li>
+    <% #end %>
+    <% if !@chamado.resolucao.blank? %>
+      <li class="list-group-item"><strong>Resolução: </strong><%= @chamado.resolucao.justificativa %></li>
+    <% end %>
+  </div>
+</div>

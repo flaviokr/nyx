@@ -1,0 +1,27 @@
+<% provide(:title, 'Editar Setor') %>
+<h1 style="margin-left: 110px;">Editar Setor</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-4">
+    <%= form_for(@sector) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <%= f.label :nome, "Nome" %>
+      <%= f.text_field :nome, class: 'form-control' %>
+      
+      <%= f.label :bairro, "Bairro" %>
+      <%= f.text_field :bairro, class: 'form-control' %>
+
+      <%= f.label :rua, "Rua" %>
+      <%= f.text_field :rua, class: 'form-control' %>
+      
+      <%= f.label :numero, "Número"%>
+      <%= f.text_field :numero, class: 'form-control' %>
+      
+      <%= f.label :complemento, "Complemento"%>
+      <%= f.text_area :complemento, class: 'form-control' %>
+
+      <%= f.submit "Salvar mudanças", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<% provide(:title, "Editar subcategoria") %>
+<h1 style="margin-left: 110px;">Editar subcategoria</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-4">
+    <%= form_for(@objeto) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <%= f.label :nome, "Nome" %>
+      <%= f.text_field :nome, class: 'form-control' %>
+
+      <%= f.submit "Salvar mudanças", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

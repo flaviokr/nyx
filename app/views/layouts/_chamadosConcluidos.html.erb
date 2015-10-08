@@ -1,0 +1,48 @@
+<% provide(:title, 'Chamados Concluídos') %>
+<h1>Chamados Concluídos</h1>
+<% if @chamados_concluido.any? %>
+  <ul class="listar_no_border">
+    <p><strong>Chamados concluídos: </strong></p>
+    <% @chamados_concluido.each do |concluido| %>
+      <li>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <%= link_to concluido.descricao, concluido %>
+            </h3>
+            <div class="botoes_glyphons">
+              <%= link_to "", edit_chamado_path(concluido), class: "botao_chamado_default glyphicon glyphicon-pencil btn btn-default" %>
+          	</div>
+          </div>
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Subcategoria</th>
+                <th>Setor</th>
+                <th>Aberto em</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= concluido.objeto.nome %></td>
+                <td><%= concluido.solicitante.sector.nome %></td>
+                <td><%= concluido.abertura.to_s.chomp(' -0300') %></td>
+                <td>
+                  <%= "Baixa" if concluido.prioridade == '1' %>
+                  <%= "Média" if concluido.prioridade == '2' %>
+                  <%= "Alta" if concluido.prioridade == '3' %>
+                  <%= "Crítica" if concluido.prioridade == '4' %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+	<div class="sem_chamados">
+		Não há chamados concluidos
+	</div>
+<% end %>

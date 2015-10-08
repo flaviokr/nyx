@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rf: MyString
+  nome: MyString
+  email: MyString
+  ramal: MyString
+  sector_id: 
+
+two:
+  rf: MyString
+  nome: MyString
+  email: MyString
+  ramal: MyString
+  sector_id: 
