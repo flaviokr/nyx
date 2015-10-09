@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006183441) do
+ActiveRecord::Schema.define(version: 20151008155899) do
 
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20151006183441) do
     t.boolean  "equipamento_trocado"
     t.text     "justificativa"
     t.integer  "chamado_id"
+    t.datetime "encerramento"
   end
 
   add_index "resolucoes", ["chamado_id"], name: "index_resolucoes_on_chamado_id"
