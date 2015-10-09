@@ -22,7 +22,13 @@ module SessionsHelper
     @registro = Registro.where(user_id: current_user.id).last
   end
   
+  def mesmo_dia?(data_1, data_2)
+    Time.at(data_1).to_date === Time.at(data_2).to_date
+  end
+  
   def abre_registro
+    mesmo_dia?(current_registro.created_at, Time.now) ? 
+    current_registro.update_column(:updated_at, current_registro.created_at) : 
     @registro = Registro.create(user_id: current_user.id)
   end
   
