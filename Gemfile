@@ -19,6 +19,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 gem 'gon'
 gem 'jquery-turbolinks'
 gem 'pg'
+gem 'whenever', :require => false
 
 
 group :development, :test do

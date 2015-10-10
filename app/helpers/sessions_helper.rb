@@ -1,8 +1,9 @@
 module SessionsHelper
-
+  
   # Loga o usuario (user)
   def log_in(user)
     session[:user_id] = user.id
+    user.update_column(:logado, true)
   end
 
   # Retorna o usuario logado atualmente (se existir um)
@@ -66,6 +67,9 @@ module SessionsHelper
   
   # Da log out no usuario
   def log_out
+    current_user.update_column(:precisa_deslogar, false)
+    current_user.update_column(:logado, false)
+    fecha_registro
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil

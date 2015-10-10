@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :checaLogin
+  skip_before_filter :carregaUsers
   def new
     redirect_to current_user if logged_in?
   end
@@ -18,8 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    fecha_registro
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to root_url, status: 303
   end
 end

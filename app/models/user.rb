@@ -19,6 +19,13 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
+  def self.rotina
+    User.all.each do |u|
+      u.update_column(:precisa_deslogar, true) if u.logado
+    end
+    puts "oi"
+  end
+  
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
