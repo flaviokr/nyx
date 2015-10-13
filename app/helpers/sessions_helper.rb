@@ -28,9 +28,13 @@ module SessionsHelper
   end
   
   def abre_registro
-    mesmo_dia?(current_registro.created_at, Time.now) ? 
-    current_registro.update_column(:updated_at, current_registro.created_at) : 
-    @registro = Registro.create(user_id: current_user.id)
+    if current_registro
+      mesmo_dia?(current_registro.created_at, Time.now) ? 
+      current_registro.update_column(:updated_at, current_registro.created_at) : 
+      @registro = Registro.create(user_id: current_user.id)
+    else
+      @registro = Registro.create(user_id: current_user.id)
+    end
   end
   
   def fecha_registro
@@ -69,7 +73,12 @@ module SessionsHelper
   def log_out
     current_user.update_column(:precisa_deslogar, false)
     current_user.update_column(:logado, false)
-    fecha_registro
+    
+    if (mesmo_dia?(Time.now, current_registro.created_at))
+      fecha_registro
+    else
+      current_registro.update_column(:updated_at, Time.at(0))
+    end
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil

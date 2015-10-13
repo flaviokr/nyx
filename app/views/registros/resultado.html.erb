@@ -34,7 +34,13 @@
           <tr>
             <td><%= r.created_at.strftime("%d/%m/%y") %></td>
             <td><%= r.created_at.strftime("%H:%M") %></td>
-            <td><%= r.updated_at == r.created_at ? '---' : r.updated_at.strftime("%H:%M")%></td>
+            <% if r.updated_at == r.created_at %>
+              <td>---</td>
+            <% elsif r.updated_at == Time.at(0) %>
+              <td>Não fez logout</td>
+            <% else %>
+              <td><%= r.updated_at.strftime("%H:%M")%></td>
+            <% end %>
             <td><%= r.n_chamados %></td>
             <td><%= cont.to_i %></td>
             <td><%= (cont / linha).round(2) %></td>

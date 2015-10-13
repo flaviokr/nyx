@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   # skip_before_action :verify_authenticity_token
 
   before_filter :arrays
-  before_filter :checaLogin
+  before_filter :checaSessoes
   before_filter :carregaUsers
+  before_filter :checaLogin
   
   private
 
@@ -23,19 +24,17 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  # def checaSessoes
-  #   User.all.each do |u|
-  #     if u.precisa_deslogar
-  #       u.update_column(:precisa_deslogar, false)
-        
-  #       # desloga
-        
-  #       u.update_column(:precisa_deslogar, false)
-  #     end
-  #   end
-  # end
+  def checaSessoes
+    if logged_in? && !(mesmo_dia?(Time.now, current_registro.created_at))
+      current_user.precisa_deslogar = true
+    end
+  end
   
   def carregaUsers
-    gon.user = current_user if !current_user.nil?
+    if logged_in? && current_user.precisa_deslogar
+      log_out if logged_in?
+      redirect_to root_url
+    end
+    # gon.user = current_user if !current_user.nil?
   end
 end

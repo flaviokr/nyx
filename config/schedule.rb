@@ -1,9 +1,9 @@
-set :output, "#{path}/log/cron.log"
-set :environment, 'development'
+# set :output, "#{path}/log/cron.log"
+# set :environment, 'development'
 
-every 1.minutes do
-  runner"User.rotina"
-end
+# every 1.minutes do
+#   runner"User.rotina"
+# end
 
 # Use this file to easily define all of your cron jobs.
 #
