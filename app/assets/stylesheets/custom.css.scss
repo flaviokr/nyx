@@ -469,10 +469,8 @@ input {
 }
 
 .cancelar {
-  display: inline;
   button {
-    width: 49%;
-    display: inline;
+    float: right;
   }
 }
 
@@ -481,8 +479,8 @@ input {
 }
 
 .botao-submit {
-  display: inline;
-  width: 49%;
+  float: left;
+
 }
 
 .reg-text input{
