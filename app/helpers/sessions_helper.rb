@@ -29,7 +29,7 @@ module SessionsHelper
   
   def abre_registro
     if current_registro
-      mesmo_dia?(current_registro.created_at, Time.now) ? 
+      mesmo_dia?(current_registro.created_at, Time.now.in_time_zone) ? 
       current_registro.update_column(:updated_at, current_registro.created_at) : 
       @registro = Registro.create(user_id: current_user.id)
     else
@@ -74,7 +74,7 @@ module SessionsHelper
     current_user.update_column(:precisa_deslogar, false)
     current_user.update_column(:logado, false)
     
-    if (mesmo_dia?(Time.now, current_registro.created_at))
+    if (mesmo_dia?(Time.now.in_time_zone, current_registro.created_at))
       fecha_registro
     else
       current_registro.update_column(:updated_at, Time.at(0))

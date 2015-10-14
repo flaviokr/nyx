@@ -3,7 +3,7 @@ class RegistrosController < ApplicationController
   def index
     @users = Array.new
     User.all.each do |u|
-      @users << u if u.rf != "0000000"
+      @users << u if u.rf != "0000000" && u.rf != "f002746"
     end
     @registros = Registro.all
   end
@@ -16,5 +16,14 @@ class RegistrosController < ApplicationController
     @reg = Registro.where(user_id: @user.id)
     # @registros = @reg.where("extract(year from created_at) = ? and extract(month from created_at) = ?", @ano, @mes)
     @registros = @reg.where("strftime('%m/%Y', created_at) = ?", @string_data)
+  end  
+  
+  def updateReg
+    @registro = Registro.find(params[:id])
+    @registro.update_column(:justificativa, params[:justificativa])
+    respond_to do |format|
+      format.js
+    end
   end
+  
 end

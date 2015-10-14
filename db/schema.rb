@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010032300) do
+ActiveRecord::Schema.define(version: 20151013192819) do
 
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -56,9 +56,10 @@ ActiveRecord::Schema.define(version: 20151010032300) do
 
   create_table "registros", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "n_chamados", default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "n_chamados",    default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "justificativa"
   end
 
   add_index "registros", ["user_id"], name: "index_registros_on_user_id"

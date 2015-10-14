@@ -20,6 +20,8 @@ gem 'gon'
 gem 'jquery-turbolinks'
 gem 'pg'
 gem 'whenever', :require => false
+gem 'best_in_place'
+gem 'responders'
 
 
 group :development, :test do
