@@ -18,8 +18,8 @@ class RegistrosController < ApplicationController
     @ano = params[:date][:year]
     @string_data = "#{@mes}/#{@ano}"
     @reg = Registro.where(user_id: @user.id)
-    # @registros = @reg.where("extract(year from created_at) = ? and extract(month from created_at) = ?", @ano, @mes).order(created_at: :asc)
-    @registros = @reg.where("strftime('%m/%Y', created_at) = ?", @string_data).order(created_at: :asc)
+    @registros = @reg.where("extract(year from created_at) = ? and extract(month from created_at) = ?", @ano, @mes).order(created_at: :asc)
+    # @registros = @reg.where("strftime('%m/%Y', created_at) = ?", @string_data).order(created_at: :asc)
   end  
   
   def updateReg
