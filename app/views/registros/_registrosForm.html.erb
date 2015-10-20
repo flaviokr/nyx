@@ -1,0 +1,24 @@
+<% if params[:action] == 'index' %>
+<div class="col-md-4 col-md-offset-4 noPrint">
+  <%= form_tag resultado_path, :method => 'get' do %>
+    <%= select_tag 'user', options_for_select((@users.collect{|u|[u.name, u.id]}).sort_by(&:first)) %>
+    <div class="row">
+      <div class="col-md-6"><%= select_month(Date.today) %></div>
+      <div class="col-md-6"><%= select_year(Date.today, start_year: 2015, end_year: 2030) %></div>
+    </div>
+    <%= submit_tag "Buscar", :name => nil, class: "btn btn-primary" %>
+  <% end %>
+</div>
+<% else %>
+<div class="col-md-5 noPrint">
+  <%= form_tag resultado_path, :method => 'get' do %>
+    <%= select_tag 'user', options_for_select((@users.collect{|u|[u.name, u.id]}).sort_by(&:first)), class: "form-auto" %>
+    <%= select_month Date.today, {}, class: "form-auto" %>
+    <%= select_year Date.today, {start_year: 2015, end_year: 2030}, class: "form-auto" %>
+  <%= submit_tag "Buscar", :name => nil, class: "btn btn-primary form-auto submit-linha" %>
+  <% end %>
+</div>
+<% end %>
+
+<!--select_month(date, options = {}, html_options = {}) public-->
+<!--select_year(date, options = {}, html_options = {}) public-->
