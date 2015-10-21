@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20151013192819) do
   end
 
   add_index "objetos", ["categoria_id"], name: "index_objetos_on_categoria_id"
-  add_index "objetos", ["nome"], name: "index_objetos_on_nome", unique: true
 
   create_table "registros", force: :cascade do |t|
     t.integer  "user_id"
@@ -73,8 +72,8 @@ ActiveRecord::Schema.define(version: 20151013192819) do
     t.string   "nome_atendente_empresa_contatada"
     t.boolean  "equipamento_trocado"
     t.text     "justificativa"
-    t.integer  "chamado_id"
     t.datetime "encerramento"
+    t.integer  "chamado_id"
   end
 
   add_index "resolucoes", ["chamado_id"], name: "index_resolucoes_on_chamado_id"

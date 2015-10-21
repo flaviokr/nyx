@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
   
   def checaSessoes
-    if logged_in? && !(mesmo_dia?(Time.now.in_time_zone, current_registro.created_at))
+    if current_registro && (logged_in? && !(mesmo_dia?(Time.now.in_time_zone, current_registro.created_at)))
       current_user.precisa_deslogar = true
     end
   end

@@ -20,7 +20,7 @@ module SessionsHelper
   end
   
   def current_registro
-    @registro = Registro.where(user_id: current_user.id).last
+    @registro = Registro.where(user_id: current_user.id).last if current_user
   end
   
   def mesmo_dia?(data_1, data_2)
@@ -74,10 +74,10 @@ module SessionsHelper
     current_user.update_column(:precisa_deslogar, false)
     current_user.update_column(:logado, false)
     
-    if (mesmo_dia?(Time.now.in_time_zone, current_registro.created_at))
+    if current_registro && (mesmo_dia?(Time.now.in_time_zone, current_registro.created_at))
       fecha_registro
     else
-      current_registro.update_column(:updated_at, Time.at(0))
+      current_registro.update_column(:updated_at, Time.at(0)) if current_registro
     end
     forget(current_user)
     session.delete(:user_id)
