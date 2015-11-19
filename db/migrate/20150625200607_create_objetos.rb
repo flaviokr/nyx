@@ -5,6 +5,5 @@ class CreateObjetos < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :objetos, :nome, unique: true
   end
 end

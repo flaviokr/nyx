@@ -42,7 +42,7 @@
       <% if @chamados %>
 	    <% @chamados.each do |chamado| %>
 	      <tr>
-	      	<th><%= link_to chamado.id, chamado %></th>
+	      	<th><%= link_to chamado.id, chamado, :target => '_blank' %></th>
 	        <td><%= User.find(chamado.encarregado_id).name %></td>
 	        <td><%= chamado.objeto.nome %></td>
 	        <td><%= chamado.solicitante.sector.nome %></td>
@@ -75,11 +75,5 @@
 	<h3>Número de chamados concluídos estourados (pelo filtro): <span id="n_estourados"> </span></h3>
 	<div style="height: 1000px"></div>
 </div>
-	
-	
-	
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> a8168d786b25cc6fda523e018b9e74ea83fa54a4
+

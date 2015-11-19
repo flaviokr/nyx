@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006183441) do
+ActiveRecord::Schema.define(version: 20151013192819) do
 
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 20151006183441) do
   end
 
   add_index "objetos", ["categoria_id"], name: "index_objetos_on_categoria_id"
-  add_index "objetos", ["nome"], name: "index_objetos_on_nome", unique: true
 
   create_table "registros", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "n_chamados", default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "n_chamados",    default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "justificativa"
   end
 
   add_index "registros", ["user_id"], name: "index_registros_on_user_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151006183441) do
     t.string   "nome_atendente_empresa_contatada"
     t.boolean  "equipamento_trocado"
     t.text     "justificativa"
+    t.datetime "encerramento"
     t.integer  "chamado_id"
   end
 
@@ -109,10 +110,12 @@ ActiveRecord::Schema.define(version: 20151006183441) do
     t.string   "celular"
     t.string   "comunicador"
     t.boolean  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.boolean  "logado",           default: false
+    t.boolean  "precisa_deslogar", default: false
   end
 
   add_index "users", ["rf"], name: "index_users_on_rf", unique: true

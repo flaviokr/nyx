@@ -35,7 +35,7 @@ module Shared
       t = 900
     end
 
-    if Time.now.to_i - tempo_abertura > t
+    if Time.now.in_time_zone.to_i - tempo_abertura > t
       return true
     else
       return false

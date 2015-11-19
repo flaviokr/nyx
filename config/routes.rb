@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete 'logout'   => 'sessions#destroy'
   get 'resultado' => 'registros#resultado'
   post 'resultado' => 'registros#resultado'
+  put 'updateReg'  => 'registros#updateReg'
   get 'filtro' => 'filtro#filtro'
   post 'filtro' => 'filtro#filtro'
 

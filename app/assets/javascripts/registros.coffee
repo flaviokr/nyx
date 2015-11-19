@@ -1,3 +1,18 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ->
+  
+  $('.form-reg').toggle()
+  $('.cancelar').toggle()
+  $('.justificativa').click ->
+    $td = $(this).closest('.td-reg')
+    $(this).toggle()
+    $td.find('.form-reg').toggle()
+    $td.find('.cancelar').toggle()
+    $td.find('.reg-text input').val(($(this).html()))
+    $td.find('.reg-text input').focus().select()
+  
+  $('.cancelar').click ->
+    $td = $(this).closest('.td-reg')
+    $(this).toggle()
+    $td.find('.form-reg').toggle()
+    $td.find('.justificativa').toggle()
+    

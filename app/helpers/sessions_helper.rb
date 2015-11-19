@@ -1,8 +1,9 @@
 module SessionsHelper
-
+  
   # Loga o usuario (user)
   def log_in(user)
     session[:user_id] = user.id
+    user.update_column(:logado, true)
   end
 
   # Retorna o usuario logado atualmente (se existir um)
@@ -19,11 +20,21 @@ module SessionsHelper
   end
   
   def current_registro
-    @registro = Registro.where(user_id: current_user.id).last
+    @registro = Registro.where(user_id: current_user.id).last if current_user
+  end
+  
+  def mesmo_dia?(data_1, data_2)
+    Time.at(data_1).to_date === Time.at(data_2).to_date
   end
   
   def abre_registro
-    @registro = Registro.create(user_id: current_user.id)
+    if current_registro
+      mesmo_dia?(current_registro.created_at, Time.now.in_time_zone) ? 
+      current_registro.update_column(:updated_at, current_registro.created_at) : 
+      @registro = Registro.create(user_id: current_user.id)
+    else
+      @registro = Registro.create(user_id: current_user.id)
+    end
   end
   
   def fecha_registro
@@ -60,6 +71,14 @@ module SessionsHelper
   
   # Da log out no usuario
   def log_out
+    current_user.update_column(:precisa_deslogar, false)
+    current_user.update_column(:logado, false)
+    
+    if current_registro && (mesmo_dia?(Time.now.in_time_zone, current_registro.created_at))
+      fecha_registro
+    else
+      current_registro.update_column(:updated_at, Time.at(0)) if current_registro
+    end
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil

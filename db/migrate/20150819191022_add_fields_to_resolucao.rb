@@ -6,5 +6,6 @@ class AddFieldsToResolucao < ActiveRecord::Migration
   	add_column :resolucoes, :nome_atendente_empresa_contatada, :string
   	add_column :resolucoes, :equipamento_trocado, :boolean
   	add_column :resolucoes, :resolucao, :text
+  	add_column :resolucoes, :encerramento, :timestamp
   end
 end

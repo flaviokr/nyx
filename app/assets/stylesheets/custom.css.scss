@@ -455,3 +455,44 @@ input {
     display: none;
   }
 }
+
+.td-reg {
+  cursor: pointer;
+}
+
+.justificativa {
+  display: inline;
+}
+
+.form-reg {
+  display: inline;  
+}
+
+.cancelar {
+  button {
+    float: right;
+  }
+}
+
+.form-tag {
+  display: inline;
+}
+
+.botao-submit {
+  float: left;
+
+}
+
+.reg-text input{
+  display: inline;
+  width: 100%;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+.form-auto {
+  width: auto;
+  vertical-align: initial;
+}
