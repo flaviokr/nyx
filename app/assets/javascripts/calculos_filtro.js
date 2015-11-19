@@ -1,5 +1,5 @@
 $(function() {
-	$('#n_chamados').html($('#filtro td.abertura').length);
+	$('#n_chamados').html($('#filtro_info').val());
 	calcular();
 });
 
