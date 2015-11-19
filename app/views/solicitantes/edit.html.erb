@@ -8,7 +8,7 @@
       <%= f.select(:sector_id, Sector.all.collect {|s| [s.nome, s.id]}, {:class => 'form-control'}, { :prompt => @solicitante.errors.full_messages_for(:sector_id).to_sentence})  %>
       
       <%= f.label :rf, "RF" %>
-      <%= f.text_field :rf, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence, :disabled => true %>
+      <%= f.text_field :rf, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:rf).to_sentence %>
       
       <%= f.label :nome, "Nome" %>
       <%= f.text_field :nome, class: 'form-control', :placeholder => @solicitante.errors.full_messages_for(:nome).to_sentence %>

@@ -12,7 +12,12 @@
 <% else %>
 <div class="col-md-5 noPrint">
   <%= form_tag resultado_path, :method => 'get' do %>
-    <%= select_tag 'user', options_for_select((@users.collect{|u|[u.name, u.id]}).sort_by(&:first)), class: "form-auto" %>
+    <% if params[:user] %>
+      <% user = User.find(params[:user]) %>
+      <%= select_tag 'user', options_for_select((@users.collect{|u|[u.name, u.id]}).sort_by(&:first), [user.name, user.id] ), class: "form-auto" %>
+    <% else %>
+      <%= select_tag 'user', options_for_select((@users.collect{|u|[u.name, u.id]}).sort_by(&:first)), class: "form-auto" %>
+    <% end %>
     <%= select_month Date.today, {}, class: "form-auto" %>
     <%= select_year Date.today, {start_year: 2015, end_year: 2030}, class: "form-auto" %>
   <%= submit_tag "Buscar", :name => nil, class: "btn btn-primary form-auto submit-linha" %>

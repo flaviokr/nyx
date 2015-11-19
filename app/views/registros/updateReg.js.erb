@@ -1,5 +1,6 @@
 var $tabledata = $('[data-id="<%= @registro.id %>"]')
-$tabledata.find('.justificativa').html("<%= @registro.justificativa %>")
+$tabledata.find('.justificativa').html("<%= @registro.justificativa.blank? ? '---' : @registro.justificativa %>")
 $tabledata.find('.cancelar').toggle()
 $tabledata.find('.form-reg').toggle()
 $tabledata.find('.justificativa').toggle()
+$tabledata.addClass('td-reg')
