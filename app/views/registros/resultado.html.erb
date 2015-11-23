@@ -56,9 +56,17 @@
               <% time_diff = (reg.updated_at - reg.created_at) %>
               <td><%= Time.at(time_diff.to_i.abs).utc.strftime "%H:%M" %></td>
             <% end %>
-            <% tempo = tempo + time_diff %>
+            <% 
+		tempo = tempo + time_diff if time_diff
+	    %>
             <% horas = tempo/linha %>
-            <td><%= Time.at(horas.to_i.abs).utc.strftime "%H:%M" %></td>
+            <td>
+		<% if time_diff %>		
+			<%= Time.at(horas.to_i.abs).utc.strftime "%H:%M" %>
+		<% else %>
+			---
+		<% end %>
+	    </td>
             <td><%= reg.n_chamados %></td>
             <td><%= cont.to_i %></td>
             <td><%= (cont / linha).round(2) %></td>

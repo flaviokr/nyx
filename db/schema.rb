@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013192819) do
+ActiveRecord::Schema.define(version: 20151021194315) do
 
   create_table "categorias", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20151013192819) do
     t.string   "nome_atendente_empresa_contatada"
     t.boolean  "equipamento_trocado"
     t.text     "justificativa"
-    t.datetime "encerramento"
     t.integer  "chamado_id"
+    t.datetime "encerramento"
   end
 
   add_index "resolucoes", ["chamado_id"], name: "index_resolucoes_on_chamado_id"
