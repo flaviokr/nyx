@@ -2,7 +2,7 @@ class SolicitantesController < ApplicationController
   before_action :user_is_admin
   
   def index
-    @solicitantes = Solicitante.all
+    @solicitantes = Solicitante.all.order(nome: :asc)
   end
   
   def show

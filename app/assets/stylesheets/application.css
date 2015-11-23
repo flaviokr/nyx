@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require morris 
- *= require dataTables
+ *= require jquery.dataTables
  *= require daterangepicker
  *= require jquery-ui
  *= require_tree .

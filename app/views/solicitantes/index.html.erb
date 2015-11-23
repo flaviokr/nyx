@@ -1,12 +1,17 @@
 <% provide(:title, 'Solicitantes') %>
 <h1>Solicitantes</h1>
-<%= link_to "Cadastrar novo solicitante",   new_solicitante_path, class: "btn btn-default subtitulo" %>
+<%= link_to "Cadastrar novo solicitante",   new_solicitante_path, class: "btn btn-default subtitulo", style: "float: right;" %>
+Pesquisar solicitante:
+<input type="text" id="pesquisa-solic" style="width: 240px;">
 <ul class="listar">
   <% @solicitantes.each do |solicitante| %>
-    <li style="margin-bottom: 25px">
+    <li style="margin-bottom: 25px" class="item-solic">
       <div class="row-fluid">
         <div class="div-overflow">
-          <%= link_to "#{solicitante.nome} | #{solicitante.sector.nome}", solicitante, class: "btn btn-default btn-block btn-overflow" %>
+          <%= link_to solicitante, class: "btn btn-default btn-block btn-overflow" do %>
+            <span class="nome-solic"><%= solicitante.nome %></span>
+            <%= " | #{solicitante.sector.nome}" %>
+          <% end %>
         </div>
         <div style="position: absolute; margin-left: 250px">
           <%= link_to "", edit_solicitante_path(solicitante), class: "ind glyphicon glyphicon-pencil btn btn-default" %>
