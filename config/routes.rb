@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   put 'updateReg'  => 'registros#updateReg'
   get 'filtro' => 'filtro#filtro'
   post 'filtro' => 'filtro#filtro'
+  get 'pesquisa' => 'pesquisa#pesquisa'
 
   resources :users
   resources :registros

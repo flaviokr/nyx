@@ -28,16 +28,18 @@
         <th>Entrada</th>
         <th>Saída</th>
         <th>Tempo trabalhado</th>
+        <th>Média de horas</th>
         <th>Chamados atendidos</th>
         <th>Chamados acumulados no mês</th>
         <th>Média de chamados</th>
         <th>Justificativa</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="corpo">
       <% if @registros.any? %>
         <% cont = 0.0 %>
         <% linha = 1.0 %>
+        <% tempo = Time.at(0) - Time.at(0) %>
         <% @registros.each do |reg|  %>
           <% cont = cont + reg.n_chamados %>
           <tr>
@@ -54,6 +56,17 @@
               <% time_diff = (reg.updated_at - reg.created_at) %>
               <td><%= Time.at(time_diff.to_i.abs).utc.strftime "%H:%M" %></td>
             <% end %>
+            <% 
+		tempo = tempo + time_diff if time_diff
+	    %>
+            <% horas = tempo/linha %>
+            <td>
+		<% if time_diff %>		
+			<%= Time.at(horas.to_i.abs).utc.strftime "%H:%M" %>
+		<% else %>
+			---
+		<% end %>
+	    </td>
             <td><%= reg.n_chamados %></td>
             <td><%= cont.to_i %></td>
             <td><%= (cont / linha).round(2) %></td>

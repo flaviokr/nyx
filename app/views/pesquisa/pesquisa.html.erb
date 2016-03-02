@@ -1,0 +1,48 @@
+<% provide(:title, "Pesquisa") %>
+<div style="margin-left: -60px;">
+  <table id="pesquisa" class="display" cellspacing="0" width="100%" style="text-align: center">
+    <thead>
+      <tr>
+        <th>Encarregado</th>
+        <th>Solicitante</th>
+        <th>Subcategoria</th>
+        <th>Setor</th>
+        <th>Prioridade</th>
+        <th>Status</th>
+        <th>Abertura</th>
+        <th>Encerramento</th>
+        <th>Estourado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @chamados %>
+        <% @chamados.each do |chamado| %>
+          <tr class="tr-chamado" id="<%= chamado.id %>">
+            <a id="link-cham-<%= chamado.id %>" href="/chamados/<%= chamado.id %>">
+            <td><%= User.find(chamado.encarregado_id).name %></td>
+            <td><%= chamado.solicitante.nome %></td>
+            <td><%= chamado.objeto.nome %></td>
+            <td><%= chamado.solicitante.sector.nome %></td>
+            <td>
+              <%= "Baixa" if chamado.prioridade == '1' %>
+              <%= "Média" if chamado.prioridade == '2' %>
+              <%= "Alta" if chamado.prioridade == '3' %>
+              <%= "Crítica" if chamado.prioridade == '4' %>
+            </td>
+            <td>
+              <%= "Andamento" if chamado.status == 'A' %>
+              <%= "Estourado" if chamado.status == 'E' %>
+              <%= "Concluído" if chamado.status == 'C' %>
+            </td>
+            <td><%= chamado.abertura.strftime("%Y/%m/%d %H:%M") %></td>
+            <td>
+              <%= chamado.resolucao.encerramento.strftime("%Y/%m/%d %H:%M") if chamado.status == 'C' && chamado.resolucao.encerramento %>	
+              <%= chamado.updated_at.strftime("%Y/%m/%d %H:%M") if chamado.status == 'C' && !chamado.resolucao.encerramento %>
+            </td>
+            <td><%= chamado.estourado ? "Sim" : "Não" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

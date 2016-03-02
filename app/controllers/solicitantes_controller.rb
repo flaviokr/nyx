@@ -2,7 +2,7 @@ class SolicitantesController < ApplicationController
   before_action :user_is_admin
   
   def index
-    @solicitantes = Solicitante.all
+    @solicitantes = Solicitante.all.order(nome: :asc)
   end
   
   def show
@@ -41,7 +41,7 @@ class SolicitantesController < ApplicationController
   def destroy
     Solicitante.find(params[:id]).destroy
     flash[:success] = "Solicitante deletado com sucesso!"
-    redirect_to current_user
+    redirect_to solicitantes_path
   end
   
   private
